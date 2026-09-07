@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "description": "Active paper-level gold mapping. Historical variants stay in archive and are never auto-selected.",
+  "topics": {
+    "pos_01": "independent_gold_pos01.json",
+    "pos_02": "independent_gold_pos02_v5.json",
+    "pos_03": "independent_gold_pos03_v2.json",
+    "pos_04": "independent_gold_pos04_v2.json",
+    "pos_05": "independent_gold_pos05_v2.json",
+    "pos_06": "independent_gold_pos06_v2.json",
+    "pos_07": "independent_gold_pos07_v2.json",
+    "pos_08": "independent_gold_pos08_v2.json",
+    "pos_09": "independent_gold_pos09_v2.json",
+    "pos_10": "independent_gold_pos10_v2.json",
+    "pos_11": "independent_gold_pos11_v2.json",
+    "pos_12": "independent_gold_pos12_v2.json"
+  }
+}

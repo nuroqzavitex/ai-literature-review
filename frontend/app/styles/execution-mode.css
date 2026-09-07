@@ -1,0 +1,186 @@
+.claude-composer {
+  width: min(760px, calc(100% - 48px));
+  margin-bottom: 20px;
+  border-color: #e3e1da;
+  border-radius: 14px;
+  background: #fffefa;
+  box-shadow: 0 8px 22px rgba(43, 39, 32, .055);
+}
+
+.claude-mode {
+  min-height: 38px;
+  padding: 9px 12px 0;
+  gap: 3px;
+  border-bottom: 1px solid #efede7;
+  color: #858178;
+}
+
+.claude-composer-options {
+  display: flex;
+  align-items: stretch;
+}
+
+.claude-composer-options .claude-mode {
+  flex: 0 1 auto;
+  min-width: 0;
+  border-bottom: 1px solid #efede7;
+}
+
+.claude-composer-options .claude-mode + .claude-mode {
+  border-left: 1px solid #efede7;
+}
+
+.claude-mode::before {
+  content: "+";
+  display: grid;
+  width: 17px;
+  height: 17px;
+  margin-right: 6px;
+  place-items: center;
+  border: 1px solid #d8d5cc;
+  border-radius: 50%;
+  color: #77776e;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.claude-mode > span {
+  margin-right: 6px;
+  color: #77736c;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.claude-mode button {
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #817d75;
+  background: transparent;
+  font-size: 10px;
+}
+
+.claude-mode button:hover {
+  color: #8f482f;
+  background: #f4e5de;
+}
+
+.claude-mode button.active {
+  border-color: #efd7cc;
+  color: #98503a;
+  background: #f9ebe5;
+}
+
+.claude-mode button:focus-visible {
+  outline: 2px solid #c9623f;
+  outline-offset: 2px;
+}
+
+.claude-mode select {
+  appearance: none;
+  min-width: 156px;
+  height: 30px;
+  border: 1px solid #e2dfd7;
+  border-radius: 8px;
+  padding: 0 31px 0 10px;
+  color: #3f4640;
+  background-color: #f8f9f5;
+  background-image: linear-gradient(45deg, transparent 50%, #767b70 50%), linear-gradient(135deg, #767b70 50%, transparent 50%);
+  background-position: calc(100% - 14px) 12px, calc(100% - 9px) 12px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
+  font: 600 10px "IBM Plex Sans", sans-serif;
+  cursor: pointer;
+  transition: border-color .16s ease, background-color .16s ease, box-shadow .16s ease;
+}
+
+.claude-mode select:hover {
+  border-color: #c8cec2;
+  background-color: #f3f6f0;
+}
+
+.claude-mode select:focus-visible {
+  border-color: #83947f;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(111, 137, 104, .16), inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+.claude-mode small {
+  display: none;
+}
+
+.claude-composer textarea {
+  min-height: 58px;
+  padding: 13px 14px 8px;
+  color: #242421;
+  caret-color: #c9623f;
+  outline: none;
+}
+
+.claude-composer:focus-within {
+  border-color: #d2cfc6;
+  box-shadow: 0 10px 24px rgba(43, 39, 32, .075);
+}
+
+.claude-composer textarea:focus-visible {
+  outline: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.claude-composer textarea:focus {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.claude-composer textarea::placeholder {
+  color: #9b978e;
+}
+
+.claude-composer textarea:focus::placeholder {
+  color: #b7b2a8;
+}
+
+.claude-composer-footer {
+  padding: 5px 10px 9px 14px;
+  color: #96968d;
+}
+
+.claude-composer-footer button {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  color: #fff;
+  background: #30302c;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.claude-composer-footer button:hover:not(:disabled) {
+  background: #c9623f;
+  transform: translateY(-1px);
+}
+
+.claude-composer-footer button:disabled {
+  color: #a8a8a0;
+  background: #e5e5de;
+}
+
+@media (max-width: 640px) {
+  .claude-composer-options {
+    display: block;
+  }
+
+  .claude-composer-options .claude-mode + .claude-mode {
+    border-left: 0;
+  }
+
+  .claude-mode {
+    padding-inline: 11px;
+  }
+
+  .claude-mode small {
+    margin-left: 25px;
+  }
+}

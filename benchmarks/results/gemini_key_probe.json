@@ -1,0 +1,165 @@
+[
+  {
+    "index": 1,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "failed",
+    "error_type": "GoogleRateLimitError",
+    "error": "Error calling model 'gemini-3.1-flash-lite' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, h"
+  },
+  {
+    "index": 2,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 3,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 4,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 5,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 6,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 7,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 8,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 9,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "failed",
+    "error_type": "GoogleRateLimitError",
+    "error": "Error calling model 'gemini-3.1-flash-lite' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, h"
+  },
+  {
+    "index": 10,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 11,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 12,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 13,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 14,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 15,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 16,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 17,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 18,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 19,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 20,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 21,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 22,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  },
+  {
+    "index": 23,
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "status": "ok",
+    "response_type": "AIMessage"
+  }
+]

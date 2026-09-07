@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: Federated learning privacy attacks on edge devices. Corpus era: 2019-2025.",
+  "created_at_utc": "2026-08-26T06:27:00+00:00",
+  "corpus_era": "2019-2025",
+  "topics": [
+    {
+      "topic_id": "pos_03",
+      "topic": "Federated learning privacy attacks on edge devices",
+      "reviewed": true,
+      "review_note": "Papers covering gradient inversion attacks, differential privacy defenses, and resource-constrained FL deployment on edge devices.",
+      "paper_ids": [
+        "arxiv:2001.02610",
+        "arxiv:1907.09693",
+        "arxiv:2012.10015",
+        "arxiv:2107.09498",
+        "arxiv:2202.06639",
+        "arxiv:2305.02292",
+        "arxiv:2003.14053",
+        "arxiv:2106.06047",
+        "arxiv:2109.04197",
+        "arxiv:2212.05258",
+        "arxiv:2104.10706",
+        "arxiv:2009.03300",
+        "arxiv:2202.11278",
+        "arxiv:2111.04216",
+        "arxiv:2306.02892"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2001.02610",
+          "title": "iDLG: Improved Deep Leakage from Gradients",
+          "authors": "Zhao et al.",
+          "year": 2020,
+          "themes": ["Gradient inversion"],
+          "relevance": "relevant",
+          "relevance_reason": "Improved DLG — tìm ground-truth labels xác định từ shared gradients trong FL. Directly addresses gradient inversion theme.",
+          "arxiv_url": "https://arxiv.org/abs/2001.02610"
+        },
+        {
+          "paper_id": "arxiv:1907.09693",
+          "title": "Deep Leakage from Gradients (DLG)",
+          "authors": "Zhu et al.",
+          "year": 2019,
+          "themes": ["Gradient inversion"],
+          "relevance": "relevant",
+          "relevance_reason": "Seminal DLG paper — proof-of-concept rằng private training data có thể được reconstruct từ gradients. Foundational cho gradient inversion research.",
+          "arxiv_url": "https://arxiv.org/abs/1907.09693"
+        },
+        {
+          "paper_id": "arxiv:2012.10015",
+          "title": "R-GAP: Recursive Gradient Attack on Privacy",
+          "authors": "Zhu & Blaschko",
+          "year": 2021,
+          "themes": ["Gradient inversion"],
+          "relevance": "relevant",
+          "relevance_reason": "R-GAP — recursive gradient attack có thể reconstruct data từ gradients chính xác hơn DLG. Advances gradient inversion attacks.",
+          "arxiv_url": "https://arxiv.org/abs/2012.10015"
+        },
+        {
+          "paper_id": "arxiv:2107.09498",
+          "title": "Gradient Inversion with Generative Image Prior",
+          "authors": "Jeon et al.",
+          "year": 2021,
+          "themes": ["Gradient inversion"],
+          "relevance": "relevant",
+          "relevance_reason": "Dùng generative image prior để cải thiện gradient inversion attack — reconstructs high-quality images từ gradients trong FL.",
+          "arxiv_url": "https://arxiv.org/abs/2107.09498"
+        },
+        {
+          "paper_id": "arxiv:2202.06639",
+          "title": "Privacy Attacks in Federated Learning: A Survey",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Gradient inversion", "Differential privacy"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey toàn diện về privacy attacks trong FL: gradient inversion, membership inference, model inversion. Covers cả attacks và defenses.",
+          "arxiv_url": "https://arxiv.org/abs/2202.06639"
+        },
+        {
+          "paper_id": "arxiv:2305.02292",
+          "title": "PPFL: Privacy-Preserving Federated Learning on Edge Devices",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Differential privacy", "Resource-constrained deployment"],
+          "relevance": "relevant",
+          "relevance_reason": "Privacy-preserving FL specifically designed for edge devices — addresses resource-constrained deployment và differential privacy tradeoffs.",
+          "arxiv_url": "https://arxiv.org/abs/2305.02292"
+        },
+        {
+          "paper_id": "arxiv:2003.14053",
+          "title": "SCAFFOLD: Stochastic Controlled Averaging for Federated Learning",
+          "authors": "Karimireddy et al.",
+          "year": 2020,
+          "themes": ["Resource-constrained deployment"],
+          "relevance": "relevant",
+          "relevance_reason": "SCAFFOLD giải quyết client drift trong FL với non-IID data — critical cho edge deployment với heterogeneous devices.",
+          "arxiv_url": "https://arxiv.org/abs/2003.14053"
+        },
+        {
+          "paper_id": "arxiv:2106.06047",
+          "title": "Soteria: Provable Defense Against Privacy Leakage in Federated Learning from Representation Perspective",
+          "authors": "Sun et al.",
+          "year": 2021,
+          "themes": ["Differential privacy", "Gradient inversion"],
+          "relevance": "relevant",
+          "relevance_reason": "Soteria — defense mechanism chống gradient inversion attacks, perturbation của data representations. Directly relevant cho attacks/defenses theme.",
+          "arxiv_url": "https://arxiv.org/abs/2106.06047"
+        },
+        {
+          "paper_id": "arxiv:2109.04197",
+          "title": "PATE-FL: Privacy-Preserving Federated Learning via PATE",
+          "authors": "Multiple authors",
+          "year": 2021,
+          "themes": ["Differential privacy", "Resource-constrained deployment"],
+          "relevance": "relevant",
+          "relevance_reason": "PATE framework adapted for FL — combines teacher ensemble with DP for edge-device deployment. Addresses differential privacy theme.",
+          "arxiv_url": "https://arxiv.org/abs/2109.04197"
+        },
+        {
+          "paper_id": "arxiv:2212.05258",
+          "title": "Survey on Federated Learning Threats: Concepts, Taxonomy, and Defenses",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Gradient inversion", "Differential privacy", "Resource-constrained deployment"],
+          "relevance": "relevant",
+          "relevance_reason": "Taxonomy of FL threats covering gradient inversion, model poisoning, membership inference — comprehensive overview of attack surface.",
+          "arxiv_url": "https://arxiv.org/abs/2212.05258"
+        },
+        {
+          "paper_id": "arxiv:2104.10706",
+          "title": "GradInversion: Recovering Private Training Data from Gradients with High Fidelity",
+          "authors": "Yin et al.",
+          "year": 2021,
+          "themes": ["Gradient inversion"],
+          "relevance": "relevant",
+          "relevance_reason": "GradInversion — high-fidelity image reconstruction from batch gradients in FL. Regularization + BN statistics-based attack. Strongest gradient inversion result on ImageNet.",
+          "arxiv_url": "https://arxiv.org/abs/2104.10706"
+        },
+        {
+          "paper_id": "arxiv:2009.03300",
+          "title": "Inverting Gradients: How Easy is it to Break Privacy in Federated Learning?",
+          "authors": "Geiping et al.",
+          "year": 2020,
+          "themes": ["Gradient inversion"],
+          "relevance": "relevant",
+          "relevance_reason": "Cosine similarity-based gradient inversion — reconstructs high-resolution images from single-sample and batch gradients. Shows privacy risk in large-scale FL.",
+          "arxiv_url": "https://arxiv.org/abs/2009.03300"
+        },
+        {
+          "paper_id": "arxiv:2202.11278",
+          "title": "The Fundamental Price of Secure Aggregation in Differentially Private Federated Learning",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Differential privacy", "Resource-constrained deployment"],
+          "relevance": "relevant",
+          "relevance_reason": "Theoretical analysis of the privacy-utility-communication tradeoff in DP-FL with secure aggregation — fundamental limits for edge device deployment.",
+          "arxiv_url": "https://arxiv.org/abs/2202.11278"
+        },
+        {
+          "paper_id": "arxiv:2111.04216",
+          "title": "Membership Inference Attacks Against Machine Learning Models in Federated Learning",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Differential privacy"],
+          "relevance": "relevant",
+          "relevance_reason": "Membership inference attacks in FL — determines whether a sample was in a client's training set from model updates. Complementary privacy threat to gradient inversion.",
+          "arxiv_url": "https://arxiv.org/abs/2111.04216"
+        },
+        {
+          "paper_id": "arxiv:2306.02892",
+          "title": "FLASH: Federated Learning with Asynchronous and Sparse Hybrid Updates for Privacy",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Resource-constrained deployment", "Differential privacy"],
+          "relevance": "relevant",
+          "relevance_reason": "Asynchronous FL with sparse updates for edge devices — addresses communication efficiency and privacy on resource-constrained IoT/mobile devices.",
+          "arxiv_url": "https://arxiv.org/abs/2306.02892"
+        }
+      ],
+      "reference_answer": "Federated learning (FL) enables collaborative model training without sharing raw data, but gradient sharing introduces privacy risks. Three main attack vectors: (1) Gradient inversion: DLG (Zhu et al. 2019) demonstrated private data reconstruction from gradients; iDLG and R-GAP improved accuracy; generative prior-based attacks further reduce reconstruction error. (2) Differential privacy defenses: DP-SGD adds calibrated noise to gradients before sharing; PATE-FL adapts teacher-student DP to FL; Soteria perturbs representations to resist inversion. (3) Resource-constrained edge deployment: SCAFFOLD addresses client drift on heterogeneous edge devices; communication compression creates additional attack surface. Key tradeoff: stronger privacy guarantees (lower ε in DP) degrade model utility, especially on edge devices with limited compute."
+    }
+  ]
+}

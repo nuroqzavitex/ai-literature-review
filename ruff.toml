@@ -1,0 +1,12 @@
+target-version = "py312"
+line-length = 120
+
+[lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+# Domain exceptions intentionally use business names such as *Rejected and
+# *NotFound; renaming that public vocabulary provides little value.
+ignore = ["E501", "N818"]
+
+[format]
+quote-style = "double"
+indent-style = "space"

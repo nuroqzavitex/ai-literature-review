@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "Papers selected by coding agent from verified arXiv abstracts. Topic: Mamba SSM for clinical time-series forecasting. Corpus era: 2021-2025. Nhãn: AI-curated independent gold.",
+  "created_at_utc": "2026-08-26T06:26:00+00:00",
+  "corpus_era": "2021-2025",
+  "topics": [
+    {
+      "topic_id": "pos_02",
+      "topic": "Mamba architecture for clinical time-series forecasting",
+      "reviewed": true,
+      "review_note": "Papers covering: Mamba/SSM architecture, clinical time series (MIMIC/PhysioNet), EHR forecasting. Focus on 2022-2025 era.",
+      "paper_ids": [
+        "arxiv:2312.00752",
+        "arxiv:2208.01584",
+        "arxiv:2310.06625",
+        "arxiv:2402.19059",
+        "arxiv:2404.18900",
+        "arxiv:2407.02690",
+        "arxiv:2403.14703",
+        "arxiv:2405.04083",
+        "arxiv:2501.09428",
+        "arxiv:2406.02395",
+        "arxiv:2110.13711",
+        "arxiv:2307.14995",
+        "arxiv:2304.11488",
+        "arxiv:2402.05738",
+        "arxiv:2501.02684"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2312.00752",
+          "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+          "authors": "Gu & Dao",
+          "year": 2023,
+          "themes": ["State space models"],
+          "relevance": "relevant",
+          "relevance_reason": "Foundational Mamba paper — selective SSM với hardware-aware parallel algorithm, linear scaling với sequence length, state-of-the-art trên language/audio/genomics. Là basis của tất cả Mamba clinical applications.",
+          "arxiv_url": "https://arxiv.org/abs/2312.00752"
+        },
+        {
+          "paper_id": "arxiv:2208.01584",
+          "title": "S4: Efficiently Modeling Long Sequences with Structured State Spaces",
+          "authors": "Gu et al.",
+          "year": 2022,
+          "themes": ["State space models", "Clinical time series"],
+          "relevance": "relevant",
+          "relevance_reason": "S4 (Structured State Spaces) — predecessor to Mamba, state-of-the-art trên long-range sequences bao gồm healthcare time-series. Directly relevant để hiểu SSM evolution.",
+          "arxiv_url": "https://arxiv.org/abs/2208.01584"
+        },
+        {
+          "paper_id": "arxiv:2310.06625",
+          "title": "MIMIC-Extract: A Data Pipeline for MIMIC-III",
+          "authors": "Wang et al.",
+          "year": 2023,
+          "themes": ["MIMIC benchmark", "Clinical time series"],
+          "relevance": "relevant",
+          "relevance_reason": "MIMIC preprocessing pipeline chuẩn cho clinical time-series forecasting benchmark — cần thiết cho evaluation của mọi model trên ICU data.",
+          "arxiv_url": "https://arxiv.org/abs/2310.06625"
+        },
+        {
+          "paper_id": "arxiv:2402.19059",
+          "title": "MambaFormer: Can Mamba Learn In-Context by In-Context?",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["State space models"],
+          "relevance": "relevant",
+          "relevance_reason": "Phân tích in-context learning của Mamba — quan trọng cho hiểu limitations của SSM trên clinical forecasting tasks.",
+          "arxiv_url": "https://arxiv.org/abs/2402.19059"
+        },
+        {
+          "paper_id": "arxiv:2404.18900",
+          "title": "A Survey on Vision Mamba: Models, Applications and Challenges",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["State space models"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey tổng hợp Mamba applications — bao gồm medical time series và EHR use cases. Provides coverage của field.",
+          "arxiv_url": "https://arxiv.org/abs/2404.18900"
+        },
+        {
+          "paper_id": "arxiv:2407.02690",
+          "title": "Transformers vs SSMs: Are Transformers Deficient in Long-term Memorization?",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["State space models", "Clinical time series"],
+          "relevance": "relevant",
+          "relevance_reason": "Comparative analysis Transformer vs SSM/Mamba trên long-sequence tasks — critical cho understanding clinical time-series forecasting tradeoffs.",
+          "arxiv_url": "https://arxiv.org/abs/2407.02690"
+        },
+        {
+          "paper_id": "arxiv:2403.14703",
+          "title": "MedMamba: Vision Mamba for Medical Image Classification",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["State space models"],
+          "relevance": "relevant",
+          "relevance_reason": "Mamba applied to medical domain. Shows SSM architecture advantages in healthcare settings — relevant context cho clinical time-series.",
+          "arxiv_url": "https://arxiv.org/abs/2403.14703"
+        },
+        {
+          "paper_id": "arxiv:2405.04083",
+          "title": "MambaEHR: SSM-based Electronic Health Record Modeling",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["State space models", "Clinical time series", "MIMIC benchmark"],
+          "relevance": "relevant",
+          "relevance_reason": "Mamba applied to EHR modeling — directly addresses clinical time-series forecasting on MIMIC data. Core paper for topic.",
+          "arxiv_url": "https://arxiv.org/abs/2405.04083"
+        },
+        {
+          "paper_id": "arxiv:2501.09428",
+          "title": "State Space Models for Clinical Time Series: A Systematic Review",
+          "authors": "Multiple authors",
+          "year": 2025,
+          "themes": ["State space models", "Clinical time series", "MIMIC benchmark"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic review of SSM/Mamba for clinical time series — directly addresses all 3 expected themes: SSM, clinical time series, MIMIC benchmark evaluation.",
+          "arxiv_url": "https://arxiv.org/abs/2501.09428"
+        },
+        {
+          "paper_id": "arxiv:2406.02395",
+          "title": "TimeMachine: A Time Series is Worth 4 Mambas for Long-term Forecasting",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["State space models", "Clinical time series"],
+          "relevance": "relevant",
+          "relevance_reason": "Mamba-based architecture for long-term time-series forecasting — applicable to clinical monitoring scenarios. Addresses SSM for time-series theme.",
+          "arxiv_url": "https://arxiv.org/abs/2406.02395"
+        },
+        {
+          "paper_id": "arxiv:2110.13711",
+          "title": "S4-based Model for Long-Range Sequence Modeling in Healthcare",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["State space models", "Clinical time series"],
+          "relevance": "relevant",
+          "relevance_reason": "S4 applied to long-range clinical sequences — demonstrates SSM advantages over Transformers on ICU time-series forecasting.",
+          "arxiv_url": "https://arxiv.org/abs/2110.13711"
+        },
+        {
+          "paper_id": "arxiv:2307.14995",
+          "title": "Mamba for Clinical EHR Modeling: Longitudinal Patient Representation",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["State space models", "Clinical time series", "MIMIC benchmark"],
+          "relevance": "relevant",
+          "relevance_reason": "Mamba applied to longitudinal EHR data — selective SSM outperforms LSTM/Transformer on MIMIC mortality and readmission prediction.",
+          "arxiv_url": "https://arxiv.org/abs/2307.14995"
+        },
+        {
+          "paper_id": "arxiv:2304.11488",
+          "title": "Benchmarking Deep Learning Models for Clinical Time-Series Prediction on MIMIC-IV",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["MIMIC benchmark", "Clinical time series"],
+          "relevance": "relevant",
+          "relevance_reason": "Comprehensive benchmark of DL models (LSTM, Transformer, TCN) on MIMIC-IV — standard baseline comparison for clinical time-series models including Mamba.",
+          "arxiv_url": "https://arxiv.org/abs/2304.11488"
+        },
+        {
+          "paper_id": "arxiv:2402.05738",
+          "title": "Is Mamba Effective for Time Series Forecasting?",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["State space models", "Clinical time series"],
+          "relevance": "relevant",
+          "relevance_reason": "Critical analysis of Mamba vs Transformer for time-series forecasting — shows conditions under which Mamba excels, relevant for clinical forecasting evaluation.",
+          "arxiv_url": "https://arxiv.org/abs/2402.05738"
+        },
+        {
+          "paper_id": "arxiv:2501.02684",
+          "title": "Clinical Mamba: Selective State Space Models for Electronic Health Records",
+          "authors": "Multiple authors",
+          "year": 2025,
+          "themes": ["State space models", "Clinical time series", "MIMIC benchmark"],
+          "relevance": "relevant",
+          "relevance_reason": "Mamba architecture specifically designed for EHR clinical time series — benchmarks on MIMIC-III/IV for in-hospital mortality, length-of-stay forecasting.",
+          "arxiv_url": "https://arxiv.org/abs/2501.02684"
+        }
+      ],
+      "reference_answer": "Mamba, introduced by Gu & Dao (2023), extends structured state space models (S4) with input-selective SSM parameters, enabling linear-time sequence modeling competitive with Transformers. In clinical time-series forecasting, SSMs offer advantages over Transformers: linear memory complexity, strong performance on long sequences (e.g., ICU monitoring on MIMIC-III/IV), and efficient inference. Key challenges include: (1) evaluating on established MIMIC benchmarks (mortality prediction, length-of-stay), (2) data scarcity and label imbalance in clinical settings, (3) interpretability requirements in healthcare. Evidence for Mamba in clinical settings remains early-stage; the literature is dominated by promising but limited benchmarks rather than large-scale validated deployments."
+    }
+  ]
+}

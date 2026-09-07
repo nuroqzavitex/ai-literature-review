@@ -1,0 +1,161 @@
+/* Auth is an access surface: orient the visitor, then make one action obvious. */
+
+/* Cùng cách landing đang làm (body:has(.product-landing)): auth cũng là bề mặt
+   tràn viền, nên bỏ margin 8px mặc định của <body> — chỉ cho trang này. Không
+   reset thì 100vh vẫn dư ra 16px cuộn. */
+body:has(.mock-auth) { margin:0; }
+
+.mock-auth {
+  --auth-ink: var(--ink);
+  --auth-paper: var(--paper-bright);
+  position:relative;
+  display:grid;
+  /* border-box: với content-box thì min-height:100vh CỘNG thêm 112px đệm, nên
+     trang luôn dư ra một đoạn cuộn dù nội dung thừa chỗ. */
+  box-sizing:border-box;
+  min-height:100vh;
+  /* Neo lên trên thay vì căn giữa tuyệt đối. Thẻ cao cố định 747px: căn giữa
+     thì khung 1080px chừa trống 230px phía trên mà đáy vẫn bị cắt — mắt đọc
+     rơi xuống quá thấp và vẫn phải cuộn. */
+  place-items:start center;
+  overflow:hidden;
+  padding:clamp(24px, 6vh, 72px) clamp(20px, 4vw, 56px);
+  background:var(--paper);
+}
+.mock-auth::before,.mock-auth::after {
+  content:"";
+  position:absolute;
+  width:clamp(240px, 28vw, 430px);
+  aspect-ratio:1;
+  border:1px solid var(--rule);
+  pointer-events:none;
+  transform:rotate(45deg);
+}
+.mock-auth::before { top:calc(clamp(20px, 4vw, 56px) * -2.2); left:-9%; }
+.mock-auth::after { right:-10%; bottom:calc(clamp(20px, 4vw, 56px) * -2.4); border-color:color-mix(in srgb,var(--coral) 38%,var(--rule)); }
+
+.auth-shell {
+  position:relative;
+  z-index:1;
+  width:min(100%, 1060px);
+  overflow:hidden;
+  border:1px solid var(--ink);
+  background:var(--auth-paper);
+  box-shadow:0 20px 48px rgba(23,34,56,.11), 0 3px 8px rgba(23,34,56,.06);
+  animation:auth-shell-in .62s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes auth-shell-in { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+
+.auth-topbar {
+  display:flex;
+  min-height:70px;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:0 30px;
+  border-bottom:1px solid var(--rule);
+  background:var(--auth-paper);
+}
+.auth-brand { display:flex; align-items:center; gap:11px; color:var(--ink); text-decoration:none; }
+.auth-brand strong { display:block; font:var(--t-lead); font-weight:600; letter-spacing:-.02em; }
+.auth-brand small { display:block; margin-top:5px; color:var(--g600); font:var(--t-mono-meta); letter-spacing:.1em; text-transform:uppercase; }
+.auth-home-link { display:inline-flex; align-items:center; min-height:var(--tap); padding:0 2px; color:var(--g600); font:var(--t-ui-strong); text-decoration:none; transition:color .16s ease; }
+.auth-home-link:hover { color:var(--coral-text); }
+
+.auth-layout { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr); min-height:535px; }
+.auth-context {
+  position:relative;
+  overflow:hidden;
+  padding:clamp(42px,6vw,76px) clamp(34px,6vw,78px);
+  color:#fff;
+  background:var(--auth-ink);
+}
+.auth-context::before {
+  content:"";
+  position:absolute;
+  top:-104px;
+  right:-116px;
+  width:290px;
+  height:290px;
+  border:1px solid rgba(255,255,255,.22);
+  transform:rotate(45deg);
+}
+.auth-context > * { position:relative; z-index:1; }
+.auth-context h1 { max-width:500px; margin:0 0 20px; color:#fff!important; font:var(--t-h2-lg)!important; letter-spacing:-.045em; }
+.auth-context > p { max-width:62ch; margin:0; color:#c8d1e0; font:var(--t-lead); }
+.auth-context-list { display:grid; gap:0; max-width:500px; margin-top:48px; border-top:1px solid rgba(255,255,255,.22); }
+.auth-context-list > div { display:grid; grid-template-columns:28px 1fr; gap:14px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.22); }
+.auth-context-list > div > span { color:#f3ab98; font:var(--t-mono-label); line-height:1.45; }
+.auth-context-list section { margin:0; }
+.auth-context-list strong { display:block; color:#fff; font:var(--t-h4); }
+.auth-context-list p { margin:5px 0 0; color:#c1cbdc; font:var(--t-body-sm); }
+
+.auth-card { display:flex; flex-direction:column; justify-content:center; min-width:0; padding:clamp(34px,4vw,58px); background:var(--auth-paper); }
+.card-inner { padding:0; border:0; background:transparent; box-shadow:none; text-align:left; }
+.card-inner h1,.card-inner h2 { max-width:355px; margin:0 0 12px; color:var(--ink)!important; font:var(--t-h2-md)!important; letter-spacing:-.04em; }
+.card-inner > p { max-width:52ch; margin:0 0 29px; color:var(--g600); font:var(--t-body); font-weight:400; }
+.btn-login,.btn-register { display:flex; width:100%; min-height:46px; align-items:center; justify-content:center; border:1px solid var(--ink); border-radius:2px; padding:11px 16px; font:var(--t-ui-strong); cursor:pointer; transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease; }
+.btn-login { color:#fff; background:var(--ink); box-shadow:3px 3px 0 var(--coral); }
+.btn-login:hover { transform:translate(-1px,-1px); background:#293852; box-shadow:4px 4px 0 var(--coral); }
+.btn-register { color:var(--ink); background:transparent; border-color:var(--rule); }
+.btn-register:hover { border-color:var(--ink); background:var(--paper-wash); }
+.btn-login:focus-visible,.btn-register:focus-visible,.auth-home-link:focus-visible,.auth-brand:focus-visible { outline:2px solid var(--coral-text); outline-offset:4px; }
+.divider { display:flex; align-items:center; gap:12px; margin:19px 0; color:var(--g600); font:var(--t-mono-meta); text-transform:uppercase; letter-spacing:.08em; }
+.divider::before,.divider::after { content:""; height:1px; flex:1; background:var(--rule); }
+.mock-auth-actions { display:flex; align-items:center; gap:15px; }
+.mock-auth-actions .btn-login { flex:1; text-decoration:none; }
+.auth-assurances { display:grid; gap:9px; margin-top:30px; padding-top:22px; border-top:1px solid var(--rule); }
+.auth-assurances p { display:flex; align-items:baseline; gap:9px; margin:0; color:var(--g600); font:var(--t-body-sm); font-weight:500; }
+.auth-assurances p::before { content:""; width:6px; height:6px; flex:0 0 6px; border-radius:50%; background:var(--green); }
+.footer-note { margin:22px 0 0; color:var(--g600); font:var(--t-mono-meta); line-height:1.45; letter-spacing:.015em; text-align:left; }
+
+.auth-shell--unavailable { width:min(100%,520px); }
+.auth-shell--unavailable .auth-card { min-height:315px; }
+.auth-loading { color:var(--g600); font:var(--t-body); }
+
+/* ──────────────────────────────────────────────────────────────
+   RESPONSIVE — ba tầng thiết bị
+   ≥1025px  máy tính  · hai cột, bảng ngữ cảnh nằm cạnh thẻ đăng nhập
+   641–1024 máy tính bảng · một cột, ngữ cảnh ở trên, thẻ ở dưới
+   ≤640px   điện thoại · tràn viền, không khung, cuộn tự nhiên
+   ────────────────────────────────────────────────────────────── */
+
+/* ── Máy tính bảng ─────────────────────────────────────────────
+   Trước đây vẫn giữ hai cột tới tận 600px. Ở chiều dọc 768px thì
+   cột thẻ bị ép còn ~320px, chữ xuống dòng lởm chởm và nút chật.
+   Xếp chồng sớm hơn cho cả hai phần thở được. */
+@media (max-width:1024px) {
+  .mock-auth { place-items:start center; padding:clamp(20px,3.5vw,40px) clamp(16px,3vw,32px); }
+  .auth-shell { width:min(100%,660px); margin:0 auto; }
+  .auth-topbar { min-height:66px; padding:0 26px; }
+  .auth-layout { grid-template-columns:1fr; min-height:0; }
+  .auth-context { padding:46px 34px 44px; }
+  .auth-context h1,.auth-context > p,.auth-context-list { max-width:none; }
+  .auth-context-list { margin-top:34px; }
+  .auth-card { padding:44px 34px 48px; }
+  .auth-shell--unavailable { width:min(100%,560px); }
+}
+
+/* ── Điện thoại ────────────────────────────────────────────────
+   Bỏ khung và bóng: trên màn nhỏ, thẻ nổi chỉ ăn mất bề ngang.
+   Hình thoi trang trí cũng tắt vì chúng tràn ra ngoài vùng nhìn. */
+@media (max-width:640px) {
+  .mock-auth { padding:0; }
+  .mock-auth::before,.mock-auth::after { display:none; }
+  .auth-shell { width:100%; min-height:100vh; border:0; box-shadow:none; }
+  .auth-topbar { min-height:60px; padding:0 20px; gap:12px; }
+  .auth-brand small { display:none; }
+  .auth-context { padding:40px 22px 38px; }
+  .auth-context-list { margin-top:28px; }
+  .auth-context-list > div { grid-template-columns:24px 1fr; gap:12px; padding:14px 0; }
+  .auth-card { padding:36px 22px 44px; }
+  .auth-card .card-inner { max-width:none; }
+  .mock-auth-actions { flex-wrap:wrap; gap:12px; }
+  .auth-shell--unavailable .auth-card { min-height:calc(100vh - 60px); }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .auth-shell { animation:none; }
+  .btn-login,.btn-register,.auth-home-link { transition:none; }
+  .btn-login:hover { transform:none; }
+}

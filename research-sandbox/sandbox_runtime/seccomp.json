@@ -1,0 +1,24 @@
+{
+  "defaultAction": "SCMP_ACT_ERRNO",
+  "architectures": ["SCMP_ARCH_X86_64", "SCMP_ARCH_X86", "SCMP_ARCH_X32"],
+  "syscalls": [
+    {
+      "action": "SCMP_ACT_ALLOW",
+      "names": [
+        "read", "write", "readv", "writev", "close", "lseek", "pread64", "pwrite64",
+        "fstat", "lstat", "stat", "newfstatat", "statx", "fstatfs", "statfs",
+        "mmap", "mprotect", "munmap", "mremap", "madvise", "brk",
+        "rt_sigaction", "rt_sigprocmask", "rt_sigreturn", "rt_sigpending", "rt_sigsuspend", "sigaltstack",
+        "ioctl", "fcntl", "dup", "dup2", "dup3", "pipe", "pipe2",
+        "poll", "ppoll", "select", "pselect6", "epoll_create1", "epoll_ctl", "epoll_wait", "eventfd2",
+        "access", "faccessat", "faccessat2", "openat", "getdents64", "getcwd", "readlink", "readlinkat",
+        "mkdir", "mkdirat", "unlink", "unlinkat", "rename", "renameat", "renameat2", "ftruncate", "truncate",
+        "futex", "clock_gettime", "clock_getres", "clock_nanosleep", "nanosleep", "gettimeofday", "times",
+        "getrandom", "uname", "sysinfo", "getrusage", "getrlimit", "prlimit64", "sched_getaffinity", "sched_yield",
+        "getpid", "getppid", "gettid", "getuid", "geteuid", "getgid", "getegid", "getgroups",
+        "arch_prctl", "prctl", "set_tid_address", "set_robust_list", "rseq", "umask",
+        "execve", "exit", "exit_group"
+      ]
+    }
+  ]
+}

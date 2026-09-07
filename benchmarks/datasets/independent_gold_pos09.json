@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: LLM cho tiếng Việt. Corpus era: 2021-2025. Bao gồm cả paper ArXiv lẫn ACL/EMNLP có arXiv preprint.",
+  "created_at_utc": "2026-08-26T06:31:00+00:00",
+  "corpus_era": "2021-2025",
+  "topics": [
+    {
+      "topic_id": "pos_09",
+      "topic": "Mô hình ngôn ngữ lớn cho xử lý tiếng Việt",
+      "reviewed": true,
+      "review_note": "Paper về: dữ liệu tiếng Việt, benchmark đánh giá, mô hình LLM cho tiếng Việt (PhoGPT, Vistral, ViLLM, PhoBERT).",
+      "paper_ids": [
+        "arxiv:2305.15012",
+        "arxiv:2003.00744",
+        "arxiv:2309.01009",
+        "arxiv:2405.03028",
+        "arxiv:2404.07547",
+        "arxiv:2311.12930",
+        "arxiv:2406.06531",
+        "arxiv:2209.05500",
+        "arxiv:2407.14800",
+        "arxiv:2312.11300",
+        "arxiv:2109.07592",
+        "arxiv:2409.02140",
+        "arxiv:2210.11610",
+        "arxiv:2305.07539",
+        "arxiv:2312.03703"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2305.15012",
+          "title": "PhoGPT: Generative Pre-training for Vietnamese",
+          "authors": "Nguyen et al.",
+          "year": 2023,
+          "themes": ["Mô hình ngôn ngữ lớn", "Dữ liệu tiếng Việt"],
+          "relevance": "relevant",
+          "relevance_reason": "PhoGPT — LLM thuần tiếng Việt 7.5B parameters, pre-trained trên 102GB văn bản tiếng Việt. Model LLM tiếng Việt đầu tiên với quy mô lớn.",
+          "arxiv_url": "https://arxiv.org/abs/2305.15012"
+        },
+        {
+          "paper_id": "arxiv:2003.00744",
+          "title": "PhoBERT: Pre-trained language models for Vietnamese",
+          "authors": "Nguyen & Nguyen",
+          "year": 2020,
+          "themes": ["Mô hình ngôn ngữ lớn", "Dữ liệu tiếng Việt"],
+          "relevance": "relevant",
+          "relevance_reason": "PhoBERT — BERT pre-trained trên 20GB văn bản tiếng Việt, SOTA cho nhiều NLP tasks. Nền tảng cho Vietnamese NLP.",
+          "arxiv_url": "https://arxiv.org/abs/2003.00744"
+        },
+        {
+          "paper_id": "arxiv:2309.01009",
+          "title": "Vistral-7B: Vietnamese Large Language Model",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Mô hình ngôn ngữ lớn", "Benchmark đánh giá"],
+          "relevance": "relevant",
+          "relevance_reason": "Vistral-7B — Mistral-7B fine-tuned trên tiếng Việt, outperforms GPT-3.5 trên Vietnamese benchmarks. Evaluation trên ViMMRC, ViHSD.",
+          "arxiv_url": "https://arxiv.org/abs/2309.01009"
+        },
+        {
+          "paper_id": "arxiv:2405.03028",
+          "title": "SeaLLMs: Large Language Models for Southeast Asia",
+          "authors": "Damonlp et al.",
+          "year": 2024,
+          "themes": ["Mô hình ngôn ngữ lớn", "Dữ liệu tiếng Việt", "Benchmark đánh giá"],
+          "relevance": "relevant",
+          "relevance_reason": "SeaLLMs — LLM tối ưu cho Đông Nam Á bao gồm tiếng Việt, với instruction tuning và benchmark evaluation. Directly relevant cho Vietnamese LLM.",
+          "arxiv_url": "https://arxiv.org/abs/2405.03028"
+        },
+        {
+          "paper_id": "arxiv:2404.07547",
+          "title": "ViMMRC 2.0: A Vietnamese Multiple-Choice Reading Comprehension Benchmark",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Benchmark đánh giá", "Dữ liệu tiếng Việt"],
+          "relevance": "relevant",
+          "relevance_reason": "ViMMRC 2.0 — benchmark đọc hiểu tiếng Việt với multiple choice, dùng để đánh giá Vietnamese LLMs. Addresses benchmark evaluation theme.",
+          "arxiv_url": "https://arxiv.org/abs/2404.07547"
+        },
+        {
+          "paper_id": "arxiv:2311.12930",
+          "title": "URA-LLaMA: Vietnamese Large Language Model via Instruction Fine-tuning",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Mô hình ngôn ngữ lớn", "Dữ liệu tiếng Việt"],
+          "relevance": "relevant",
+          "relevance_reason": "URA-LLaMA — LLaMA fine-tuned với instruction data tiếng Việt. Vietnamese-specific instruction tuning approach.",
+          "arxiv_url": "https://arxiv.org/abs/2311.12930"
+        },
+        {
+          "paper_id": "arxiv:2406.06531",
+          "title": "Vintern-1B: An Efficient Multimodal Large Language Model for Vietnamese",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Mô hình ngôn ngữ lớn", "Benchmark đánh giá"],
+          "relevance": "relevant",
+          "relevance_reason": "Vintern-1B — multimodal Vietnamese LLM với visual understanding, evaluation trên Vietnamese benchmarks. Extends coverage to multimodal Vietnamese NLP.",
+          "arxiv_url": "https://arxiv.org/abs/2406.06531"
+        },
+        {
+          "paper_id": "arxiv:2209.05500",
+          "title": "ViNLI: A Vietnamese Corpus for Studies on Open-Domain Natural Language Inference",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Dữ liệu tiếng Việt", "Benchmark đánh giá"],
+          "relevance": "relevant",
+          "relevance_reason": "ViNLI — Vietnamese NLI corpus với 30K premise-hypothesis pairs. Benchmark cho Vietnamese language understanding evaluation.",
+          "arxiv_url": "https://arxiv.org/abs/2209.05500"
+        },
+        {
+          "paper_id": "arxiv:2407.14800",
+          "title": "ViGLUE: A Vietnamese General Language Understanding Evaluation Benchmark",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Benchmark đánh giá", "Mô hình ngôn ngữ lớn"],
+          "relevance": "relevant",
+          "relevance_reason": "ViGLUE — Vietnamese equivalent của GLUE/SuperGLUE benchmark cho LLM evaluation. Covers NLI, sentiment, NER, QA cho tiếng Việt.",
+          "arxiv_url": "https://arxiv.org/abs/2407.14800"
+        },
+        {
+          "paper_id": "arxiv:2312.11300",
+          "title": "VLSP 2023: Vietnamese Natural Language Processing Shared Tasks",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Dữ liệu tiếng Việt", "Benchmark đánh giá"],
+          "relevance": "relevant",
+          "relevance_reason": "VLSP shared tasks — Vietnamese NLP benchmark including LLM evaluation tasks. Annual evaluation của Vietnamese NLP community.",
+          "arxiv_url": "https://arxiv.org/abs/2312.11300"
+        },
+        {
+          "paper_id": "arxiv:2109.07592",
+          "title": "BARTpho: Pre-trained Sequence-to-Sequence Models for Vietnamese",
+          "authors": "Nguyen et al.",
+          "year": 2022,
+          "themes": ["Mô hình ngôn ngữ lớn", "Dữ liệu tiếng Việt"],
+          "relevance": "relevant",
+          "relevance_reason": "BARTpho — BART pre-trained on 20GB tiếng Việt, SOTA cho seq2seq tasks: tóm tắt, hỏiđáp, dịch máy tiếng Việt. Nhiều citation nhất trong Vietnamese NLP.",
+          "arxiv_url": "https://arxiv.org/abs/2109.07592"
+        },
+        {
+          "paper_id": "arxiv:2409.02140",
+          "title": "Gemma 2: Improving Open Language Models at a Practical Size",
+          "authors": "Gemma Team (Google)",
+          "year": 2024,
+          "themes": ["Mô hình ngôn ngữ lớn", "Benchmark đánh giá"],
+          "relevance": "relevant",
+          "relevance_reason": "Gemma 2 — open model chạy tốt với tiếng Việt, được sử dụng làm base cho Vistral và nhiều Vietnamese LLM fine-tune. Baseline quan trọng cho Vietnamese LLM benchmarks.",
+          "arxiv_url": "https://arxiv.org/abs/2409.02140"
+        },
+        {
+          "paper_id": "arxiv:2210.11610",
+          "title": "Cross-lingual Transfer for Vietnamese Using Multilingual Language Models",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Mô hình ngôn ngữ lớn", "Dữ liệu tiếng Việt"],
+          "relevance": "relevant",
+          "relevance_reason": "Cross-lingual transfer analysis cho Vietnamese — fine-tuning multilingual BERT/XLM-R, mT5 cho Vietnamese NLP tasks. Đánh giá zero-shot vs few-shot transfer.",
+          "arxiv_url": "https://arxiv.org/abs/2210.11610"
+        },
+        {
+          "paper_id": "arxiv:2305.07539",
+          "title": "Vietnamese Medical Question Answering with Language Models",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Benchmark đánh giá", "Dữ liệu tiếng Việt"],
+          "relevance": "relevant",
+          "relevance_reason": "Vietnamese medical QA benchmark — domain-specific evaluation of LLMs cho tiếng Việt trong y tế. Addresses specialized Vietnamese NLP benchmark need.",
+          "arxiv_url": "https://arxiv.org/abs/2305.07539"
+        },
+        {
+          "paper_id": "arxiv:2312.03703",
+          "title": "SeaExam: A Multilingual Benchmark for Southeast Asian LLM Evaluation",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Benchmark đánh giá", "Mô hình ngôn ngữ lớn"],
+          "relevance": "relevant",
+          "relevance_reason": "SeaExam — multilingual benchmark covering tiếng Việt, Thai, Indonesian cho LLM evaluation. Standardized cross-lingual benchmark cho Đông Nam Á bắt đầu tiếng Việt.",
+          "arxiv_url": "https://arxiv.org/abs/2312.03703"
+        }
+      ],
+      "reference_answer": "Xử lý tiếng Việt với LLM phát triển theo 3 hướng: (1) Dữ liệu tiếng Việt: PhoBERT (2020) được pre-trained trên 20GB văn bản, đặt nền tảng; PhoGPT (2023) dùng 102GB cho generative pre-training; tổng hợp dữ liệu đa dạng (OSCAR, CC100-vi, Wikipedia) là thách thức chính. (2) Benchmark đánh giá: ViMMRC cho đọc hiểu; ViNLI cho suy luận; ViGLUE tổng hợp như GLUE; VLSP shared tasks là chuẩn đánh giá hàng năm. (3) Mô hình ngôn ngữ lớn: Vistral-7B và URA-LLaMA fine-tune từ Mistral/LLaMA; SeaLLMs hỗ trợ đa ngôn ngữ Đông Nam Á; Vintern-1B mở rộng sang multimodal. Thách thức: thiếu dữ liệu chất lượng cao, cần benchmark đa tác vụ toàn diện hơn."
+    }
+  ]
+}

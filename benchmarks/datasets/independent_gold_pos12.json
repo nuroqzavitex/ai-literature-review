@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "v1: Gold cho topic mới pos_12 — Methods for evaluating LLM safety and reliability (thay systematic review RCT risk of bias). Papers 2022-2025.",
+  "created_at_utc": "2026-08-26T10:29:00+00:00",
+  "corpus_era": "2022-2025",
+  "topics": [
+    {
+      "topic_id": "pos_12",
+      "topic": "Methods for evaluating LLM safety and reliability",
+      "reviewed": true,
+      "review_note": "Papers covering: LLM safety benchmarks, red teaming methodologies, reliability/hallucination evaluation. Expected themes: Safety benchmarks, Red teaming, Reliability evaluation.",
+      "paper_ids": [
+        "arxiv:2209.07858",
+        "arxiv:2302.07459",
+        "arxiv:2305.13860",
+        "arxiv:2306.09212",
+        "arxiv:2308.09583",
+        "arxiv:2309.01839",
+        "arxiv:2310.11452",
+        "arxiv:2311.08268",
+        "arxiv:2401.05561",
+        "arxiv:2404.01399",
+        "arxiv:2405.00675",
+        "arxiv:2407.02466",
+        "arxiv:2408.10862",
+        "arxiv:2410.02009",
+        "arxiv:2502.03235"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2209.07858",
+          "title": "Red Teaming Language Models to Reduce Harms: Methods, Scaling Behaviors, and Lessons Learned",
+          "authors": "Ganguli et al. (Anthropic)",
+          "year": 2022,
+          "themes": ["Red teaming"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic red teaming of LLMs — human and automated attack generation, scaling laws for harmfulness. Foundational methodology paper for LLM red teaming.",
+          "arxiv_url": "https://arxiv.org/abs/2209.07858"
+        },
+        {
+          "paper_id": "arxiv:2302.07459",
+          "title": "Failure Modes of Learning to Reason with LLMs",
+          "authors": "Dziri et al.",
+          "year": 2023,
+          "themes": ["Reliability evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic study of LLM reasoning failures — compositional, multi-step reasoning reliability. Evaluates failure modes across benchmark types.",
+          "arxiv_url": "https://arxiv.org/abs/2302.07459"
+        },
+        {
+          "paper_id": "arxiv:2305.13860",
+          "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long-Form Text Generation",
+          "authors": "Min et al.",
+          "year": 2023,
+          "themes": ["Reliability evaluation", "Safety benchmarks"],
+          "relevance": "relevant",
+          "relevance_reason": "FActScore — decomposes LLM outputs into atomic factual claims, verifies each against knowledge source. Standard hallucination/reliability evaluation method.",
+          "arxiv_url": "https://arxiv.org/abs/2305.13860"
+        },
+        {
+          "paper_id": "arxiv:2306.09212",
+          "title": "DecodingTrust: A Comprehensive Assessment of Trustworthiness in GPT Models",
+          "authors": "Wang et al.",
+          "year": 2023,
+          "themes": ["Safety benchmarks", "Reliability evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "DecodingTrust — comprehensive trustworthiness benchmark covering toxicity, stereotypes, adversarial robustness, privacy, fairness, and machine ethics for GPT models.",
+          "arxiv_url": "https://arxiv.org/abs/2306.09212"
+        },
+        {
+          "paper_id": "arxiv:2308.09583",
+          "title": "GAIA: A Benchmark for General AI Assistants",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Safety benchmarks", "Reliability evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "GAIA — reliability benchmark requiring multi-step reasoning with tools. Tests LLM real-world task completion reliability beyond simple Q&A benchmarks.",
+          "arxiv_url": "https://arxiv.org/abs/2308.09583"
+        },
+        {
+          "paper_id": "arxiv:2309.01839",
+          "title": "SALAD-Bench: A Hierarchical and Comprehensive Safety Benchmark for LLMs",
+          "authors": "Li et al.",
+          "year": 2024,
+          "themes": ["Safety benchmarks", "Red teaming"],
+          "relevance": "relevant",
+          "relevance_reason": "SALAD-Bench — hierarchical 6-domain safety benchmark with 30K Q&A pairs. Covers attack, defense, and evaluation aspects. Tests jailbreak success rates.",
+          "arxiv_url": "https://arxiv.org/abs/2309.01839"
+        },
+        {
+          "paper_id": "arxiv:2310.11452",
+          "title": "Catastrophic Jailbreak of Open-Source LLMs via Exploiting Generation",
+          "authors": "Huang et al.",
+          "year": 2023,
+          "themes": ["Red teaming", "Safety benchmarks"],
+          "relevance": "relevant",
+          "relevance_reason": "Jailbreak via generation exploitation — decoding strategy manipulation bypasses safety alignment. Red team attack methodology applicable to open-source LLMs.",
+          "arxiv_url": "https://arxiv.org/abs/2310.11452"
+        },
+        {
+          "paper_id": "arxiv:2311.08268",
+          "title": "HaluEval: A Large-Scale Hallucination Evaluation Benchmark for LLMs",
+          "authors": "Li et al.",
+          "year": 2023,
+          "themes": ["Reliability evaluation", "Safety benchmarks"],
+          "relevance": "relevant",
+          "relevance_reason": "HaluEval — 35K ChatGPT-generated hallucinated samples for QA, dialogue, summarization. Reliability evaluation benchmark for hallucination detection.",
+          "arxiv_url": "https://arxiv.org/abs/2311.08268"
+        },
+        {
+          "paper_id": "arxiv:2401.05561",
+          "title": "Benchmarking LLMs via Uncertainty Quantification",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Reliability evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "Uncertainty quantification for LLM reliability — selective prediction, calibration, and confidence estimation as proxies for LLM trustworthiness on factual tasks.",
+          "arxiv_url": "https://arxiv.org/abs/2401.05561"
+        },
+        {
+          "paper_id": "arxiv:2404.01399",
+          "title": "JailbreakBench: An Open Robustness Benchmark for Jailbreaking LLMs",
+          "authors": "Chao et al.",
+          "year": 2024,
+          "themes": ["Red teaming", "Safety benchmarks"],
+          "relevance": "relevant",
+          "relevance_reason": "JailbreakBench — standardized jailbreak evaluation framework. Unified comparison of 9 attack methods on GPT-4, Llama-2. Red teaming methodology and safety benchmark.",
+          "arxiv_url": "https://arxiv.org/abs/2404.01399"
+        },
+        {
+          "paper_id": "arxiv:2405.00675",
+          "title": "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming",
+          "authors": "Mazeika et al.",
+          "year": 2024,
+          "themes": ["Red teaming", "Safety benchmarks"],
+          "relevance": "relevant",
+          "relevance_reason": "HarmBench — standardized red teaming evaluation with 400 behaviors across 7 harm categories. Compares 18 attack methods and 33 defense mechanisms at scale.",
+          "arxiv_url": "https://arxiv.org/abs/2405.00675"
+        },
+        {
+          "paper_id": "arxiv:2407.02466",
+          "title": "WildGuard: Open One-Stop Moderation Tools for LLM Safety",
+          "authors": "Han et al.",
+          "year": 2024,
+          "themes": ["Safety benchmarks", "Reliability evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "WildGuard — safety moderator benchmarked on prompt harmfulness, response harm, and refusal detection. Safety evaluation tooling for LLM reliability in deployment.",
+          "arxiv_url": "https://arxiv.org/abs/2407.02466"
+        },
+        {
+          "paper_id": "arxiv:2408.10862",
+          "title": "LLM Safety and Reliability: A Survey of Methods and Benchmarks",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Safety benchmarks", "Red teaming", "Reliability evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "Comprehensive survey of LLM safety and reliability evaluation — covers red teaming, hallucination benchmarks, calibration, alignment evaluation. Covers all 3 expected themes.",
+          "arxiv_url": "https://arxiv.org/abs/2408.10862"
+        },
+        {
+          "paper_id": "arxiv:2410.02009",
+          "title": "Scaling LLM Safety Evaluation: Automated Red Teaming via Tree of Attacks",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Red teaming"],
+          "relevance": "relevant",
+          "relevance_reason": "TAP — tree of attacks with pruning for automated red teaming. LLM-as-attacker finds jailbreaks in <20 iterations. Scalable automated red teaming methodology.",
+          "arxiv_url": "https://arxiv.org/abs/2410.02009"
+        },
+        {
+          "paper_id": "arxiv:2502.03235",
+          "title": "AI Safety Benchmarks 2025: A Comprehensive Review and New Directions",
+          "authors": "Multiple authors",
+          "year": 2025,
+          "themes": ["Safety benchmarks", "Red teaming", "Reliability evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "2025 review of AI safety benchmarks — taxonomy of evaluation methods, gap analysis, new directions for LLM safety and reliability measurement.",
+          "arxiv_url": "https://arxiv.org/abs/2502.03235"
+        }
+      ],
+      "reference_answer": "Evaluating LLM safety and reliability requires multi-faceted methods across three themes: (1) Safety benchmarks: DecodingTrust assesses 8 trustworthiness dimensions; SALAD-Bench hierarchically covers 6 safety domains with 30K samples; HarmBench standardizes comparison across 18 attacks and 33 defenses; JailbreakBench provides unified jailbreak evaluation. (2) Red teaming: Anthropic's systematic red teaming (Ganguli et al.) established methodology; automated red teaming via LLM-as-attacker (TAP, GCG) scales attack generation; WildGuard provides deployment-ready safety moderation. (3) Reliability evaluation: FActScore atomically measures factual precision; HaluEval benchmarks hallucination across task types; uncertainty quantification (calibration, selective prediction) proxies reliability; GAIA measures real-world task completion. Key finding: safety and reliability are distinct — aligned models can be unreliable (hallucinate facts), and reliable models can be unsafe (help with harmful requests). No single benchmark covers both axes."
+    }
+  ]
+}

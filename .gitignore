@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+.env1
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (never commit large data)
+data/
+data.md
+*.db
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Test coverage
+htmlcov/
+.coverage
+coverage.xml
+.pytest_cache/
+/.pytest-tmp-*/
+research-sandbox/.pytest-tmp-*/
+research-sandbox/.test-tmp/
+
+# Docker
+docker-compose.override.yml
+# Local-only Compose variants and locally built service images.
+/docker-compose.clean.yml
+/docker-compose.local-db.yml
+/docker/
+
+# Node (frontend)
+node_modules/
+.next/
+out/
+.nuxt/
+.deploy/
+frontend/next-env.d.ts
+frontend/playwright/.clerk/
+frontend/playwright-report/
+frontend/test-results/
+# Build
+*.pyc
+*.pyo
+*.tsbuildinfo
+
+# AI tooling & agent workspaces
+.agents/
+.ai-log/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.ruff_cache/
+Log_bug.md
+bai1.txt
+local-deep-research/
+.codegraph
+
+# Project
+PaperPulse
+
+# Local-only working dirs
+.references/
+scratch/
+tests/e2e_results/
+.code-graph/

@@ -1,0 +1,274 @@
+x-sandbox-environment: &sandbox-environment
+  SANDBOX_ENVIRONMENT: ${SANDBOX_ENVIRONMENT:-development}
+  SANDBOX_ENABLED: ${SANDBOX_ENABLED:-false}
+  SANDBOX_DEMO_MODE: ${SANDBOX_DEMO_MODE:-false}
+  SANDBOX_HYPOTHESIS_ENABLED: ${SANDBOX_HYPOTHESIS_ENABLED:-false}
+  SANDBOX_GRAPH_OVERLAY_ENABLED: ${SANDBOX_GRAPH_OVERLAY_ENABLED:-false}
+  SANDBOX_DATA_ANALYSIS_ENABLED: ${SANDBOX_DATA_ANALYSIS_ENABLED:-false}
+  SANDBOX_AI_ENABLED: ${SANDBOX_AI_ENABLED:-false}
+  SANDBOX_AI_PROVIDER: ${SANDBOX_AI_PROVIDER:-auto}
+  SANDBOX_AI_FALLBACK_ORDER: ${SANDBOX_AI_FALLBACK_ORDER:-google,ollama}
+  SANDBOX_AI_TIMEOUT_SECONDS: ${SANDBOX_AI_TIMEOUT_SECONDS:-90}
+  SANDBOX_GOOGLE_API_BASE: ${SANDBOX_GOOGLE_API_BASE:-https://generativelanguage.googleapis.com/v1beta}
+  SANDBOX_OLLAMA_HOST: ${SANDBOX_OLLAMA_HOST:-${OLLAMA_HOST:-http://host.docker.internal:11434}}
+  SANDBOX_CONTAINERIZED: "true"
+  GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+  GOOGLE_API_KEYS: ${GOOGLE_API_KEYS:-}
+  GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+  GOOGLE_MODEL: ${GOOGLE_MODEL:-gemini-3.1-flash-lite}
+  OLLAMA_API_KEY: ${OLLAMA_API_KEY:-}
+  OLLAMA_API_KEYS: ${OLLAMA_API_KEYS:-}
+  OLLAMA_HOST: ${OLLAMA_HOST:-http://host.docker.internal:11434}
+  OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma4:31b-cloud}
+  SANDBOX_GRAPH_CONTEXT_ENABLED: ${SANDBOX_GRAPH_CONTEXT_ENABLED:-false}
+  SANDBOX_RESULT_INTERPRETATION_ENABLED: ${SANDBOX_RESULT_INTERPRETATION_ENABLED:-false}
+  SANDBOX_ALLOW_LOCAL_ACTOR_HEADERS: ${SANDBOX_ALLOW_LOCAL_ACTOR_HEADERS:-false}
+  SANDBOX_PERSISTENCE_BACKEND: postgres
+  SANDBOX_DATABASE_URL: postgresql+psycopg://sandbox:${SANDBOX_POSTGRES_PASSWORD:-sandbox-local-only}@sandbox-postgres:5432/research_sandbox
+  SANDBOX_OBJECT_STORAGE_BACKEND: s3
+  SANDBOX_OBJECT_STORAGE_BUCKET: ${SANDBOX_OBJECT_STORAGE_BUCKET:-research-sandbox}
+  SANDBOX_OBJECT_STORAGE_ENDPOINT: http://sandbox-minio:9000
+  SANDBOX_OBJECT_STORAGE_REGION: ${SANDBOX_OBJECT_STORAGE_REGION:-us-east-1}
+  SANDBOX_OBJECT_STORAGE_ACCESS_KEY: ${SANDBOX_MINIO_ROOT_USER:-sandbox-minio}
+  SANDBOX_OBJECT_STORAGE_SECRET_KEY: ${SANDBOX_MINIO_ROOT_PASSWORD:-sandbox-minio-local-only}
+  SANDBOX_MANIFEST_SIGNING_KEY: ${SANDBOX_MANIFEST_SIGNING_KEY:-sandbox-local-compose-manifest-signing-key}
+  SANDBOX_SERVICE_AUTH_KEY: ${SANDBOX_SERVICE_AUTH_KEY:-sandbox-local-compose-service-auth-key-v1}
+  SANDBOX_SERVICE_AUTH_KEY_ID: ${SANDBOX_SERVICE_AUTH_KEY_ID:-sandbox-v1}
+  SANDBOX_CONTEXT_SIGNING_KEY: ${SANDBOX_CONTEXT_SIGNING_KEY:-sandbox-local-compose-context-signing-key-v1}
+  SANDBOX_CONTEXT_SIGNING_KEY_ID: ${SANDBOX_CONTEXT_SIGNING_KEY_ID:-sandbox-context-v1}
+  SANDBOX_PROJECT_AI_FACTORY: ${SANDBOX_PROJECT_AI_FACTORY:-}
+  SANDBOX_GRAPH_SNAPSHOT_READER_FACTORY: ${SANDBOX_GRAPH_SNAPSHOT_READER_FACTORY:-sandbox_service.adapters.core_backend:create_core_backend_graph_snapshot_reader}
+  SANDBOX_ADOPTION_BRIDGE_FACTORY: ${SANDBOX_ADOPTION_BRIDGE_FACTORY:-sandbox_service.adapters.core_backend:create_core_backend_adoption_bridge}
+  SANDBOX_CORE_BACKEND_URL: ${SANDBOX_CORE_BACKEND_URL:-http://backend:8000}
+  SANDBOX_CORE_BACKEND_TIMEOUT_SECONDS: ${SANDBOX_CORE_BACKEND_TIMEOUT_SECONDS:-10}
+  SANDBOX_RUNTIME_IMAGE_DIGEST: ${SANDBOX_RUNTIME_IMAGE_DIGEST:-research-sandbox-runtime@sha256:0000000000000000000000000000000000000000000000000000000000000000}
+  SANDBOX_RUNTIME_IMAGE_NAME: ${SANDBOX_RUNTIME_IMAGE_NAME:-sandbox_runtime:latest}
+  SANDBOX_PACKAGE_MANIFEST_HASH: ${SANDBOX_PACKAGE_MANIFEST_HASH:-0000000000000000000000000000000000000000000000000000000000000000}
+  SANDBOX_DATA_VOLUME_NAME: ${SANDBOX_DATA_VOLUME_NAME:-research_sandbox_data}
+
+services:
+  sandbox-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: research_sandbox
+      POSTGRES_USER: sandbox
+      POSTGRES_PASSWORD: ${SANDBOX_POSTGRES_PASSWORD:-sandbox-local-only}
+    ports:
+      - "127.0.0.1:5441:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sandbox -d research_sandbox"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - sandbox_postgres_data:/var/lib/postgresql/data
+
+  sandbox-minio:
+    image: minio/minio:RELEASE.2025-04-22T22-12-26Z
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${SANDBOX_MINIO_ROOT_USER:-sandbox-minio}
+      MINIO_ROOT_PASSWORD: ${SANDBOX_MINIO_ROOT_PASSWORD:-sandbox-minio-local-only}
+    ports:
+      - "127.0.0.1:9001:9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - sandbox_minio_data:/data
+
+  sandbox-minio-init:
+    image: minio/mc:RELEASE.2025-04-16T18-13-26Z
+    depends_on:
+      sandbox-minio:
+        condition: service_healthy
+    environment:
+      MINIO_ROOT_USER: ${SANDBOX_MINIO_ROOT_USER:-sandbox-minio}
+      MINIO_ROOT_PASSWORD: ${SANDBOX_MINIO_ROOT_PASSWORD:-sandbox-minio-local-only}
+      SANDBOX_BUCKET: ${SANDBOX_OBJECT_STORAGE_BUCKET:-research-sandbox}
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >-
+        mc alias set sandbox http://sandbox-minio:9000 "$${MINIO_ROOT_USER}" "$${MINIO_ROOT_PASSWORD}" &&
+        mc mb --ignore-existing "sandbox/$${SANDBOX_BUCKET}"
+
+  sandbox-migrate:
+    build: .
+    command: alembic -c alembic.ini upgrade head
+    environment:
+      <<: *sandbox-environment
+    depends_on:
+      sandbox-postgres:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,noexec,nosuid
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    restart: "no"
+
+  # Prepare a daemon-visible workspace volume for the non-root worker. A path
+  # inside the worker container is not a valid bind source for Docker Desktop.
+  sandbox-data-init:
+    build: .
+    user: "0:0"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >-
+        set -eu;
+        mkdir -p /workspaces;
+        chown 10001:10001 /workspaces;
+        chmod 0700 /workspaces
+    volumes:
+      - type: volume
+        source: sandbox_data_volume
+        target: /workspaces
+    read_only: true
+    cap_drop: ["ALL"]
+    cap_add: ["CHOWN", "FOWNER"]
+    security_opt: ["no-new-privileges:true"]
+    restart: "no"
+
+  sandbox-control:
+    build: .
+    command:
+      - /bin/sh
+      - -c
+      - >-
+        export SANDBOX_RUNTIME_IMAGE_DIGEST="$$(cat /run/sandbox-runtime/image-ref)" &&
+        export SANDBOX_PACKAGE_MANIFEST_HASH="$$(cat /run/sandbox-runtime/package-manifest-hash)" &&
+        uvicorn sandbox_service.main:app --host 0.0.0.0 --port 8080 2>&1 |
+        tee -a /logs/sandbox-control.log
+    environment:
+      <<: *sandbox-environment
+    depends_on:
+      sandbox-migrate:
+        condition: service_completed_successfully
+      sandbox-minio-init:
+        condition: service_completed_successfully
+      sandbox-runtime-prepare:
+        condition: service_completed_successfully
+    ports:
+      - "127.0.0.1:8081:8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/readyz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m,noexec,nosuid
+    volumes:
+      - type: bind
+        source: ../logs
+        target: /logs
+      - sandbox_runtime_metadata:/run/sandbox-runtime:ro
+    group_add:
+      - "1000"
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    restart: unless-stopped
+
+  sandbox-worker:
+    build: .
+    command:
+      - /bin/sh
+      - -c
+      - >-
+        export SANDBOX_RUNTIME_IMAGE_DIGEST="$$(cat /run/sandbox-runtime/image-ref)" &&
+        export SANDBOX_PACKAGE_MANIFEST_HASH="$$(cat /run/sandbox-runtime/package-manifest-hash)" &&
+        python -m sandbox_service.worker.main 2>&1 |
+        tee -a /logs/sandbox-worker.log
+    environment:
+      <<: *sandbox-environment
+      SANDBOX_WORKER_FACTORY: sandbox_service.worker.factory:create_production_worker
+      SANDBOX_WORKER_ID: ${SANDBOX_WORKER_ID:-sandbox-worker-1}
+      SANDBOX_WORKER_LEASE_SECONDS: ${SANDBOX_WORKER_LEASE_SECONDS:-180}
+      SANDBOX_WORKER_POLL_SECONDS: ${SANDBOX_WORKER_POLL_SECONDS:-1}
+      SANDBOX_RUNTIME_WORKSPACE_PATH: ${SANDBOX_RUNTIME_WORKSPACE_PATH:-/var/lib/research-sandbox/workspaces}
+      SANDBOX_RUNTIME_SECCOMP_PATH: /app/sandbox_runtime/seccomp.json
+    depends_on:
+      sandbox-migrate:
+        condition: service_completed_successfully
+      sandbox-minio-init:
+        condition: service_completed_successfully
+      sandbox-runtime-prepare:
+        condition: service_completed_successfully
+      sandbox-data-init:
+        condition: service_completed_successfully
+    volumes:
+      - type: bind
+        source: ../logs
+        target: /logs
+      - type: volume
+        source: sandbox_data_volume
+        target: ${SANDBOX_RUNTIME_WORKSPACE_PATH:-/var/lib/research-sandbox/workspaces}
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: volume
+        source: sandbox_runtime_metadata
+        target: /run/sandbox-runtime
+        read_only: true
+    group_add:
+      - ${SANDBOX_DOCKER_GID:-999}
+      - "1000"
+    ports:
+      - "127.0.0.1:8090:8090"
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m,noexec,nosuid
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    restart: unless-stopped
+
+  sandbox-runtime-image:
+    build: ./sandbox_runtime
+    image: ${SANDBOX_RUNTIME_IMAGE_NAME:-sandbox_runtime:latest}
+    entrypoint: ["/bin/true"]
+    restart: "no"
+
+  # Resolve the freshly built local image to Docker's immutable sha256 image ID.
+  # Control and worker read the same sealed metadata before starting.
+  sandbox-runtime-prepare:
+    build: .
+    user: "0:0"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >-
+        set -eu;
+        docker image inspect --format '{{.Id}}' "$${SANDBOX_RUNTIME_IMAGE_NAME}" > /metadata/image-ref;
+        sha256sum /input/requirements.lock | cut -d ' ' -f 1 > /metadata/package-manifest-hash;
+        test "$$(wc -c < /metadata/image-ref)" -eq 72;
+        test "$$(wc -c < /metadata/package-manifest-hash)" -eq 65
+    environment:
+      SANDBOX_RUNTIME_IMAGE_NAME: ${SANDBOX_RUNTIME_IMAGE_NAME:-sandbox_runtime:latest}
+    depends_on:
+      sandbox-runtime-image:
+        condition: service_completed_successfully
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: ./sandbox_runtime/requirements.lock
+        target: /input/requirements.lock
+        read_only: true
+      - type: volume
+        source: sandbox_runtime_metadata
+        target: /metadata
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    restart: "no"
+
+volumes:
+  sandbox_postgres_data:
+  sandbox_minio_data:
+  sandbox_runtime_metadata:
+  sandbox_data_volume:
+    name: ${SANDBOX_DATA_VOLUME_NAME:-research_sandbox_data}

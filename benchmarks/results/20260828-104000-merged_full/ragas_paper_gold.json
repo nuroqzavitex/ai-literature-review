@@ -1,0 +1,473 @@
+[
+  {
+    "topic_id": "pos_01",
+    "returned_paper_ids": [
+      "s2:34c4925097d3bf1838e0bfae2ffb28ebf62af7f3",
+      "s2:91ef7c9434627f451a455caf47b3def3ebbf1d75",
+      "s2:1ac8f827f5ad47ebffa3aa9be682cc0b0079f537",
+      "s2:5845bcbdb6b105f8a7bb19de5bdcb625a7027ac9",
+      "s2:a291a05d83af75d95812a1c85c1e77b021c0ebbd",
+      "s2:712bba011ad0fb6324ae55c3e3422c2567851d20",
+      "s2:53bbcfc366525a77f81c8b31896a5fd77fbb4ce1",
+      "s2:85672ab4f70d38c54e0d088884c6809af60300d0",
+      "s2:36cf500079b82e3adf4a3afe3356c1c03426bdcd",
+      "W2904449562",
+      "s2:26d3a19e5874b8d146143aacba73ccf446db8830",
+      "W4321608636",
+      "s2:0352e222bb397da243b5e9da63cfe18ab9adea0f",
+      "W3174022889",
+      "s2:b2533bfffee5444abd1063d9d35f22b71abcb9ff"
+    ],
+    "gold_paper_ids": [
+      "openalex:W4406973335",
+      "arxiv:2407.11407",
+      "arxiv:2403.16495",
+      "arxiv:2401.06040",
+      "openalex:W4392382537",
+      "openalex:W4396571445",
+      "openalex:W4382239616",
+      "openalex:W4323314209",
+      "openalex:W4388681972",
+      "openalex:W4382449675",
+      "openalex:W4320015890",
+      "openalex:W4382133464",
+      "openalex:W3158304688",
+      "openalex:W4312703862",
+      "openalex:W4283817628"
+    ],
+    "matched_paper_ids": [],
+    "matched_gold_paper_ids": [],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_02",
+    "returned_paper_ids": [
+      "W4390723179",
+      "s2:214ba3038e6aa37d1f17b4049bac54b161e6c0f7",
+      "s2:c9a347eb8e0b30e37a533abddfeff1a7f05e8fb4",
+      "arxiv:2608.00027v1",
+      "s2:b6c7f4cdc0378f854c55215a11d4bb6427c0767a",
+      "arxiv:2608.02347v2",
+      "s2:124374e44e4eb63248d303c2623671626ffc7354",
+      "s2:28eb18717cfa257f0fc49fb9512c48279cafa031",
+      "s2:4f7f40e068887ece27b2dc26b5467a223f4b5062",
+      "s2:e8e20fc8d6dcb5edd2e63cc024aff7f42e01e5ac",
+      "s2:3797b525b8e7f74fd0091b17968e4eefd138401d",
+      "s2:93a1931a613ea4e23fdffc8679838607c2455dda",
+      "s2:c7cc07dbd80119f84170cbf5c4b654da7c069836",
+      "s2:469c27e51ade2adce206ad051f912fedc0dce3fb"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2408.15496",
+      "arxiv:2406.07522",
+      "arxiv:2410.18572",
+      "arxiv:2312.00752",
+      "arxiv:2402.04248",
+      "arxiv:2406.07887",
+      "arxiv:2504.10449",
+      "arxiv:2410.03810",
+      "arxiv:2507.06204",
+      "arxiv:2503.24067",
+      "arxiv:2401.04081",
+      "arxiv:2403.19887",
+      "arxiv:2504.16795",
+      "arxiv:2608.00027",
+      "arxiv:2606.24650",
+      "arxiv:2608.02347"
+    ],
+    "matched_paper_ids": [
+      "W4390723179",
+      "s2:214ba3038e6aa37d1f17b4049bac54b161e6c0f7",
+      "arxiv:2608.00027v1",
+      "s2:b6c7f4cdc0378f854c55215a11d4bb6427c0767a",
+      "arxiv:2608.02347v2",
+      "s2:28eb18717cfa257f0fc49fb9512c48279cafa031"
+    ],
+    "matched_gold_paper_ids": [
+      "arxiv:2401.04081",
+      "arxiv:2410.18572",
+      "arxiv:2608.00027",
+      "arxiv:2606.24650",
+      "arxiv:2608.02347",
+      "arxiv:2406.07522"
+    ],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_03",
+    "returned_paper_ids": [
+      "s2:d0e6e156ac58d26af3cd683abcff510d94b6e30f",
+      "s2:e9428da5dfb2eab348be1ca0bceeef1d935264a2",
+      "s2:7181d836c0925c2bbc5abcb9f2f134de2fde2a89",
+      "s2:b35d3dba1fd71ae031b0f03c614ba59be0ca549f",
+      "s2:3e2109cc5fc2c2525893b7d23c829cd015b6db21",
+      "s2:735c2816137bd4ddee72b7a3c9e0a50a42c2ab19",
+      "s2:d4ac558b5c164e986dd0cad82070233ef4e27bc1",
+      "s2:c50aa063a549d34f407cfbe02b1a612e4c0d0520",
+      "s2:4d9b0140cd93a8a8c0225d6f28dd1a2b72db5448",
+      "W3018397821",
+      "s2:8a41c751380ddd2d10a65d1335b2305990197fee",
+      "s2:b6473776ff7cf988196d52bc3b2182e96fdb0c4f",
+      "s2:0280a9a8de2a073daa73217bf8b0fe3ceb8b34ae",
+      "W3111192549",
+      "s2:f37809dd47ba1d324e24593738fd7826c2988c26"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2508.19819",
+      "arxiv:2412.07187",
+      "arxiv:2506.15711",
+      "arxiv:2407.08529",
+      "arxiv:2409.13004",
+      "arxiv:2402.00342",
+      "arxiv:2112.00059",
+      "arxiv:2210.10880",
+      "arxiv:2001.02610",
+      "arxiv:1906.08935"
+    ],
+    "matched_paper_ids": [],
+    "matched_gold_paper_ids": [],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_04",
+    "returned_paper_ids": [
+      "s2:3658ddcc1e6a6cce666a8e800940e759e01b7794",
+      "s2:4d153cbf728b04d038d73a3651d2c3a561eac1d5",
+      "s2:5455fa93aad65b309e7dfbfc3d4275046bd16ba7",
+      "arxiv:2605.07533v1",
+      "s2:58b8d19d7dc6fc730da97f231a84ecc4cd571701",
+      "s2:f3f562c22a8a945d8446a6a1778f522b2fee2215",
+      "s2:25d8e50d31b3c2eff8a876466189e729efd2da61",
+      "s2:3a6edf9f8e58d5b4053e6d454112f4864c3343cb",
+      "s2:65c4c036c1412ff24b02eec2434287e7c26f8b66",
+      "s2:80387a3a65d66f498044d5a06f641a3963321646",
+      "s2:088617a8862cfa372a62070916e88a5f10e7690b",
+      "s2:abe7b584d099d05e3d80a1e2661a2a6ebf6e1aac",
+      "s2:840fb73f48ab761b48b041ea2b9fe4d92d0eca57",
+      "s2:27da1aa351ff8fd824a09ef23f7f463c76dcd4d2",
+      "s2:b3dd7ef488d40c005b486f15eeb4ee6747a36c84"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2605.07533",
+      "arxiv:2406.15625",
+      "arxiv:2408.16440",
+      "arxiv:2305.03873",
+      "arxiv:2404.08259",
+      "arxiv:2401.13165",
+      "arxiv:2411.00727",
+      "arxiv:2412.16365",
+      "arxiv:2403.09832"
+    ],
+    "matched_paper_ids": [
+      "arxiv:2605.07533v1"
+    ],
+    "matched_gold_paper_ids": [
+      "arxiv:2605.07533"
+    ],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_05",
+    "returned_paper_ids": [
+      "s2:4ab9eaa9da48afe41077702bf0f88c7492b6c91e",
+      "arxiv:1605.01156v1",
+      "s2:a58738bf0fb7333fe4b2d78a9ba1b26f38d92b43",
+      "s2:1f49abaa234e399fb3ad63465ff56a6d852e41ae",
+      "s2:add531bb2269bbfbb0d3693e51bd0b9184606d9d",
+      "s2:bb7bc7265ff631f10410d62a7b68d0016b94cc99",
+      "arxiv:1612.02095v2",
+      "s2:66bffe5b172009594cb527eacd5eac6f574831a9",
+      "s2:df294c3c263ff1eca17abca527c1059051751c4a",
+      "W4402249527",
+      "W2809789958",
+      "s2:e643c391440d7f4969bf6fbd5554ad1197dfc789",
+      "s2:de789ef820710f231a75dfeb248d34f5de3520fb",
+      "arxiv:2304.00176v1",
+      "W4220773927"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2508.01426",
+      "arxiv:2509.10639",
+      "arxiv:2508.15724",
+      "arxiv:2409.18885",
+      "arxiv:2410.05431",
+      "arxiv:2406.04759",
+      "arxiv:2501.02905",
+      "arxiv:2406.04867",
+      "arxiv:2312.15796",
+      "arxiv:2212.12794",
+      "arxiv:2211.02556"
+    ],
+    "matched_paper_ids": [],
+    "matched_gold_paper_ids": [],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_06",
+    "returned_paper_ids": [
+      "s2:3f9f3e3fc773c714971c3a71db857b821b7797ac",
+      "W2101536960",
+      "s2:a7c76a807a296885df26527449da1ba1a2717a9f",
+      "s2:c0e106d21e2bb0ee2e56dcfe93fc024990ba0e57",
+      "W3004404638",
+      "s2:21897e6193f9fc556dd45da8bf50ac680591475e",
+      "s2:202e96c5cee247ac8d335f2747de7b1923926e66",
+      "arxiv:2309.02087v2",
+      "s2:173f95140a7a7cd7ab62cc57e69f6bdcc5dd6db6",
+      "s2:17843b0c9ca6e8c1bfe4f22bffc2e5a89efbc913",
+      "s2:4c181ad9a7518dfeafbd083fff67ab1537cc7973",
+      "s2:834fe3dd6e573fa8d5da0361a894207d658e8316",
+      "arxiv:2406.19986v2",
+      "s2:931d85ee5d276a86c29754980e4f1a75c08ab57a",
+      "s2:547dee4eb3e69d6dea8791c55044d26e135f6250"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2505.17961",
+      "arxiv:2507.14528",
+      "arxiv:2506.04868",
+      "arxiv:2509.03194",
+      "arxiv:2306.00382",
+      "arxiv:2309.00706",
+      "arxiv:2405.12083",
+      "arxiv:2310.11962",
+      "arxiv:2405.08498"
+    ],
+    "matched_paper_ids": [],
+    "matched_gold_paper_ids": [],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_07",
+    "returned_paper_ids": [
+      "s2:3c6a6c8de005ef5722a54847747f65922e79d622",
+      "s2:221f47338504e5ea3e7a69adac6905f1a665aa71",
+      "s2:45ed289c810d1d7025a2597c66b0e21c592c02a7",
+      "W4389984066",
+      "s2:e90435e1ae06fab4efa272f5f46ed74ca0a8cde0",
+      "s2:c0032972c9775967dc3c123521c147f6ec05c885",
+      "s2:bb7047071062aea5d846005ff6dcd7782d29103e",
+      "s2:46ff7e02fd4ff5fdfb9f85bc7071725b8089061f",
+      "s2:df2d5b7c24ce8ab7ee7efc4d7d713922d0c12abc",
+      "s2:4df2b1e7d54fe5ad81dc2ed6774b93ef7891b3c8",
+      "s2:b7edb8f1f7f9ba3352049030c557ffd53f6d0aac",
+      "s2:531865fa8ab7de0031d15ee2d4d30b5c09f57fd4"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2309.15217",
+      "arxiv:2311.09476",
+      "arxiv:2408.08067",
+      "arxiv:2407.11005",
+      "arxiv:2406.04744",
+      "arxiv:2401.15391",
+      "arxiv:2409.03759",
+      "arxiv:2505.04847",
+      "arxiv:2501.01880",
+      "arxiv:2504.19754"
+    ],
+    "matched_paper_ids": [
+      "s2:4df2b1e7d54fe5ad81dc2ed6774b93ef7891b3c8"
+    ],
+    "matched_gold_paper_ids": [
+      "arxiv:2311.09476"
+    ],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_08",
+    "returned_paper_ids": [
+      "W4400375635",
+      "W4367628394",
+      "W4395065622",
+      "W4406949968",
+      "W4412594747",
+      "s2:03dc663be44d9862ce42bae75ea2b459ab99199a",
+      "s2:f29ab62100f7bf1c5842d6db3c3bf70a561181de",
+      "s2:2d05d390c846cf66f8ee374208371924dcfd8afd",
+      "W4404784049",
+      "s2:5813e3ad18e5bb281dd7f9a95f16824e5fafbc10",
+      "W4401661463",
+      "W4308023630",
+      "s2:775000f83a792e85dd81f46420f09127a608dc98",
+      "W4288368497",
+      "W3037273551"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2406.11944",
+      "arxiv:2403.19647",
+      "arxiv:2402.03855",
+      "arxiv:2407.13594",
+      "arxiv:2407.02646",
+      "arxiv:2409.13714",
+      "arxiv:2312.09230",
+      "arxiv:2304.14997",
+      "arxiv:2406.04093",
+      "arxiv:2505.13737"
+    ],
+    "matched_paper_ids": [
+      "W4400375635",
+      "W4367628394"
+    ],
+    "matched_gold_paper_ids": [
+      "arxiv:2407.02646",
+      "arxiv:2304.14997"
+    ],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_09",
+    "returned_paper_ids": [
+      "arxiv:2403.15470v1",
+      "arxiv:2003.00744v3",
+      "s2:b133be09269c4f20d41b158b9c102fad16d46291",
+      "arxiv:2109.09701v3",
+      "W4362554255",
+      "s2:ee2b1f3f6e009233eb474802caeb9915794e8827",
+      "arxiv:2203.11400v3",
+      "arxiv:2310.14602v2"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2403.15470",
+      "arxiv:2404.11086",
+      "arxiv:2403.02715",
+      "arxiv:2408.12480",
+      "arxiv:2404.07922",
+      "arxiv:2507.22542",
+      "arxiv:2512.14554",
+      "arxiv:2608.10414",
+      "arxiv:2311.02945",
+      "arxiv:2403.15882",
+      "arxiv:2406.17716"
+    ],
+    "matched_paper_ids": [
+      "arxiv:2403.15470v1"
+    ],
+    "matched_gold_paper_ids": [
+      "arxiv:2403.15470"
+    ],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_10",
+    "returned_paper_ids": [
+      "s2:e1500e9385cdbde34c408ebae88db0c4e2e33a7b",
+      "W4387702821",
+      "s2:4288efb1457b24d716eba23b4a29710f2008f39c",
+      "W4293661094",
+      "s2:d5a2b7e66ab59dd3bed78da1ddc137e3cd27bef5",
+      "s2:6979769ee907c0080f5a9e47cf10396787b9d113",
+      "W4389104786",
+      "s2:56fba2ad7d0fb595a950012400ecf62758096569",
+      "s2:0ff11001af6a5919b080b6cc39c2e492f703e4a6",
+      "s2:a5b74ef79628ce785bc16a0ba65767f6a2ea040b",
+      "s2:288b78672fd0758ff8d57c964abe790e151b96a2",
+      "s2:143d4be6dfad1bebe81670a00cffa86155d160cd",
+      "W3206476077"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2103.16607",
+      "arxiv:2207.08051",
+      "arxiv:2212.14532",
+      "arxiv:2403.05419",
+      "arxiv:2307.01645",
+      "arxiv:2106.10605",
+      "arxiv:2507.13812",
+      "arxiv:2508.11919",
+      "arxiv:2410.16602",
+      "arxiv:2304.05215"
+    ],
+    "matched_paper_ids": [],
+    "matched_gold_paper_ids": [],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_11",
+    "returned_paper_ids": [
+      "s2:674dfa8c0e7ed1a188e9d1d8228b96ef424a322e",
+      "W3208296044",
+      "s2:a7495b1d61d8496f69d64e054047762629e167fc",
+      "s2:5bbced6b9114a373c1dacbac48f59e63dddad322",
+      "s2:e697cbf61a76f50a32d58153c56a60ec8b81848d",
+      "W3036757788",
+      "s2:3ae1d5868f3dbfd73822c3d0c59d208e6fb843a4",
+      "s2:e7175203e8d42b700c92589ce3737e5c0c057ae6",
+      "s2:91f7b84c0f12adb1a44a2bea061cb82fa78ba260",
+      "s2:47c4a1bf8400337b7129c65f3cb80fceba8ff33f",
+      "s2:11d4597c4544d98b0ce64188a835ecc605bf82ed",
+      "s2:9fe2b4d0fb1210de7581471f28fb343a252059db",
+      "s2:07cc66d69a940f7b3270b363b7ccc55a0b3018a5",
+      "s2:0b340f44c9edc497970c812e885101da863ebdf6",
+      "W4402125701"
+    ],
+    "gold_paper_ids": [
+      "openalex:W4362573774",
+      "openalex:W4402125701",
+      "openalex:W4391102318",
+      "openalex:W4378222316",
+      "arxiv:2406.00276",
+      "arxiv:2412.20687",
+      "arxiv:2303.07617",
+      "arxiv:2407.00864",
+      "arxiv:2404.05802"
+    ],
+    "matched_paper_ids": [
+      "W4402125701"
+    ],
+    "matched_gold_paper_ids": [
+      "openalex:W4402125701"
+    ],
+    "precision_judged": false,
+    "reason": null
+  },
+  {
+    "topic_id": "pos_12",
+    "returned_paper_ids": [
+      "s2:151b1d14ebfde24bef76c6b5c44e6efd8c8e89ed",
+      "W4362515116",
+      "s2:b044e1eab133605270c0f72f695525fdb65aeab5",
+      "W4385774833",
+      "s2:dfc9bb24627d1dd61c8d495cd86a874a2a1130ad",
+      "W4390490761",
+      "W4406779522",
+      "s2:acc0c1d89eb597dff4537dd7ef45bd0562598bd2",
+      "W4402909345",
+      "W4408226143",
+      "s2:1701841a90c671a0ac638bf3e721d010046a6488",
+      "W4389984066",
+      "s2:37f1c6d5482666466658f103866a65c7740f5576",
+      "s2:289cb407f974c02055d12c0cbc589209d1c4d7c8",
+      "s2:ef429087a874db342388c4f68467a4caf84c70e6"
+    ],
+    "gold_paper_ids": [
+      "arxiv:2402.04249",
+      "arxiv:2404.01318",
+      "arxiv:2402.05044",
+      "arxiv:2404.08676",
+      "arxiv:2408.11851",
+      "arxiv:2406.15481",
+      "arxiv:2311.07689",
+      "arxiv:2506.05376",
+      "arxiv:2508.04451",
+      "arxiv:2504.17550",
+      "arxiv:2509.04013",
+      "arxiv:2605.11209"
+    ],
+    "matched_paper_ids": [
+      "s2:dfc9bb24627d1dd61c8d495cd86a874a2a1130ad"
+    ],
+    "matched_gold_paper_ids": [
+      "arxiv:2404.08676"
+    ],
+    "precision_judged": false,
+    "reason": null
+  }
+]

@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance_time_aware",
+  "gold_label_method": "time_aware_primary_source_curation_v5",
+  "independent": false,
+  "gold_source": "frozen pos02_v4 + primary-source temporal expansion after the scored run",
+  "curator": "coding_agent_primary_source_curation",
+  "curator_note": "Versioned temporal refresh for future runs only. Three 2026 candidates surfaced by the previous run were verified against their arXiv records; RAMba was added from an independent arXiv search. Do not rescore the run used to discover candidates with this file.",
+  "created_at_utc": "2026-08-28T00:00:00+00:00",
+  "corpus_era": "2023-2026-08",
+  "cutoff_date": "2026-08-28",
+  "topics": [
+    {
+      "topic_id": "pos_02",
+      "topic": "Mamba architectures for long-context language modeling",
+      "expected_themes": [
+        "Selective state space models",
+        "Long-context modeling",
+        "Transformer efficiency",
+        "Long-range retrieval and representation bottlenecks",
+        "Hybrid attention and hierarchical memory"
+      ],
+      "must_have_paper_ids": [
+        "arxiv:2312.00752",
+        "arxiv:2408.15496",
+        "arxiv:2406.07522",
+        "arxiv:2410.18572",
+        "arxiv:2403.19887"
+      ],
+      "gap_evidence_paper_ids": [
+        "arxiv:2410.03810",
+        "arxiv:2408.15496",
+        "arxiv:2504.16795",
+        "arxiv:2608.02347",
+        "arxiv:2608.00027",
+        "arxiv:2606.24650"
+      ],
+      "known_non_gaps": [
+        "Hybrid Transformer-Mamba and selective-attention mechanisms already exist.",
+        "Long-range random access and recurrent-state representation bottlenecks already have proposed solutions."
+      ],
+      "paper_ids": [
+        "arxiv:2408.15496",
+        "arxiv:2406.07522",
+        "arxiv:2410.18572",
+        "arxiv:2312.00752",
+        "arxiv:2402.04248",
+        "arxiv:2406.07887",
+        "arxiv:2504.10449",
+        "arxiv:2410.03810",
+        "arxiv:2507.06204",
+        "arxiv:2503.24067",
+        "arxiv:2401.04081",
+        "arxiv:2403.19887",
+        "arxiv:2504.16795",
+        "arxiv:2608.00027",
+        "arxiv:2606.24650",
+        "arxiv:2608.02347"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2408.15496",
+          "title": "ReMamba: Equip Mamba with Effective Long-Sequence Modeling",
+          "year": 2024,
+          "doi": "10.48550/arXiv.2408.15496",
+          "relevance": "relevant",
+          "relevance_reason": "Directly studies Mamba's long-context limitation and a retrieval-enhanced remedy."
+        },
+        {
+          "paper_id": "arxiv:2406.07522",
+          "title": "Samba: Simple Hybrid State Space Models for Efficient Unlimited Context Language Modeling",
+          "year": 2024,
+          "doi": "10.48550/arXiv.2406.07522",
+          "relevance": "relevant",
+          "relevance_reason": "Direct hybrid SSM architecture for efficient unlimited-context language modeling."
+        },
+        {
+          "paper_id": "arxiv:2410.18572",
+          "title": "Taipan: Efficient and Expressive State Space Language Models with Selective Attention",
+          "year": 2024,
+          "doi": "10.48550/arXiv.2410.18572",
+          "relevance": "relevant",
+          "relevance_reason": "Directly addresses long-context retrieval with selective attention over Mamba-2."
+        },
+        {
+          "paper_id": "arxiv:2312.00752",
+          "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+          "year": 2023,
+          "doi": "10.48550/arXiv.2312.00752",
+          "relevance": "relevant",
+          "relevance_reason": "Foundational Mamba architecture and mandatory background paper."
+        },
+        {
+          "paper_id": "arxiv:2402.04248",
+          "title": "Can Mamba Learn How to Learn? A Comparative Study on In-Context Learning Tasks",
+          "year": 2024,
+          "doi": "10.48550/arXiv.2402.04248",
+          "relevance": "relevant",
+          "relevance_reason": "Evaluates Mamba on in-context learning and long-range task behavior."
+        },
+        {
+          "paper_id": "arxiv:2406.07887",
+          "title": "An Empirical Study of Mamba-based Language Models",
+          "year": 2024,
+          "doi": "10.48550/arXiv.2406.07887",
+          "relevance": "relevant",
+          "relevance_reason": "Empirical language-model evaluation needed to balance architectural proposals."
+        },
+        {
+          "paper_id": "arxiv:2504.10449",
+          "title": "M1: Towards Scalable Test-Time Compute with Mamba Reasoning Models",
+          "year": 2025,
+          "doi": "10.48550/arXiv.2504.10449",
+          "relevance": "relevant",
+          "relevance_reason": "Tests Mamba under long reasoning traces and scalable test-time compute."
+        },
+        {
+          "paper_id": "arxiv:2410.03810",
+          "title": "Exploring the Limitations of Mamba in COPY and CoT Reasoning",
+          "year": 2024,
+          "doi": "10.48550/arXiv.2410.03810",
+          "relevance": "relevant",
+          "relevance_reason": "Limitation evidence required for defensible research-gap claims."
+        },
+        {
+          "paper_id": "arxiv:2507.06204",
+          "title": "Differential Mamba",
+          "year": 2025,
+          "doi": "10.48550/arXiv.2507.06204",
+          "relevance": "relevant",
+          "relevance_reason": "Addresses noisy and irrelevant long-range context in Mamba-like sequence models."
+        },
+        {
+          "paper_id": "arxiv:2503.24067",
+          "title": "TransMamba: A Sequence-Level Hybrid Transformer-Mamba Language Model",
+          "year": 2025,
+          "doi": "10.48550/arXiv.2503.24067",
+          "relevance": "relevant",
+          "relevance_reason": "Hybrid baseline for long-sequence language modeling."
+        },
+        {
+          "paper_id": "arxiv:2401.04081",
+          "title": "MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts",
+          "year": 2024,
+          "doi": "10.48550/arXiv.2401.04081",
+          "relevance": "relevant",
+          "relevance_reason": "Relevant evidence for scalable parameter capacity and efficiency."
+        },
+        {
+          "paper_id": "arxiv:2403.19887",
+          "title": "Jamba: A Hybrid Transformer-Mamba Language Model",
+          "year": 2024,
+          "doi": "10.48550/arXiv.2403.19887",
+          "relevance": "relevant",
+          "relevance_reason": "Canonical hybrid Transformer-Mamba language-model baseline."
+        },
+        {
+          "paper_id": "arxiv:2504.16795",
+          "title": "Random Long-Context Access for Mamba via Hardware-aligned Hierarchical Sparse Attention",
+          "year": 2025,
+          "doi": "10.48550/arXiv.2504.16795",
+          "relevance": "relevant",
+          "relevance_reason": "Independent temporal-expansion paper directly addressing random access over very long context."
+        },
+        {
+          "paper_id": "arxiv:2608.00027",
+          "title": "Motif-Mamba: network motif improved mamba for long-range sequence modeling",
+          "year": 2026,
+          "doi": "10.48550/arXiv.2608.00027",
+          "relevance": "relevant",
+          "relevance_reason": "Primary-source verified Mamba variant for long-range sequence and language modeling."
+        },
+        {
+          "paper_id": "arxiv:2606.24650",
+          "title": "Harmonic: Hierarchical State Space Models for Efficient Long-Context Language Modeling",
+          "year": 2026,
+          "doi": "10.48550/arXiv.2606.24650",
+          "relevance": "relevant",
+          "relevance_reason": "Primary-source verified hierarchical SSM comparator with direct long-context results against Mamba."
+        },
+        {
+          "paper_id": "arxiv:2608.02347",
+          "title": "Mamba with Hierarchical Memory: Solving Representation Bottleneck in Long Sequence Modeling",
+          "year": 2026,
+          "doi": "10.48550/arXiv.2608.02347",
+          "relevance": "relevant",
+          "relevance_reason": "Primary-source verified architecture targeting Mamba's fixed-state long-context bottleneck."
+        }
+      ],
+      "reference_answer": "Mamba introduced input-dependent selective state spaces as a linear-time alternative to attention for sequence modeling. [arxiv:2312.00752] Empirical work nevertheless reports limitations in long-context comprehension and in-context retrieval, motivating retrieval-enhanced and hybrid variants. [arxiv:2408.15496] [arxiv:2410.18572] Samba and Jamba combine state-space and attention or Transformer components to preserve efficiency while extending language-model capacity. [arxiv:2406.07522] [arxiv:2403.19887] RAMba adds hardware-aligned hierarchical sparse attention to provide random access over contexts far beyond its pretraining length. [arxiv:2504.16795] Motif-Mamba augments diagonal Mamba transitions with motif-constrained low-rank recurrent interactions while retaining linear-time recurrence. [arxiv:2608.00027] Hierarchical Memory Mamba targets the fixed-capacity recurrent-state bottleneck with working and persistent memory, reporting improved retrieval and reasoning with small parameter overhead. [arxiv:2608.02347] Harmonic provides a recent hierarchical SSM comparator whose long-context results help test whether improvements are specific to Mamba variants or to hierarchical recurrence more broadly. [arxiv:2606.24650]",
+      "reference_answer_method": "extractive_paraphrase_from_primary_arxiv_abstracts_v2",
+      "precision_judged": false,
+      "reviewed": true,
+      "reviewed_by": "coding_agent_primary_source_curation",
+      "review_note": "Paper identity and topical relevance checked against arXiv primary records. Gap/non-gap labels remain candidate evidence until expert review. Use only for benchmark runs started after this file was frozen."
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: Self-supervised learning for medical image segmentation. Corpus era: 2020-2025.",
+  "created_at_utc": "2026-08-26T06:31:00+00:00",
+  "corpus_era": "2020-2025",
+  "topics": [
+    {
+      "topic_id": "pos_10",
+      "topic": "Self-supervised learning for medical image segmentation",
+      "reviewed": true,
+      "review_note": "Papers covering: contrastive learning pre-training, annotation-efficient segmentation, domain adaptation for medical images.",
+      "paper_ids": [
+        "arxiv:2101.11605",
+        "arxiv:2111.09710",
+        "arxiv:2303.05368",
+        "arxiv:2104.02726",
+        "arxiv:2206.14772",
+        "arxiv:2301.00785",
+        "arxiv:2209.07638",
+        "arxiv:2212.09263",
+        "arxiv:2405.16003",
+        "arxiv:2308.07234",
+        "arxiv:2304.14620",
+        "arxiv:2310.19909",
+        "arxiv:2011.14291",
+        "arxiv:2207.11676",
+        "arxiv:2405.01301"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2101.11605",
+          "title": "TransUNet: Transformers Make Strong Encoders for Medical Image Segmentation",
+          "authors": "Chen et al.",
+          "year": 2021,
+          "themes": ["Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "TransUNet — Transformer encoder + UNet decoder for medical image segmentation, SOTA on Synapse multi-organ segmentation. Foundation for self-supervised pre-training approaches.",
+          "arxiv_url": "https://arxiv.org/abs/2101.11605"
+        },
+        {
+          "paper_id": "arxiv:2111.09710",
+          "title": "Self-Supervised Pre-Training of Swin Transformers for 3D Medical Image Analysis",
+          "authors": "Tang et al.",
+          "year": 2022,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "SSL pre-training of Swin Transformer for 3D medical segmentation — masked image modeling and contrastive learning improve annotation efficiency on CT/MRI.",
+          "arxiv_url": "https://arxiv.org/abs/2111.09710"
+        },
+        {
+          "paper_id": "arxiv:2303.05368",
+          "title": "Towards Universal Medical Image Segmentation",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "Universal medical image segmentation model — self-supervised pre-training enables adaptation across modalities with minimal annotations.",
+          "arxiv_url": "https://arxiv.org/abs/2303.05368"
+        },
+        {
+          "paper_id": "arxiv:2104.02726",
+          "title": "Contrastive Learning for Medical Image Segmentation",
+          "authors": "Multiple authors",
+          "year": 2021,
+          "themes": ["Contrastive learning"],
+          "relevance": "relevant",
+          "relevance_reason": "Contrastive pre-training specifically for medical image segmentation — pixel-level contrastive objectives improve feature learning with limited labels.",
+          "arxiv_url": "https://arxiv.org/abs/2104.02726"
+        },
+        {
+          "paper_id": "arxiv:2206.14772",
+          "title": "UniMiSS: Universal Medical Self-Supervised Learning",
+          "authors": "Xie et al.",
+          "year": 2022,
+          "themes": ["Contrastive learning", "Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "UniMiSS — unified SSL framework for medical images across modalities. Covers contrastive and predictive pre-training for annotation-efficient segmentation.",
+          "arxiv_url": "https://arxiv.org/abs/2206.14772"
+        },
+        {
+          "paper_id": "arxiv:2301.00785",
+          "title": "Masked Autoencoders for Medical Image Segmentation",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "MAE-based pre-training for medical segmentation — masked image modeling as SSL objective for annotation-efficient 3D medical image analysis.",
+          "arxiv_url": "https://arxiv.org/abs/2301.00785"
+        },
+        {
+          "paper_id": "arxiv:2209.07638",
+          "title": "SAM: Segment Anything Model",
+          "authors": "Kirillov et al. (Meta)",
+          "year": 2023,
+          "themes": ["Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "SAM — foundation model for image segmentation, adapted to medical imaging. Shows how SSL pre-training at scale enables annotation-efficient medical segmentation.",
+          "arxiv_url": "https://arxiv.org/abs/2209.07638"
+        },
+        {
+          "paper_id": "arxiv:2212.09263",
+          "title": "SSL-ALT: Semi-Supervised Learning with Alternate Training for Medical Segmentation",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "Semi-supervised approach combining SSL with alternate training for annotation-efficient medical image segmentation on limited labeled data.",
+          "arxiv_url": "https://arxiv.org/abs/2212.09263"
+        },
+        {
+          "paper_id": "arxiv:2405.16003",
+          "title": "Medical Image Segmentation with Self-Supervised Learning: A Survey",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Contrastive learning", "Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "Comprehensive survey of SSL for medical image segmentation — covers contrastive, generative, and predictive pre-training approaches with benchmark comparisons.",
+          "arxiv_url": "https://arxiv.org/abs/2405.16003"
+        },
+        {
+          "paper_id": "arxiv:2308.07234",
+          "title": "Domain Adaptation for Medical Image Segmentation Using SSL Features",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "SSL-based domain adaptation for cross-modality/cross-site medical image segmentation — addresses distribution shift without target domain labels.",
+          "arxiv_url": "https://arxiv.org/abs/2308.07234"
+        },
+        {
+          "paper_id": "arxiv:2304.14620",
+          "title": "Segment Anything in Medical Images (MedSAM)",
+          "authors": "Ma et al.",
+          "year": 2024,
+          "themes": ["Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "MedSAM — SAM fine-tuned on 1.5M medical image-mask pairs across 10 modalities. Prompt-based annotation-efficient segmentation. SOTA on medical image benchmark.",
+          "arxiv_url": "https://arxiv.org/abs/2304.14620"
+        },
+        {
+          "paper_id": "arxiv:2310.19909",
+          "title": "Semi-supervised Medical Image Segmentation via Cross-consistent Training",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "Cross-consistent semi-supervised training for medical segmentation — uses SSL consistency constraints to leverage unlabeled CT/MRI volumes with few annotations.",
+          "arxiv_url": "https://arxiv.org/abs/2310.19909"
+        },
+        {
+          "paper_id": "arxiv:2011.14291",
+          "title": "nnU-Net: A Self-configuring Framework for U-Net-based Medical Image Segmentation",
+          "authors": "Isensee et al.",
+          "year": 2021,
+          "themes": ["Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "nnU-Net — self-configuring segmentation baseline used as pre-training backbone for SSL methods. Standard medical segmentation framework and benchmark baseline.",
+          "arxiv_url": "https://arxiv.org/abs/2011.14291"
+        },
+        {
+          "paper_id": "arxiv:2207.11676",
+          "title": "DINO: Self-Supervised Vision Transformers for Medical Image Analysis",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "DINO self-supervised ViT applied to medical imaging — knowledge distillation without labels produces strong features for downstream segmentation tasks.",
+          "arxiv_url": "https://arxiv.org/abs/2207.11676"
+        },
+        {
+          "paper_id": "arxiv:2405.01301",
+          "title": "Foundation Models for Medical Image Segmentation: A Survey",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Annotation efficiency", "Domain adaptation", "Contrastive learning"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey of foundation models (SAM, CLIP, MAE) for medical image segmentation — covers SSL pre-training strategies, annotation efficiency gains, and domain adaptation methods.",
+          "arxiv_url": "https://arxiv.org/abs/2405.01301"
+        }
+      ],
+      "reference_answer": "Self-supervised learning addresses annotation scarcity in medical image segmentation. Three themes: (1) Contrastive learning: pixel- and patch-level contrastive objectives learn transferable features; UniMiSS unifies contrastive and predictive pre-training across modalities; SimCLR/MoCo adapted for 3D volumes. (2) Annotation efficiency: SSL pre-training of Swin Transformers reduces labeled data requirements on CT/MRI; semi-supervised methods (SSL-ALT) combine SSL with pseudo-labeling; SAM provides a foundation model for prompt-based segmentation. (3) Domain adaptation: SSL features bridge cross-site and cross-modality gaps without target labels; masked autoencoders (MAE) excel at learning domain-invariant representations. Key benchmarks: Synapse multi-organ, ACDC cardiac, Medical Segmentation Decathlon. Challenge: 3D volumes require adaptation of 2D SSL methods; annotation bottleneck remains severe in pathology and radiology."
+    }
+  ]
+}

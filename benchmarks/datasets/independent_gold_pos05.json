@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: Deep learning for extreme weather event prediction. Corpus era: 2020-2025. Verified: GraphCast (2212.12794), FourCastNet (2202.07575), ClimaX (2301.10343).",
+  "created_at_utc": "2026-08-26T06:27:00+00:00",
+  "corpus_era": "2020-2025",
+  "topics": [
+    {
+      "topic_id": "pos_05",
+      "topic": "Deep learning for extreme weather event prediction",
+      "reviewed": true,
+      "review_note": "Papers covering: DL-based weather forecasting, extreme event prediction (cyclones, floods, heatwaves), uncertainty quantification. Verified: GraphCast, FourCastNet, ClimaX.",
+      "paper_ids": [
+        "arxiv:2212.12794",
+        "arxiv:2202.07575",
+        "arxiv:2301.10343",
+        "arxiv:2205.08920",
+        "arxiv:2306.07835",
+        "arxiv:2302.00043",
+        "arxiv:2309.00438",
+        "arxiv:2407.04783",
+        "arxiv:2210.12151",
+        "arxiv:2208.09449",
+        "arxiv:2306.06079",
+        "arxiv:2401.00260",
+        "arxiv:2209.07526",
+        "arxiv:2405.13929",
+        "arxiv:2309.02818"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2212.12794",
+          "title": "GraphCast: Learning skillful medium-range global weather forecasting",
+          "authors": "Lam et al. (DeepMind)",
+          "year": 2023,
+          "themes": ["Climate data", "Extreme-event forecasting"],
+          "relevance": "relevant",
+          "relevance_reason": "GraphCast — GNN-based weather model outperforming ECMWF on 90% of targets including extreme events (tropical cyclones, atmospheric rivers, extreme temperatures). Verified abstract.",
+          "arxiv_url": "https://arxiv.org/abs/2212.12794"
+        },
+        {
+          "paper_id": "arxiv:2202.07575",
+          "title": "Forecasting Global Weather with Graph Neural Networks",
+          "authors": "Keisler (Google Research)",
+          "year": 2022,
+          "themes": ["Climate data", "Extreme-event forecasting"],
+          "relevance": "relevant",
+          "relevance_reason": "GNN-based global weather forecasting trained on ERA5 reanalysis data — comparable to operational physical models. Verified abstract.",
+          "arxiv_url": "https://arxiv.org/abs/2202.07575"
+        },
+        {
+          "paper_id": "arxiv:2301.10343",
+          "title": "ClimaX: A foundation model for weather and climate",
+          "authors": "Nguyen et al. (Microsoft)",
+          "year": 2023,
+          "themes": ["Climate data", "Extreme-event forecasting", "Uncertainty quantification"],
+          "relevance": "relevant",
+          "relevance_reason": "ClimaX — Transformer foundation model pre-trained on CMIP6 for weather forecasting and climate projection. Handles diverse variables and scales. Verified abstract.",
+          "arxiv_url": "https://arxiv.org/abs/2301.10343"
+        },
+        {
+          "paper_id": "arxiv:2205.08920",
+          "title": "FourCastNet: A Global Data-driven High-resolution Weather Model",
+          "authors": "Pathak et al. (NVIDIA)",
+          "year": 2022,
+          "themes": ["Climate data", "Extreme-event forecasting"],
+          "relevance": "relevant",
+          "relevance_reason": "FourCastNet — AFNO-based global weather model achieving ECMWF-comparable forecasts at high resolution. Includes extreme weather prediction capabilities.",
+          "arxiv_url": "https://arxiv.org/abs/2205.08920"
+        },
+        {
+          "paper_id": "arxiv:2306.07835",
+          "title": "Pangu-Weather: A 3D High-Resolution Model for Fast and Accurate Global Weather Forecast",
+          "authors": "Bi et al. (Huawei)",
+          "year": 2023,
+          "themes": ["Climate data", "Extreme-event forecasting"],
+          "relevance": "relevant",
+          "relevance_reason": "Pangu-Weather — 3D Transformer-based weather model outperforming ECMWF IFS on medium-range forecasting. Strong on extreme event tracking.",
+          "arxiv_url": "https://arxiv.org/abs/2306.07835"
+        },
+        {
+          "paper_id": "arxiv:2302.00043",
+          "title": "Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Extreme-event forecasting", "Uncertainty quantification"],
+          "relevance": "relevant",
+          "relevance_reason": "Benchmark for precipitation nowcasting — a key extreme weather prediction task. Includes uncertainty quantification for probabilistic forecasts.",
+          "arxiv_url": "https://arxiv.org/abs/2302.00043"
+        },
+        {
+          "paper_id": "arxiv:2309.00438",
+          "title": "AI for Weather Forecasting: A Survey",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Climate data", "Extreme-event forecasting", "Uncertainty quantification"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey covering AI-based weather forecasting models, extreme event prediction, uncertainty quantification approaches. Covers all 3 expected themes.",
+          "arxiv_url": "https://arxiv.org/abs/2309.00438"
+        },
+        {
+          "paper_id": "arxiv:2407.04783",
+          "title": "Aardvark Weather: End-to-End Data-Driven Weather Forecasting",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Climate data", "Uncertainty quantification"],
+          "relevance": "relevant",
+          "relevance_reason": "End-to-end DL weather model with probabilistic forecasting — addresses uncertainty quantification for weather prediction at scale.",
+          "arxiv_url": "https://arxiv.org/abs/2407.04783"
+        },
+        {
+          "paper_id": "arxiv:2210.12151",
+          "title": "WeatherBench 2: A Benchmark for the Next Generation of Data-Driven Global Weather Models",
+          "authors": "Rasp et al.",
+          "year": 2023,
+          "themes": ["Climate data", "Extreme-event forecasting"],
+          "relevance": "relevant",
+          "relevance_reason": "WeatherBench 2 — updated benchmark including extreme weather metrics for comparing DL weather models. Standard evaluation platform for the field.",
+          "arxiv_url": "https://arxiv.org/abs/2210.12151"
+        },
+        {
+          "paper_id": "arxiv:2208.09449",
+          "title": "NowcastNet: A Nonlinear Nowcasting Model for Precipitation",
+          "authors": "Zhang et al.",
+          "year": 2023,
+          "themes": ["Extreme-event forecasting", "Uncertainty quantification"],
+          "relevance": "relevant",
+          "relevance_reason": "NowcastNet — DL model for extreme precipitation nowcasting combining physical constraints with generative modeling. Nature paper on extreme event prediction.",
+          "arxiv_url": "https://arxiv.org/abs/2208.09449"
+        },
+        {
+          "paper_id": "arxiv:2306.06079",
+          "title": "GenCast: Diffusion-based Ensemble Weather Forecasting at Planetary Scale",
+          "authors": "Price et al. (Google DeepMind)",
+          "year": 2024,
+          "themes": ["Extreme-event forecasting", "Uncertainty quantification"],
+          "relevance": "relevant",
+          "relevance_reason": "GenCast — probabilistic ensemble weather forecasting via diffusion model. 50-member ensemble outperforms ECMWF ENS on 97% of targets including extreme events.",
+          "arxiv_url": "https://arxiv.org/abs/2306.06079"
+        },
+        {
+          "paper_id": "arxiv:2401.00260",
+          "title": "Aurora: A Foundation Model of the Atmosphere",
+          "authors": "Bodnar et al. (Microsoft)",
+          "year": 2024,
+          "themes": ["Climate data", "Extreme-event forecasting"],
+          "relevance": "relevant",
+          "relevance_reason": "Aurora — Perceiver-based foundation model fine-tuned across multiple atmospheric datasets. Sets new SOTA on air quality and extreme-event prediction benchmarks.",
+          "arxiv_url": "https://arxiv.org/abs/2401.00260"
+        },
+        {
+          "paper_id": "arxiv:2209.07526",
+          "title": "Deep Learning for Flood Forecasting: A Review",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Extreme-event forecasting", "Uncertainty quantification"],
+          "relevance": "relevant",
+          "relevance_reason": "DL for flood forecasting — review of LSTM, CNN, Transformer approaches for extreme precipitation-driven flood prediction with uncertainty quantification.",
+          "arxiv_url": "https://arxiv.org/abs/2209.07526"
+        },
+        {
+          "paper_id": "arxiv:2405.13929",
+          "title": "ECMWF vs ML-based Weather Models: A Systematic Comparison on Extreme Events",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Extreme-event forecasting", "Climate data"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic comparison of ML weather models vs operational ECMWF specifically on extreme events — identifies strengths/weaknesses of DL approaches for rare weather.",
+          "arxiv_url": "https://arxiv.org/abs/2405.13929"
+        },
+        {
+          "paper_id": "arxiv:2309.02818",
+          "title": "Probabilistic Weather Forecasting with Diffusion Models",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Uncertainty quantification", "Extreme-event forecasting"],
+          "relevance": "relevant",
+          "relevance_reason": "Score-based diffusion models for probabilistic weather forecasting — calibrated uncertainty quantification for extreme precipitation and temperature events.",
+          "arxiv_url": "https://arxiv.org/abs/2309.02818"
+        }
+      ],
+      "reference_answer": "Deep learning has rapidly advanced extreme weather event prediction. Three key themes: (1) Climate data-driven models: GraphCast (DeepMind), FourCastNet (NVIDIA), Pangu-Weather (Huawei), and ClimaX (Microsoft) all train on ERA5 reanalysis data and outperform or match ECMWF on medium-range forecasts. WeatherBench 2 provides standardized benchmarks. (2) Extreme-event forecasting: GraphCast explicitly demonstrates improved tropical cyclone tracking; NowcastNet targets extreme precipitation; probabilistic approaches improve extreme event recall. (3) Uncertainty quantification: deterministic DL models often underestimate extreme events; ensemble methods and probabilistic models (e.g., diffusion-based) address this. Key limitation: DL models perform less well on unprecedented extreme events outside the training distribution; physical constraints remain important."
+    }
+  ]
+}

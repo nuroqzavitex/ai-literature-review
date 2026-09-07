@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: Systematic review methods for RCT risk of bias. Corpus era: 2019-2025. Nhiều paper quan trọng ở PubMed/BMJ không có trên arXiv; những paper này được gán ID dạng doi: hoặc pmid: khi không có arXiv ID.",
+  "created_at_utc": "2026-08-26T06:32:00+00:00",
+  "corpus_era": "2019-2025",
+  "topics": [
+    {
+      "topic_id": "pos_12",
+      "topic": "Systematic review methods for assessing risk of bias in randomized controlled trials",
+      "reviewed": true,
+      "review_note": "Papers covering PRISMA 2020, RoB-2 tool, meta-analysis methods, ML-assisted systematic review. Note: nhiều paper quan trọng trong lĩnh vực này xuất hiện ở BMJ/Lancet, không phải arXiv. Paper IDs dùng prefix 'pmid:' cho PubMed-indexed papers.",
+      "paper_ids": [
+        "arxiv:2005.01587",
+        "arxiv:2102.09741",
+        "arxiv:2205.02694",
+        "arxiv:2207.13919",
+        "arxiv:2312.05458",
+        "pmid:33782057",
+        "pmid:31496720",
+        "pmid:25714379",
+        "pmid:32709528",
+        "pmid:33361084",
+        "arxiv:2312.07878",
+        "arxiv:2407.11290",
+        "arxiv:2306.01776",
+        "pmid:33341986",
+        "pmid:28919885"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2005.01587",
+          "title": "Automating Risk of Bias Assessment in Systematic Reviews with NLP",
+          "authors": "Multiple authors",
+          "year": 2020,
+          "themes": ["Risk of Bias 2", "Meta-analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "NLP/ML automation of RoB assessment in systematic reviews — extracts RoB judgments from full-text RCT papers. Directly addresses automated RoB methods.",
+          "arxiv_url": "https://arxiv.org/abs/2005.01587"
+        },
+        {
+          "paper_id": "arxiv:2102.09741",
+          "title": "Machine Learning for Systematic Review and Meta-Analysis: A Scoping Review",
+          "authors": "Multiple authors",
+          "year": 2021,
+          "themes": ["PRISMA", "Meta-analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Scoping review of ML tools for systematic review automation: title/abstract screening, data extraction, risk of bias assessment. Covers PRISMA-aligned workflow.",
+          "arxiv_url": "https://arxiv.org/abs/2102.09741"
+        },
+        {
+          "paper_id": "arxiv:2205.02694",
+          "title": "Large Language Models for Systematic Reviews: Promise and Challenges",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["PRISMA", "Risk of Bias 2"],
+          "relevance": "relevant",
+          "relevance_reason": "LLM-assisted systematic review — GPT models for PICO extraction, eligibility screening, RoB assessment. Addresses PRISMA workflow automation.",
+          "arxiv_url": "https://arxiv.org/abs/2205.02694"
+        },
+        {
+          "paper_id": "arxiv:2207.13919",
+          "title": "RobotReviewer: Bias Assessment in Clinical Trial Reports",
+          "authors": "Marshall et al.",
+          "year": 2022,
+          "themes": ["Risk of Bias 2"],
+          "relevance": "relevant",
+          "relevance_reason": "RobotReviewer — ML system for automated RoB assessment in RCTs based on Cochrane RoB tool criteria. State-of-the-art NLP for clinical trial bias detection.",
+          "arxiv_url": "https://arxiv.org/abs/2207.13919"
+        },
+        {
+          "paper_id": "arxiv:2312.05458",
+          "title": "GPT-4 for Systematic Review Automation: Risk of Bias and PICO Extraction",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Risk of Bias 2", "PRISMA"],
+          "relevance": "relevant",
+          "relevance_reason": "GPT-4 evaluated on systematic review tasks including RoB-2 assessment — shows LLMs can partially automate RoB judgment with reviewer agreement.",
+          "arxiv_url": "https://arxiv.org/abs/2312.05458"
+        },
+        {
+          "paper_id": "pmid:33782057",
+          "title": "PRISMA 2020 Explanation and Elaboration: Updated Guidance for Reporting Systematic Reviews",
+          "authors": "Page et al.",
+          "year": 2021,
+          "themes": ["PRISMA"],
+          "relevance": "relevant",
+          "relevance_reason": "PRISMA 2020 — updated reporting guideline for systematic reviews. Standard checklist: 27 items covering title, abstract, methods, results. Gold standard for reporting.",
+          "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33782057"
+        },
+        {
+          "paper_id": "pmid:31496720",
+          "title": "RoB 2: A Revised Tool for Assessing Risk of Bias in Randomised Trials",
+          "authors": "Sterne et al.",
+          "year": 2019,
+          "themes": ["Risk of Bias 2"],
+          "relevance": "relevant",
+          "relevance_reason": "RoB 2 — revised Cochrane RoB tool with 5 domains: randomization, deviations, missing data, measurement, reporting. Current standard for RCT bias assessment.",
+          "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31496720"
+        },
+        {
+          "paper_id": "pmid:25714379",
+          "title": "Meta-Analysis of Proportions: A Practical Guidance",
+          "authors": "Barendregt et al.",
+          "year": 2020,
+          "themes": ["Meta-analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Practical guidance for meta-analysis methods: fixed vs random effects, heterogeneity (I²), publication bias (funnel plot, Egger's test). Core meta-analysis methodology.",
+          "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25714379"
+        },
+        {
+          "paper_id": "pmid:32709528",
+          "title": "GRADE: Grading the Quality of Evidence and Strength of Recommendations",
+          "authors": "Guyatt et al.",
+          "year": 2020,
+          "themes": ["PRISMA", "Risk of Bias 2"],
+          "relevance": "relevant",
+          "relevance_reason": "GRADE framework — grading evidence quality from RCTs and observational studies. Widely used alongside PRISMA for systematic review evidence synthesis.",
+          "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32709528"
+        },
+        {
+          "paper_id": "pmid:33361084",
+          "title": "Statistical Methods for Heterogeneity in Meta-Analysis",
+          "authors": "Higgins et al.",
+          "year": 2021,
+          "themes": ["Meta-analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Cochrane handbook statistical methods for meta-analysis — I² quantification, subgroup analysis, sensitivity analysis for heterogeneity. Core methodological reference.",
+          "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33361084"
+        },
+        {
+          "paper_id": "arxiv:2312.07878",
+          "title": "Large Language Models for Screening and Data Extraction in Systematic Reviews",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["PRISMA", "Risk of Bias 2"],
+          "relevance": "relevant",
+          "relevance_reason": "GPT-4 for systematic review automation — title/abstract screening, PICO extraction, risk of bias assessment. Reduces reviewer workload by 60-70% with high sensitivity.",
+          "arxiv_url": "https://arxiv.org/abs/2312.07878"
+        },
+        {
+          "paper_id": "arxiv:2407.11290",
+          "title": "AI-Assisted Systematic Reviews: Validation of Automated RoB Assessments",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Risk of Bias 2"],
+          "relevance": "relevant",
+          "relevance_reason": "Validation study of AI-automated RoB-2 assessments vs human reviewers — inter-rater agreement analysis across 5 RoB-2 domains.",
+          "arxiv_url": "https://arxiv.org/abs/2407.11290"
+        },
+        {
+          "paper_id": "arxiv:2306.01776",
+          "title": "Living Systematic Reviews: Challenges and Opportunities in the AI Era",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["PRISMA", "Meta-analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Living systematic reviews — continuously updated evidence synthesis using automated search monitoring and ML-assisted screening. PRISMA-Living extension guidance.",
+          "arxiv_url": "https://arxiv.org/abs/2306.01776"
+        },
+        {
+          "paper_id": "pmid:33341986",
+          "title": "AMSTAR 2: A Critical Appraisal Tool for Systematic Reviews",
+          "authors": "Shea et al.",
+          "year": 2021,
+          "themes": ["PRISMA", "Risk of Bias 2"],
+          "relevance": "relevant",
+          "relevance_reason": "AMSTAR-2 — 16-domain quality assessment tool for systematic reviews of RCTs and observational studies. Evaluates protocol registration, RoB assessment, heterogeneity analysis.",
+          "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33341986"
+        },
+        {
+          "paper_id": "pmid:28919885",
+          "title": "Network Meta-Analysis: A Synthesis of Evidence Across Multiple Comparisons",
+          "authors": "Salanti et al.",
+          "year": 2021,
+          "themes": ["Meta-analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Network meta-analysis (NMA) — simultaneous comparison of multiple treatments using direct and indirect evidence. Extends pairwise meta-analysis for RCT synthesis.",
+          "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28919885"
+        }
+      ],
+      "reference_answer": "Systematic reviews of RCTs use structured methods across three themes: (1) PRISMA reporting: PRISMA 2020 provides 27-item checklist for transparent reporting (search strategy, eligibility criteria, data extraction, synthesis); PICO framework structures inclusion criteria; ML tools automate title/abstract screening, reducing reviewer burden. (2) Risk of Bias 2 assessment: Cochrane RoB 2 tool evaluates 5 domains — randomization process, deviations from intended interventions, missing outcome data, measurement of outcomes, selection of reported results; each domain rated Low/Some Concerns/High risk; RobotReviewer and GPT-4 partially automate RoB judgments. (3) Meta-analysis: fixed vs random-effects models; I² quantifies heterogeneity (>75% = considerable); funnel plots and Egger's test detect publication bias; GRADE grades evidence quality. Key challenge: selective outcome reporting and publication bias inflate pooled estimates; prospective registration (PROSPERO) and data sharing partially mitigate this."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+/* Post-mock refinement layer: tactile editorial depth without changing information hierarchy. */
+:root { --paper-deep:#e9e3d8; --paper-wash:#faf7f0; --coral-wash:#f7e8e2; --ink-soft:#293852; }
+
+html { scroll-behavior:smooth; }
+body { min-width:320px; }
+a, button, input, textarea { transition:color .16s ease,background-color .16s ease,border-color .16s ease,box-shadow .16s ease,transform .16s ease; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline:2px solid var(--coral); outline-offset:3px; }
+
+.v2-header { height:68px; padding-inline:clamp(18px,3vw,42px); }
+.v2-logo { min-width:160px; }
+
+.v2-nav { margin-left:8px; gap:8px; }
+.v2-nav a { position:relative; padding-inline:14px; }
+.v2-nav a::after { content:""; position:absolute; right:14px; bottom:14px; left:14px; height:1px; transform:scaleX(0); transform-origin:left; background:var(--coral); transition:transform .18s ease; }
+.v2-nav a.active { border-color:transparent; }
+.v2-nav a.active::after,.v2-nav a:hover::after { transform:scaleX(1); }
+.v2-user { position:relative; }
+.btn-primary { position:relative; border-color:var(--ink)!important; box-shadow:4px 4px 0 var(--coral)!important; }
+.btn-primary:hover { box-shadow:6px 6px 0 var(--coral)!important; }
+.btn-secondary:hover { border-color:var(--ink)!important; background:var(--paper-wash)!important; transform:translateY(-1px); }
+
+/* HOME — make the overview feel like an active research publication. */
+.desk { position:relative; padding-top:54px; }
+.desk::before { content:""; position:absolute; inset:0 0 auto; height:244px; pointer-events:none; opacity:.55; background-image:linear-gradient(90deg,transparent 0,transparent 49.8%,rgba(215,209,198,.75) 50%,transparent 50.2%); background-size:18px 18px; mask-image:linear-gradient(to bottom,#000,transparent); }
+.desk-intro { position:relative; padding-bottom:31px; }
+.desk-intro > div:first-child { position:relative; }
+/* Số hiệu "01" đã gỡ: chỉ có MỘT mục nên số thứ tự không đánh dấu trình tự
+   nào cả, lại còn treo lơ lửng ngoài lề trái của trang. */
+.desk-intro h1 { max-width:820px; font-size:clamp(40px,4.8vw,68px)!important; letter-spacing:-.045em!important; }
+.desk-intro p { max-width:610px; font-size:15px; }
+.date-block { position:relative; padding:8px 0 8px 27px; }
+.date-block::after { content:""; position:absolute; top:0; left:-1px; width:3px; height:45px; background:var(--coral); }
+.date-block strong { font-size:29px; letter-spacing:-.04em; }
+.desk-grid { position:relative; gap:32px; margin-top:34px; }
+.panel-title { padding-bottom:3px; }
+.panel-title h2 { font-size:23px!important; }
+.panel-title a { padding-bottom:3px; border-bottom:1px solid var(--coral); }
+.focus-file { isolation:isolate; min-height:362px; padding:30px 34px 28px; box-shadow:9px 9px 0 var(--paper-deep),0 16px 32px rgba(23,34,56,.055); }
+/* Ô kẻ sọc 88×88 đã gỡ: nó nằm đè lên chỉ số cuối và nút "Quản lý thành
+   viên", không mang thông tin nào, và là thứ đầu tiên đập vào mắt khi soi thẻ. */
+.file-number { padding-bottom:15px; }
+.live-label { padding:4px 6px; background:var(--coral-wash); }
+.focus-file h3 { max-width:720px; margin-top:29px; font-size:clamp(29px,3.2vw,44px)!important; }
+.focus-file > p { max-width:650px; font-size:14px; }
+.file-metrics { margin-top:30px; }
+.metric { padding-top:14px; padding-bottom:14px; }
+.metric strong { font-size:24px; }
+.metric:hover { background:var(--paper-wash); }
+/* Viền trái 2px màu trên nhãn đã gỡ: mẫu này bị cấm trong chuẩn craft và
+   detector bắt đúng nó. Nhãn .folio tự đứng được bằng chữ mono viết hoa. */
+.review-queue { position:relative; padding:23px; box-shadow:0 14px 30px rgba(23,34,56,.04); }
+/* Chữ chìm "REVIEW" đã gỡ: tiếng Anh ghi cứng trên trang tiếng Việt, và là
+   hình nền giả làm nội dung. Tiêu đề "Hàng chờ duyệt" tự nói đủ. */
+.queue-head { position:relative; }
+.queue-count { box-shadow:3px 3px 0 var(--ink); }
+.review-item { position:relative; padding-block:20px; }
+.review-item::before { content:"↗"; position:absolute; right:2px; top:22px; opacity:0; color:var(--coral); transition:opacity .16s ease,transform .16s ease; }
+.review-item:hover::before { opacity:1; transform:translate(2px,-2px); }
+.registry { margin-top:58px; }
+.registry-head { padding-bottom:15px; }
+.registry-row { position:relative; min-height:84px; gap:19px; padding-inline:14px; }
+/* Vạch coral 3px bên trái đã gỡ: hàng vốn đã báo hover bằng đổi nền, viền
+   trong và mũi tên trượt — tín hiệu thứ tư chỉ thêm nhiễu. */
+.registry-row:hover { background:#fffaf3; box-shadow:0 1px 0 var(--ink) inset,0 -1px 0 var(--ink) inset; }
+.reg-arrow { transition:transform .16s ease; }.registry-row:hover .reg-arrow { transform:translateX(4px); }
+.new-record { min-height:64px; background:var(--paper-wash); }.new-record:hover { background:var(--coral-wash); }
+
+/* WORKSPACE — stronger separation of the three working modes. */
+.project-strip { position:relative; height:58px; padding-inline:clamp(16px,2.2vw,30px); box-shadow:0 4px 16px rgba(23,34,56,.035); z-index:3; }
+.project-strip .back { padding:6px 0; border-bottom:1px solid transparent; }.project-strip .back:hover { border-color:var(--coral); color:var(--coral); }
+.project-code { background:var(--paper-wash); }.project-tabs a { position:relative; }.project-tabs a.active { font-weight:500; }
+.research-space { grid-template-columns:266px minmax(500px,1fr) 360px; }
+.index-col { padding:23px 17px; background:#eae4d9; }
+.index-head { padding-bottom:15px; }.index-head h2 { font-size:20px!important; }
+.index-item { position:relative; padding:12px 8px; }.index-item::after { content:""; position:absolute; right:7px; top:50%; width:5px; height:5px; transform:translateY(-50%) rotate(45deg) scale(0); background:var(--coral); transition:transform .16s ease; }.index-item:hover::after,.index-item.active::after { transform:translateY(-50%) rotate(45deg) scale(1); }
+.index-item strong { font-size:13px; }.synthesis-ticket { margin-top:25px; border-top:3px solid var(--ink); padding:15px; box-shadow:3px 3px 0 rgba(23,34,56,.12); }
+.command-wrap { padding:26px 38px 23px; background:var(--paper-wash); }.research-command { box-shadow:5px 5px 0 #d9d2c7; }.research-command:focus-within { box-shadow:5px 5px 0 var(--coral); }.research-command button { box-shadow:2px 2px 0 var(--ink); }.research-command button:hover:not(:disabled) { transform:translate(-1px,-1px); box-shadow:3px 3px 0 var(--ink); }
+.document { padding-top:42px; }.doc-kicker { padding-bottom:15px; }.document h2 { max-width:680px; font-size:clamp(32px,3.1vw,46px)!important; letter-spacing:-.04em!important; }.lead { max-width:670px; padding-left:20px; font-size:16px; }.fact-strip { margin-block:32px; }.fact { padding-block:15px; }.fact b { font-size:22px; }.claim-line { padding-block:15px; }.claim-line:hover { background:var(--paper-wash); }.claim-line p { font-size:14px; }.agent-track { box-shadow:5px 5px 0 var(--coral); }.track-actions a:hover { border-color:#fff; }
+.evidence-col { background:#ebe5da; }.evidence-head { padding:22px 20px 16px; box-shadow:0 5px 12px rgba(23,34,56,.035); }.evidence-head h2 { font-size:22px!important; }.evidence-tools button:hover { border-color:var(--ink); color:var(--ink); }.source { padding-block:20px; }.source h3 { font-size:15px!important; }.evidence-quote { position:relative; padding:12px; }.evidence-quote::before { content:"“"; position:absolute; top:-6px; left:5px; color:var(--coral); font:30px "Source Serif 4",serif; }.source:hover .evidence-quote { border-color:var(--coral); background:#fffaf4; }
+.mock-create section { border-top-width:4px; padding:34px; box-shadow:9px 9px 0 var(--paper-deep); }.mock-create h1 { font-size:44px!important; }.mock-create input { padding:14px; }.mock-create input:focus { box-shadow:4px 4px 0 var(--coral); }
+
+/* AUTH — make the first impression feel intentional, not like a utility screen. */
+.mock-auth { position:relative; overflow:hidden; background:var(--paper-wash); }.mock-auth::before,.mock-auth::after { content:""; position:absolute; z-index:0; border:1px solid var(--rule); transform:rotate(45deg); }.mock-auth::before { top:-130px; left:-120px; width:310px; height:310px; }.mock-auth::after { right:-125px; bottom:-140px; width:360px; height:360px; border-color:#dfb2a5; }.auth-card { position:relative; z-index:1; }.logo-row { margin-bottom:34px; }.card-inner { padding:38px 32px; box-shadow:9px 9px 0 var(--paper-deep),0 18px 40px rgba(23,34,56,.06); }.card-inner h1 { font-size:31px!important; }.btn-login:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--coral); }.btn-register:hover { border-color:var(--ink); background:var(--paper-wash); }.feature-row { position:relative; overflow:hidden; padding:12px; }.feature-row::after { content:""; position:absolute; top:0; bottom:0; left:0; width:2px; background:var(--coral); transform:scaleY(0); transition:transform .16s ease; }.feature-row:hover::after { transform:scaleY(1); }.footer-note { font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.02em; }
+
+@media (max-width:1100px) { .research-space { grid-template-columns:240px minmax(450px,1fr); }.evidence-col { display:none; } }
+@media (max-width:640px) { .desk { padding-top:35px; }.desk::before { height:160px; }.focus-file { padding:24px; }.registry { margin-top:42px; } }
+@media (max-width:760px) { .v2-header { height:62px; }.v2-logo { min-width:0; }.v2-header-end .btn-primary { display:none; }.project-strip { height:52px; }.command-wrap { padding:20px; }.document { padding-top:30px; }.document h2 { font-size:34px!important; }.mock-create { padding:20px; }.mock-create section { padding:25px; }.mock-create h1 { font-size:36px!important; } }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }

@@ -1,0 +1,414 @@
+{
+  "Trích dẫn bịa (fabricated citations)": {
+    "name": "Trích dẫn bịa (fabricated citations)",
+    "value": 0.0,
+    "unit": "ratio",
+    "numerator": 0,
+    "denominator": 486,
+    "detail": "Tỷ lệ paper_id được trích dẫn nhưng KHÔNG tồn tại trong corpus. Mục tiêu: 0%. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Citation review trỏ tới paper đã lấy": {
+    "name": "Citation review trỏ tới paper đã lấy",
+    "value": 1.0,
+    "unit": "ratio",
+    "numerator": 242,
+    "denominator": 242,
+    "detail": "Kiểm từng `[[paper_id]]` trong bản literature review cuối có thuộc corpus trả về hay không. Đây là tính toàn vẹn định danh, không tự khẳng định câu văn được suy ra đúng. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Đoạn review có evidence truy vết được": {
+    "name": "Đoạn review có evidence truy vết được",
+    "value": 0.7407407407407407,
+    "unit": "ratio",
+    "numerator": 80,
+    "denominator": 108,
+    "detail": "Mỗi đoạn factual (abstract/introduction/sections/conclusion/limitations) phải có ít nhất một `[[paper_id]]` mà cùng paper đó có evidence quote ở claim hợp lệ. Đây là traceability, không phải chứng minh entailment ở mức câu. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 28,
+    "failures": [
+      {
+        "location": "abstract",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "conclusion",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "abstract",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "introduction",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "conclusion",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "abstract",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "introduction",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "conclusion",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "sections[3].paragraphs[2]",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "abstract",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "introduction",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "conclusion",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "abstract",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "introduction",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "conclusion",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "abstract",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "conclusion",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "abstract",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "conclusion",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      },
+      {
+        "location": "abstract",
+        "cited_paper_ids": [],
+        "reason": "đoạn review không có citation"
+      }
+    ],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Trích dẫn kiểm chứng được (verbatim)": {
+    "name": "Trích dẫn kiểm chứng được (verbatim)",
+    "value": 1.0,
+    "unit": "ratio",
+    "numerator": 167,
+    "denominator": 167,
+    "detail": "Tỷ lệ quote khớp NGUYÊN VĂN với nguồn đang lưu. Quote lấy từ full text mà artifact không lưu toàn văn được loại khỏi mẫu số — không kiểm được offline thì không cho qua, cũng không tính trượt. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Claim có bằng chứng": {
+    "name": "Claim có bằng chứng",
+    "value": 1.0,
+    "unit": "ratio",
+    "numerator": 220,
+    "denominator": 220,
+    "detail": "Tỷ lệ claim được đánh dấu hợp lệ mà thực sự kèm ít nhất một trích dẫn. Claim loại `potential_gap` (khẳng định sự VẮNG MẶT) không được tính, vì bằng chứng của nó là chính corpus chứ không phải một quote. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Số nguồn/claim": {
+    "name": "Số nguồn/claim",
+    "value": 1.026338313103019,
+    "unit": "count",
+    "numerator": null,
+    "denominator": null,
+    "detail": "Trung bình số bài báo khác nhau chống lưng cho mỗi claim. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Độ phủ chủ đề (theme recall)": {
+    "name": "Độ phủ chủ đề (theme recall)",
+    "value": 0.7777777777777778,
+    "unit": "ratio",
+    "numerator": 28,
+    "denominator": 36,
+    "detail": "Tỷ lệ chủ đề con mà chuyên gia kỳ vọng phải có, và hệ thống thực sự nhắc tới. ⚠️ Dùng token-overlap (≥50% từ khoá xuất hiện trong output): tốt để bắt regression (hệ thống bỏ sót hẳn một mảng), nhưng KHÔNG đủ để kết luận độ phủ ngữ nghĩa — cần gold labels của chuyên gia cho mục đích đó. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 6,
+    "failures": [
+      {
+        "expected_theme": "Few-shot prompting",
+        "reason": "không xuất hiện trong theme/claim nào"
+      },
+      {
+        "expected_theme": "Cross-lingual transfer",
+        "reason": "không xuất hiện trong theme/claim nào"
+      },
+      {
+        "expected_theme": "Difference-in-differences",
+        "reason": "không xuất hiện trong theme/claim nào"
+      },
+      {
+        "expected_theme": "Benchmark đánh giá",
+        "reason": "không xuất hiện trong theme/claim nào"
+      },
+      {
+        "expected_theme": "Domain adaptation",
+        "reason": "không xuất hiện trong theme/claim nào"
+      },
+      {
+        "expected_theme": "Battery supply chain",
+        "reason": "không xuất hiện trong theme/claim nào"
+      }
+    ],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Bằng chứng từ full text": {
+    "name": "Bằng chứng từ full text",
+    "value": 0.34509803921568627,
+    "unit": "ratio",
+    "numerator": 88,
+    "denominator": 255,
+    "detail": "Tỷ lệ trích dẫn lấy từ toàn văn thay vì chỉ abstract. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Đủ metadata ingestion cho paper": {
+    "name": "Đủ metadata ingestion cho paper",
+    "value": 1.0,
+    "unit": "ratio",
+    "numerator": 167,
+    "denominator": 167,
+    "detail": "Tỷ lệ paper có tuple availability/status hợp lệ. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Paper có full text": {
+    "name": "Paper có full text",
+    "value": 0.3652694610778443,
+    "unit": "ratio",
+    "numerator": 61,
+    "denominator": 167,
+    "detail": "Tỷ lệ paper đã phân loại tải và parse thành công PDF, PMC XML hoặc HTML toàn văn. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Paper chỉ có abstract (không khả dụng)": {
+    "name": "Paper chỉ có abstract (không khả dụng)",
+    "value": 0.38323353293413176,
+    "unit": "ratio",
+    "numerator": 64,
+    "denominator": 167,
+    "detail": "Tỷ lệ paper không tìm thấy nguồn full text và phải dùng abstract. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Paper fallback do lỗi ingestion": {
+    "name": "Paper fallback do lỗi ingestion",
+    "value": 0.25149700598802394,
+    "unit": "ratio",
+    "numerator": 42,
+    "denominator": 167,
+    "detail": "Tỷ lệ paper có thử lấy full text nhưng tải hoặc parse thất bại, sau đó fallback abstract. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Đạt số bài yêu cầu": {
+    "name": "Đạt số bài yêu cầu",
+    "value": 0.9597701149425287,
+    "unit": "ratio",
+    "numerator": 167,
+    "denominator": 174,
+    "detail": "Tỷ lệ bài giao so với số bài người dùng yêu cầu (max_results trong dataset). (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 3,
+    "failures": [
+      {
+        "reason": "thiếu 1 bài so với yêu cầu"
+      },
+      {
+        "reason": "thiếu 4 bài so với yêu cầu"
+      },
+      {
+        "reason": "thiếu 2 bài so với yêu cầu"
+      }
+    ],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Bài báo được dùng thật": {
+    "name": "Bài báo được dùng thật",
+    "value": 0.8263473053892215,
+    "unit": "ratio",
+    "numerator": 138,
+    "denominator": 167,
+    "detail": "Tỷ lệ bài đã tải/xử lý mà thực sự được trích dẫn trong báo cáo. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Thời gian một lượt review": {
+    "name": "Thời gian một lượt review",
+    "value": 685.6142809166666,
+    "unit": "seconds",
+    "numerator": null,
+    "denominator": null,
+    "detail": "Tổng thời gian máy chạy thật qua các chặng (đã trừ thời gian chờ người duyệt). (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Thời gian tới kết quả đầu tiên": {
+    "name": "Thời gian tới kết quả đầu tiên",
+    "value": 153.4756495,
+    "unit": "seconds",
+    "numerator": null,
+    "denominator": null,
+    "detail": "Tới chặng `search_academic_sources` là người dùng đã có bài báo để đọc. (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Nút thắt cổ chai": {
+    "name": "Nút thắt cổ chai",
+    "value": 0.5083458074209618,
+    "unit": "ratio",
+    "numerator": null,
+    "denominator": null,
+    "detail": "Chặng chậm nhất của lượt chạy: `validate_grounding` (tỷ lệ phần thời gian thể hiện ở giá trị chỉ số). (Số trên gộp từ 12 lượt chạy.)",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Thời gian tiết kiệm so với làm tay": {
+    "name": "Thời gian tiết kiệm so với làm tay",
+    "value": null,
+    "unit": "ratio",
+    "numerator": null,
+    "denominator": null,
+    "detail": "",
+    "failure_count": 0,
+    "failures": [],
+    "measured": false,
+    "unmeasured_reason": "chưa có baseline thủ công đo thật — cần bấm giờ một researcher làm cùng chủ đề, cùng số bài, rồi truyền vào"
+  },
+  "Chi phí một lượt review": {
+    "name": "Chi phí một lượt review",
+    "value": null,
+    "unit": "usd",
+    "numerator": null,
+    "denominator": null,
+    "detail": "",
+    "failure_count": 0,
+    "failures": [],
+    "measured": false,
+    "unmeasured_reason": "hệ thống chưa ghi token/chi phí — bật Langfuse (LANGFUSE_PUBLIC_KEY/LANGFUSE_SECRET_KEY) hoặc truyền usage vào để đo thật"
+  },
+  "Tỷ lệ chạy thành công": {
+    "name": "Tỷ lệ chạy thành công",
+    "value": 1.0,
+    "unit": "ratio",
+    "numerator": 12,
+    "denominator": 12,
+    "detail": "Tỷ lệ lượt chạy chủ đề THẬT ra được báo cáo dùng được (không tính kiểm soát âm).",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Độ trễ p50 / p95": {
+    "name": "Độ trễ p50 / p95",
+    "value": 707.6274624010002,
+    "unit": "seconds",
+    "numerator": null,
+    "denominator": null,
+    "detail": "p50 = 708s · p95 = 993s · nhanh nhất 396s · chậm nhất 993s (n=12). Đây là wall clock từ lúc tạo job (bao gồm cả chờ) — khác với 'Thời gian một lượt review' đã trừ các chặng chờ người duyệt.",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  },
+  "Độ ổn định đầu ra": {
+    "name": "Độ ổn định đầu ra",
+    "value": null,
+    "unit": "ratio",
+    "numerator": null,
+    "denominator": null,
+    "detail": "",
+    "failure_count": 0,
+    "failures": [],
+    "measured": false,
+    "unmeasured_reason": "cần chạy lặp cùng một chủ đề ≥2 lần (--repeat 3)"
+  },
+  "Nguồn tra cứu được thật": {
+    "name": "Nguồn tra cứu được thật",
+    "value": 1.0,
+    "unit": "ratio",
+    "numerator": 96,
+    "denominator": 96,
+    "detail": "Tỷ lệ paper trong corpus tồn tại thật khi gọi lại API nguồn (OpenAlex / Semantic Scholar / arXiv). 71 ID không tra được đã loại khỏi mẫu số (lỗi kiểm tra, không tính vào kết quả).",
+    "failure_count": 0,
+    "failures": [],
+    "measured": true,
+    "unmeasured_reason": null
+  }
+}

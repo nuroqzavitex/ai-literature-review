@@ -1,0 +1,173 @@
+include:
+  - path: ./research-sandbox/docker-compose.sandbox.yml
+
+services:
+  logs-init:
+    image: alpine:3.22
+    user: "0:0"
+    command: ["/bin/sh", "-c", "chown -R 1000:1000 /logs && chmod 0775 /logs"]
+    volumes:
+      - ./logs:/logs
+    restart: "no"
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: litreview
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      # Use 5433 on the host by default so this stack can coexist with a local PostgreSQL.
+      - "${POSTGRES_HOST_PORT:-5433}:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d litreview"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    command:
+      - /bin/sh
+      - -c
+      - uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app/src --reload-dir /app/alembic 2>&1 | python /app/scripts/rotating_tee.py /logs/backend.log --max-bytes 524288000
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/litreview
+      PRODUCT_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/litreview
+      WORKER_MODE: external
+      RUNTIME_ROLE: api
+      REDIS_ENABLED: "true"
+      REDIS_URL: redis://redis:6379/0
+      QDRANT_ENABLED: ${QDRANT_ENABLED:-true}
+      QDRANT_URL: http://qdrant:6333
+      # Sandbox remains fail-closed by default. The BFF degrades gracefully
+      # when these flags are disabled or sandbox-control is unavailable.
+      SANDBOX_ENABLED: ${SANDBOX_ENABLED:-false}
+      SANDBOX_DEMO_MODE: ${SANDBOX_DEMO_MODE:-false}
+      SANDBOX_HYPOTHESIS_ENABLED: ${SANDBOX_HYPOTHESIS_ENABLED:-false}
+      SANDBOX_GRAPH_OVERLAY_ENABLED: ${SANDBOX_GRAPH_OVERLAY_ENABLED:-false}
+      SANDBOX_DATA_ANALYSIS_ENABLED: ${SANDBOX_DATA_ANALYSIS_ENABLED:-false}
+      SANDBOX_AI_ENABLED: ${SANDBOX_AI_ENABLED:-false}
+      SANDBOX_GRAPH_CONTEXT_ENABLED: ${SANDBOX_GRAPH_CONTEXT_ENABLED:-false}
+      SANDBOX_RESULT_INTERPRETATION_ENABLED: ${SANDBOX_RESULT_INTERPRETATION_ENABLED:-false}
+      SANDBOX_AI_REQUEST_TIMEOUT_SECONDS: ${SANDBOX_AI_REQUEST_TIMEOUT_SECONDS:-180}
+      SANDBOX_CONTROL_URL: http://sandbox-control:8080
+      SANDBOX_SERVICE_AUTH_KEY: ${SANDBOX_SERVICE_AUTH_KEY:-sandbox-local-compose-service-auth-key-v1}
+      SANDBOX_SERVICE_AUTH_KEY_ID: ${SANDBOX_SERVICE_AUTH_KEY_ID:-sandbox-v1}
+      SANDBOX_CONTEXT_SIGNING_KEY: ${SANDBOX_CONTEXT_SIGNING_KEY:-sandbox-local-compose-context-signing-key-v1}
+      SANDBOX_CONTEXT_SIGNING_KEY_ID: ${SANDBOX_CONTEXT_SIGNING_KEY_ID:-sandbox-context-v1}
+    volumes:
+      - ./:/app
+      # Keep application logs on the host at ./logs for operational access.
+      - ./logs:/logs
+      # FastEmbed stores ONNX models here by default. Share the cache with the
+      # worker so the first report RAG request does not download the model again.
+      - fastembed_cache:/tmp/fastembed_cache
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      logs-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+      redis:
+        condition: service_started
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["/bin/sh", "-c", "python -m src.worker_main 2>&1 | python /app/scripts/rotating_tee.py /logs/worker.log --max-bytes 524288000"]
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/litreview
+      PRODUCT_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/litreview
+      WORKER_MODE: external
+      RUNTIME_ROLE: worker
+      REDIS_ENABLED: "true"
+      REDIS_URL: redis://redis:6379/0
+      QDRANT_ENABLED: ${QDRANT_ENABLED:-true}
+      QDRANT_URL: http://qdrant:6333
+    volumes:
+      # Keep the external worker on the same source tree as the API in local
+      # development; PDF cache is stored under PAPER_STORAGE_DIR instead.
+      - ./:/app
+      - ./logs:/logs
+      - ./data:/app/data
+      - fastembed_cache:/tmp/fastembed_cache
+    restart: unless-stopped
+    healthcheck:
+      test:
+        ["CMD", "python", "-c", "import redis; from src.config import get_settings; assert redis.Redis.from_url(get_settings().redis_url).ping()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      logs-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+      redis:
+        condition: service_started
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ./data/redis:/data
+    restart: unless-stopped
+  qdrant:
+    image: qdrant/qdrant:v1.16.2
+    ports:
+      - "6333:6333"
+    volumes:
+      - ./data/qdrant:/qdrant/storage
+    restart: unless-stopped
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+      args:
+        BACKEND_API_BASE_URL: http://backend:8000/api/v1
+        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    environment:
+      NODE_ENV: development
+      WATCHPACK_POLLING: "true"
+      BACKEND_API_BASE_URL: http://backend:8000/api/v1
+      CLERK_SECRET_KEY: ${CLERK_SECRET_KEY}
+      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    ports:
+      - "3000:3000"
+    command: ["/bin/sh", "-c", "npm run dev 2>&1 | node /app/scripts/rotating-tee.mjs /logs/frontend.log 524288000"]
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+      # Keep Next.js build artifacts inside Linux. Sharing the host .next
+      # directory with Docker Desktop can leave Turbopack with stale routes.
+      - frontend_next_cache:/app/.next
+      - ./logs:/logs
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  fastembed_cache:
+  frontend_node_modules:
+  frontend_next_cache:

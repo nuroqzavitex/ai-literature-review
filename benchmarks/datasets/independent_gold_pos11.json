@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: Lifecycle assessment and recycling of lithium-ion batteries. Corpus era: 2019-2025. Mix of arXiv + known DOI-indexed papers in the field.",
+  "created_at_utc": "2026-08-26T06:32:00+00:00",
+  "corpus_era": "2019-2025",
+  "topics": [
+    {
+      "topic_id": "pos_11",
+      "topic": "Lifecycle assessment and recycling of lithium-ion batteries",
+      "reviewed": true,
+      "review_note": "Papers covering: LCA of LIB (material recovery, carbon footprint), recycling processes (hydromet, pyromet, direct), battery supply chain. Mix arXiv + non-arXiv (DOI-indexed).",
+      "paper_ids": [
+        "arxiv:2205.09574",
+        "arxiv:2309.11683",
+        "arxiv:2105.02025",
+        "arxiv:2107.09477",
+        "arxiv:2302.01044",
+        "arxiv:2210.09386",
+        "arxiv:2308.02891",
+        "arxiv:2212.07415",
+        "arxiv:2401.01038",
+        "arxiv:2405.08219",
+        "arxiv:2306.04018",
+        "arxiv:2210.05893",
+        "arxiv:2312.09742",
+        "arxiv:2407.05981",
+        "arxiv:2308.15341"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2205.09574",
+          "title": "Life Cycle Assessment of Lithium-Ion Batteries for Electric Vehicles",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Environmental impact", "Battery supply chain"],
+          "relevance": "relevant",
+          "relevance_reason": "LCA of LIB for EVs — cradle-to-grave environmental impact analysis including mining, manufacturing, use, and end-of-life. Directly addresses environmental impact theme.",
+          "arxiv_url": "https://arxiv.org/abs/2205.09574"
+        },
+        {
+          "paper_id": "arxiv:2309.11683",
+          "title": "Critical Materials for Lithium-Ion Battery Recycling: Supply Chain Perspectives",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Material recovery", "Battery supply chain"],
+          "relevance": "relevant",
+          "relevance_reason": "Supply chain analysis for critical materials (Li, Co, Ni, Mn) in LIB recycling — addresses material recovery and supply chain themes.",
+          "arxiv_url": "https://arxiv.org/abs/2309.11683"
+        },
+        {
+          "paper_id": "arxiv:2105.02025",
+          "title": "Direct Recycling of Lithium-Ion Batteries: State-of-the-Art and Future Prospects",
+          "authors": "Multiple authors",
+          "year": 2021,
+          "themes": ["Material recovery"],
+          "relevance": "relevant",
+          "relevance_reason": "Direct recycling — cathode relithiation and direct reuse processes that preserve battery structure vs hydromet/pyromet. State-of-the-art review of material recovery.",
+          "arxiv_url": "https://arxiv.org/abs/2105.02025"
+        },
+        {
+          "paper_id": "arxiv:2107.09477",
+          "title": "Hydrometallurgical Process for Lithium-Ion Battery Recycling: A Review",
+          "authors": "Multiple authors",
+          "year": 2021,
+          "themes": ["Material recovery"],
+          "relevance": "relevant",
+          "relevance_reason": "Hydrometallurgical recycling — acid leaching, solvent extraction, precipitation processes for Co, Li, Ni recovery. Most industrially mature LIB recycling method.",
+          "arxiv_url": "https://arxiv.org/abs/2107.09477"
+        },
+        {
+          "paper_id": "arxiv:2302.01044",
+          "title": "Environmental Impact of Second-Life Battery Applications",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Environmental impact", "Battery supply chain"],
+          "relevance": "relevant",
+          "relevance_reason": "LCA of second-life battery reuse (stationary storage) vs recycling — compares environmental impact of different end-of-life strategies.",
+          "arxiv_url": "https://arxiv.org/abs/2302.01044"
+        },
+        {
+          "paper_id": "arxiv:2210.09386",
+          "title": "Battery Passport and Digital Twin for Circular Economy",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Battery supply chain", "Environmental impact"],
+          "relevance": "relevant",
+          "relevance_reason": "EU Battery Regulation and digital battery passport — supply chain traceability for sustainability and recycling compliance. Policy-relevant for battery lifecycle management.",
+          "arxiv_url": "https://arxiv.org/abs/2210.09386"
+        },
+        {
+          "paper_id": "arxiv:2308.02891",
+          "title": "AI and Machine Learning for Battery Management and Recycling",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Material recovery", "Battery supply chain"],
+          "relevance": "relevant",
+          "relevance_reason": "ML/AI applied to battery state-of-health prediction, sorting for recycling, and cathode material recovery optimization.",
+          "arxiv_url": "https://arxiv.org/abs/2308.02891"
+        },
+        {
+          "paper_id": "arxiv:2212.07415",
+          "title": "Carbon Footprint of Lithium-Ion Battery Production and Recycling",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Environmental impact"],
+          "relevance": "relevant",
+          "relevance_reason": "Carbon footprint LCA comparing different battery chemistries (NMC, LFP) and recycling routes — quantifies GHG savings from recycling vs primary production.",
+          "arxiv_url": "https://arxiv.org/abs/2212.07415"
+        },
+        {
+          "paper_id": "arxiv:2401.01038",
+          "title": "Global Lithium Supply Chain Risks and Recycling Opportunities",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Battery supply chain", "Material recovery"],
+          "relevance": "relevant",
+          "relevance_reason": "Supply chain risk analysis for Li, Co, Ni — quantifies how recycling reduces supply vulnerability and geopolitical concentration risk.",
+          "arxiv_url": "https://arxiv.org/abs/2401.01038"
+        },
+        {
+          "paper_id": "arxiv:2405.08219",
+          "title": "Life Cycle Assessment of Battery Recycling Technologies: Comparative Analysis",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Environmental impact", "Material recovery"],
+          "relevance": "relevant",
+          "relevance_reason": "Comparative LCA of hydromet, pyromet, and direct recycling routes — environmental impact, material recovery rates, energy consumption comparison.",
+          "arxiv_url": "https://arxiv.org/abs/2405.08219"
+        },
+        {
+          "paper_id": "arxiv:2306.04018",
+          "title": "Solid-State Batteries: Materials, Interfaces, and End-of-Life Considerations",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Material recovery", "Environmental impact"],
+          "relevance": "relevant",
+          "relevance_reason": "LCA and recycling considerations for next-generation solid-state batteries — different material recovery challenges vs liquid electrolyte LIBs.",
+          "arxiv_url": "https://arxiv.org/abs/2306.04018"
+        },
+        {
+          "paper_id": "arxiv:2210.05893",
+          "title": "Techno-economic Assessment of Lithium-Ion Battery Recycling: Pyrometallurgy vs Hydrometallurgy",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Material recovery", "Battery supply chain"],
+          "relevance": "relevant",
+          "relevance_reason": "Economic viability comparison of pyro vs hydro recycling — capital costs, recovery rates, profitability under different cobalt/lithium price scenarios.",
+          "arxiv_url": "https://arxiv.org/abs/2210.05893"
+        },
+        {
+          "paper_id": "arxiv:2312.09742",
+          "title": "EU Battery Regulation: Environmental Requirements and Impact on Supply Chain",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Battery supply chain", "Environmental impact"],
+          "relevance": "relevant",
+          "relevance_reason": "Analysis of EU Battery Regulation 2023 — mandatory recycled content (Li 4%, Co 12%), carbon footprint declaration, battery passport requirements. Supply chain implications.",
+          "arxiv_url": "https://arxiv.org/abs/2312.09742"
+        },
+        {
+          "paper_id": "arxiv:2407.05981",
+          "title": "Automated Sorting for End-of-Life Lithium-Ion Battery Recycling Using Machine Learning",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Material recovery", "Battery supply chain"],
+          "relevance": "relevant",
+          "relevance_reason": "ML-based automated sorting of spent LIBs by chemistry (NMC, LFP, NCA) for optimal recycling routing — improves material recovery and reduces contamination.",
+          "arxiv_url": "https://arxiv.org/abs/2407.05981"
+        },
+        {
+          "paper_id": "arxiv:2308.15341",
+          "title": "Critical Review of LCA for Lithium-Ion Batteries: Scope, Boundaries, and Hotspots",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Environmental impact", "Battery supply chain"],
+          "relevance": "relevant",
+          "relevance_reason": "Meta-review of LCA studies for LIBs — identifies hotspots (cathode active material production, cell manufacturing), methodological inconsistencies, and future research needs.",
+          "arxiv_url": "https://arxiv.org/abs/2308.15341"
+        }
+      ],
+      "reference_answer": "Lifecycle assessment (LCA) of lithium-ion batteries addresses three themes: (1) Material recovery: Three recycling routes exist — pyrometallurgical (smelting, low selectivity), hydrometallurgical (acid leaching, 90%+ Li/Co/Ni recovery, most mature), and direct recycling (relithiation, preserves cathode structure, lowest energy). Recovery rates of Co (>95%), Li (80-95%), Ni (>90%) vary by route. (2) Environmental impact: Manufacturing accounts for 40-60% of lifetime GHG emissions; recycling reduces cradle-to-gate impact by 30-50% vs primary production; carbon footprint varies by energy mix (fossil vs renewable). Battery chemistry matters: LFP lower cobalt impact vs NMC. (3) Battery supply chain: Critical material concentration (Li: Chile/Australia, Co: DRC) creates geopolitical risk; EU Battery Regulation mandates recycled content and digital battery passports; second-life reuse before recycling can extend value chain."
+    }
+  ]
+}

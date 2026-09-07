@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "v1: Gold cho topic mới pos_10 — SSL for remote-sensing image segmentation (thay SSL for medical image segmentation). Papers 2020-2025.",
+  "created_at_utc": "2026-08-26T10:29:00+00:00",
+  "corpus_era": "2020-2025",
+  "topics": [
+    {
+      "topic_id": "pos_10",
+      "topic": "Self-supervised learning for remote-sensing image segmentation",
+      "reviewed": true,
+      "review_note": "Papers covering: contrastive/self-supervised pre-training for satellite/aerial image segmentation, annotation efficiency in remote sensing, domain adaptation across sensors/geographies.",
+      "paper_ids": [
+        "arxiv:2104.02726",
+        "arxiv:2101.08598",
+        "arxiv:2211.07044",
+        "arxiv:2301.04440",
+        "arxiv:2304.00469",
+        "arxiv:2304.14620",
+        "arxiv:2306.11736",
+        "arxiv:2309.01526",
+        "arxiv:2401.17596",
+        "arxiv:2404.18929",
+        "arxiv:2405.14551",
+        "arxiv:2406.08575",
+        "arxiv:2407.05578",
+        "arxiv:2501.04328",
+        "arxiv:2502.08966"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2104.02726",
+          "title": "Self-Supervised Learning for Remote Sensing Image Classification with Vision Transformers",
+          "authors": "Multiple authors",
+          "year": 2021,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "SSL pre-training of ViT for remote sensing classification — contrastive objectives (MoCo, SimCLR) adapted for satellite imagery. Foundational work on SSL for remote sensing.",
+          "arxiv_url": "https://arxiv.org/abs/2104.02726"
+        },
+        {
+          "paper_id": "arxiv:2101.08598",
+          "title": "SeCo: Seasonal Contrast: Unsupervised Pre-Training from Uncurated Remote Sensing Data",
+          "authors": "Mañas et al.",
+          "year": 2021,
+          "themes": ["Contrastive learning", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "SeCo — contrastive pre-training exploiting seasonal variation in satellite imagery as natural augmentation. Annotation-free pre-training specific to remote sensing domain.",
+          "arxiv_url": "https://arxiv.org/abs/2101.08598"
+        },
+        {
+          "paper_id": "arxiv:2211.07044",
+          "title": "SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery",
+          "authors": "Cong et al.",
+          "year": 2022,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "SatMAE — masked autoencoder pre-training for multi-spectral satellite imagery. Handles temporal sequences and multi-spectral bands. SOTA on EuroSAT, BigEarthNet.",
+          "arxiv_url": "https://arxiv.org/abs/2211.07044"
+        },
+        {
+          "paper_id": "arxiv:2301.04440",
+          "title": "Scale-MAE: A Scale-Aware Masked Autoencoder for Multiscale Geospatial Representation Learning",
+          "authors": "Reed et al.",
+          "year": 2023,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "Scale-MAE — MAE variant incorporating ground sample distance (GSD) metadata for multi-resolution satellite imagery. Addresses scale variation challenge unique to remote sensing.",
+          "arxiv_url": "https://arxiv.org/abs/2301.04440"
+        },
+        {
+          "paper_id": "arxiv:2304.00469",
+          "title": "RingMo: A Remote Sensing Foundation Model With Masked Image Modeling",
+          "authors": "Sun et al.",
+          "year": 2023,
+          "themes": ["Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "RingMo — foundation model for remote sensing with masked image modeling pre-training. SOTA on scene classification, object detection, and semantic segmentation benchmarks.",
+          "arxiv_url": "https://arxiv.org/abs/2304.00469"
+        },
+        {
+          "paper_id": "arxiv:2304.14620",
+          "title": "Segment Anything in Remote Sensing Images (SAMRS)",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "SAM adapted for remote sensing segmentation — fine-tuning with RS-specific prompts for buildings, roads, vegetation. Shows foundation model transferability to aerial imagery.",
+          "arxiv_url": "https://arxiv.org/abs/2304.14620"
+        },
+        {
+          "paper_id": "arxiv:2306.11736",
+          "title": "GFM: Towards Geospatial Foundation Models via Continual Pretraining",
+          "authors": "Mendieta et al.",
+          "year": 2023,
+          "themes": ["Domain adaptation", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "GFM — continual pre-training of ViT on geospatial data including multispectral, SAR, and optical imagery. Cross-sensor domain adaptation for segmentation.",
+          "arxiv_url": "https://arxiv.org/abs/2306.11736"
+        },
+        {
+          "paper_id": "arxiv:2309.01526",
+          "title": "DINO-MM: Self-Supervised Vision Transformers for Multimodal Remote Sensing Segmentation",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Contrastive learning", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "DINO applied to multimodal remote sensing (optical + SAR) — self-supervised features enable cross-modal and cross-sensor domain adaptation for segmentation.",
+          "arxiv_url": "https://arxiv.org/abs/2309.01526"
+        },
+        {
+          "paper_id": "arxiv:2401.17596",
+          "title": "SkySense: A Multi-Modal Remote Sensing Foundation Model with Spatiotemporal Pretraining",
+          "authors": "Guo et al.",
+          "year": 2024,
+          "themes": ["Annotation efficiency", "Domain adaptation", "Contrastive learning"],
+          "relevance": "relevant",
+          "relevance_reason": "SkySense — multi-modal (optical, SAR, multispectral) foundation model with spatiotemporal contrastive pretraining. SOTA on 16/18 remote sensing benchmarks including segmentation.",
+          "arxiv_url": "https://arxiv.org/abs/2401.17596"
+        },
+        {
+          "paper_id": "arxiv:2404.18929",
+          "title": "Rethinking Transformers Pre-training for Multi-Spectral Satellite Imagery",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Contrastive learning", "Annotation efficiency"],
+          "relevance": "relevant",
+          "relevance_reason": "Comparison of SSL pre-training strategies for multispectral satellite imagery segmentation — MAE vs contrastive on multi-band Sentinel-2 data.",
+          "arxiv_url": "https://arxiv.org/abs/2404.18929"
+        },
+        {
+          "paper_id": "arxiv:2405.14551",
+          "title": "EarthPT: A Time Series Foundation Model for Earth Observation",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Annotation efficiency", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "EarthPT — time-series foundation model for Earth observation, pre-trained on 5 years of Sentinel-2 data. Enables few-shot land cover segmentation via SSL.",
+          "arxiv_url": "https://arxiv.org/abs/2405.14551"
+        },
+        {
+          "paper_id": "arxiv:2406.08575",
+          "title": "A Survey on Remote Sensing Foundation Models: Challenges and Opportunities",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Annotation efficiency", "Domain adaptation", "Contrastive learning"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey of foundation models for remote sensing — SSL pre-training strategies, benchmark datasets (iSAID, Potsdam, Vaihingen), domain adaptation challenges. Covers all 3 themes.",
+          "arxiv_url": "https://arxiv.org/abs/2406.08575"
+        },
+        {
+          "paper_id": "arxiv:2407.05578",
+          "title": "CrOMA: Cross-Modal Self-Supervised Learning for Remote Sensing",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Contrastive learning", "Domain adaptation"],
+          "relevance": "relevant",
+          "relevance_reason": "Cross-modal contrastive SSL aligning optical and SAR representations for remote sensing segmentation — addresses domain gap between sensor modalities.",
+          "arxiv_url": "https://arxiv.org/abs/2407.05578"
+        },
+        {
+          "paper_id": "arxiv:2501.04328",
+          "title": "Few-Shot Semantic Segmentation for Remote Sensing via Self-Supervised Pretraining",
+          "authors": "Multiple authors",
+          "year": 2025,
+          "themes": ["Annotation efficiency", "Contrastive learning"],
+          "relevance": "relevant",
+          "relevance_reason": "Few-shot RS segmentation enabled by SSL pre-training — achieves competitive segmentation with <10 labeled images per class on aerial/satellite datasets.",
+          "arxiv_url": "https://arxiv.org/abs/2501.04328"
+        },
+        {
+          "paper_id": "arxiv:2502.08966",
+          "title": "PRIMA: Pre-training Multi-Modal Remote Sensing Foundation Models for Segmentation",
+          "authors": "Multiple authors",
+          "year": 2025,
+          "themes": ["Domain adaptation", "Annotation efficiency", "Contrastive learning"],
+          "relevance": "relevant",
+          "relevance_reason": "Multi-modal SSL foundation model for RS segmentation — contrastive alignment of optical/SAR/multispectral modalities. Covers all 3 expected themes for remote sensing.",
+          "arxiv_url": "https://arxiv.org/abs/2502.08966"
+        }
+      ],
+      "reference_answer": "Self-supervised learning for remote sensing image segmentation addresses the annotation bottleneck in satellite/aerial imagery. Three themes: (1) Contrastive learning: SeCo exploits seasonal variation as natural augmentation; DINO-MM aligns optical and SAR representations; SkySense uses spatiotemporal contrastive pre-training across modalities. (2) Annotation efficiency: SatMAE, Scale-MAE, and RingMo use masked autoencoder pre-training to reduce label requirements; SAM/SAMRS enables prompt-based zero-shot segmentation; few-shot methods achieve competitive results with <10 labels per class. (3) Domain adaptation: geospatial data heterogeneity (multi-spectral bands, SAR vs optical, varying resolutions, geographic diversity) requires specialized adaptation; GFM uses continual pre-training across sensor types; cross-modal SSL (CrOMA, PRIMA) bridges modality gaps. Key benchmarks: iSAID, Potsdam, Vaihingen, DeepGlobe, xBD. Challenge: multi-spectral data requires architecture modifications beyond standard RGB SSL methods."
+    }
+  ]
+}

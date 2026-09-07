@@ -1,0 +1,23 @@
+[
+  {
+    "topic_id": "topic_01",
+    "topic": "Graph neural networks in drug discovery",
+    "max_results": 15,
+    "expected_themes": ["Molecular representation", "Property prediction", "Generative models"],
+    "description": "Topic phổ biến, có nhiều paper chất lượng. Dùng để test happy path và đo baseline accuracy/coverage."
+  },
+  {
+    "topic_id": "topic_02",
+    "topic": "Mamba architecture for clinical time-series forecasting",
+    "max_results": 10,
+    "expected_themes": ["State space models", "MIMIC-III benchmark"],
+    "description": "Topic rất hẹp (niche), có thể trả về ít hơn 10 paper. Phù hợp để test nhánh refine_query, INSUFFICIENT_PAPERS và Potential Gaps coverage logic."
+  },
+  {
+    "topic_id": "topic_03",
+    "topic": "Federated learning privacy attacks on edge devices",
+    "max_results": 20,
+    "expected_themes": ["Data reconstruction attacks", "Differential privacy", "Resource-constrained deployment"],
+    "description": "Topic phức tạp với max_results = 20. Phù hợp để test batching LLM (4 batch x 5 papers), đo thời gian response, timeout, partial failure và token usage."
+  }
+]

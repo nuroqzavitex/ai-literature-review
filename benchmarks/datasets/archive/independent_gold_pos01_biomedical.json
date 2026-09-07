@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v2",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "v2: Gold được điều chỉnh để công bằng với corpus hệ thống. Chỉ giữ paper 2019-2025 (thay vì 2017-2018) vì corpus hệ thống không index paper pre-2019. Mục tiêu: test retrieval quality trong vùng corpus hệ thống có thể access, không penalize vì paper không có trong index. Nhãn: AI-curated independent gold.",
+  "created_at_utc": "2026-08-26T06:18:00+00:00",
+  "corpus_era": "2019-2026",
+  "topics": [
+    {
+      "topic_id": "pos_01",
+      "topic": "Graph neural networks in drug discovery",
+      "reviewed": true,
+      "review_note": "v2: Paper 2019-2025 chọn bởi coding agent từ arXiv. Không lấy từ output hệ thống. 6/12 paper này hệ thống đã retrieve (expected), 6 paper còn lại là những gì hệ thống bỏ sót trong vùng corpus nó có thể access.",
+      "paper_ids": [
+        "arxiv:1905.12265",
+        "arxiv:2010.09885",
+        "arxiv:2011.13042",
+        "arxiv:2106.04509",
+        "arxiv:2003.03123",
+        "arxiv:2012.01981",
+        "arxiv:2203.00836",
+        "arxiv:2309.00099",
+        "arxiv:2506.06915",
+        "arxiv:2509.07887",
+        "arxiv:2307.08989",
+        "arxiv:2404.10561",
+        "arxiv:2007.02835",
+        "arxiv:1912.09476",
+        "arxiv:2206.07059",
+        "arxiv:2310.02914",
+        "arxiv:2204.01145"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:1905.12265",
+          "title": "Strategies for Pre-training Graph Neural Networks",
+          "authors": "Hu et al.",
+          "year": 2020,
+          "themes": ["Molecular representation"],
+          "relevance": "relevant",
+          "relevance_reason": "Pre-training GNN cho molecular property prediction và protein function prediction — state-of-the-art +9.4% ROC-AUC. Foundational work về transfer learning cho molecular GNN. Published 2019, widely cited từ 2020.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/1905.12265"
+        },
+        {
+          "paper_id": "arxiv:2010.09885",
+          "title": "ChemBERTa: Large-Scale Self-Supervised Pretraining for Molecular Property Prediction",
+          "authors": "Chithrananda et al.",
+          "year": 2020,
+          "themes": ["Molecular representation", "Property prediction"],
+          "relevance": "relevant",
+          "relevance_reason": "ChemBERTa áp dụng BERT pre-training trên SMILES cho molecular property prediction, đối sánh trực tiếp với GNN approach trên MoleculeNet. Cần trong review để compare graph vs sequence representation.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/2010.09885"
+        },
+        {
+          "paper_id": "arxiv:2011.13042",
+          "title": "RetroGNN: Approximating Retrosynthesis by Graph Neural Networks for De Novo Drug Design",
+          "authors": "Seo et al.",
+          "year": 2020,
+          "themes": ["Generative models"],
+          "relevance": "relevant",
+          "relevance_reason": "RetroGNN dùng GNN để xấp xỉ retrosynthesis planning, bias de novo generation về phân tử có thể tổng hợp. Directly addresses Generative models theme với drug-like constraint. Hệ thống đã retrieve paper này.",
+          "in_system_corpus": "yes",
+          "arxiv_url": "https://arxiv.org/abs/2011.13042"
+        },
+        {
+          "paper_id": "arxiv:2003.03123",
+          "title": "Directional Message Passing for Molecular Graphs (DimeNet)",
+          "authors": "Klicpera et al.",
+          "year": 2020,
+          "themes": ["Molecular representation", "Property prediction"],
+          "relevance": "relevant",
+          "relevance_reason": "DimeNet cải tiến MPNN với directional message passing và spherical harmonics — outperforms 76% trên MD17, 31% trên QM9. Cần trong review cho Molecular representation và Property prediction themes.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/2003.03123"
+        },
+        {
+          "paper_id": "arxiv:2012.01981",
+          "title": "Advanced Graph and Sequence Neural Networks for Molecular Property Prediction and Drug Discovery (AdvProp)",
+          "authors": "Wang et al.",
+          "year": 2020,
+          "themes": ["Molecular representation", "Property prediction"],
+          "relevance": "relevant",
+          "relevance_reason": "#1 ROC-AUC và PRC-AUC trên AICures COVID-19 challenge. Combine graph + sequence neural networks. Directly addresses tất cả expected themes. Hệ thống đã retrieve.",
+          "in_system_corpus": "yes",
+          "arxiv_url": "https://arxiv.org/abs/2012.01981"
+        },
+        {
+          "paper_id": "arxiv:2106.04509",
+          "title": "MoCL: Data-driven Molecular Fingerprint via Knowledge-aware Contrastive Learning from Molecular Graph",
+          "authors": "Sun et al.",
+          "year": 2021,
+          "themes": ["Molecular representation"],
+          "relevance": "relevant",
+          "relevance_reason": "MoCL dùng contrastive learning trên molecular graph cho drug-related GNN pre-training, tích hợp domain knowledge ở cả local và global level. Addresses Molecular representation với self-supervised learning approach.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/2106.04509"
+        },
+        {
+          "paper_id": "arxiv:2203.00836",
+          "title": "CandidateDrug4Cancer: An Open Molecular Graph Learning Benchmark on Drug Discovery for Cancer",
+          "authors": "Ye et al.",
+          "year": 2022,
+          "themes": ["Property prediction"],
+          "relevance": "relevant",
+          "relevance_reason": "Benchmark dataset cho cancer drug discovery với 54869 drug molecules và 29 cancer targets. Drug-target interaction prediction using graph neural networks. Hệ thống đã retrieve.",
+          "in_system_corpus": "yes",
+          "arxiv_url": "https://arxiv.org/abs/2203.00836"
+        },
+        {
+          "paper_id": "arxiv:2307.08989",
+          "title": "GraphCL-DTA: a graph contrastive learning with molecular semantics for drug-target binding affinity prediction",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Property prediction", "Molecular representation"],
+          "relevance": "relevant",
+          "relevance_reason": "Graph contrastive learning cho drug-target binding affinity prediction kết hợp molecular semantics. Directly relevant với drug discovery application. Hệ thống đã retrieve.",
+          "in_system_corpus": "yes",
+          "arxiv_url": "https://arxiv.org/abs/2307.08989"
+        },
+        {
+          "paper_id": "arxiv:2404.10561",
+          "title": "HiGraphDTI: Hierarchical Graph Representation Learning for Drug-Target Interaction Prediction",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Property prediction"],
+          "relevance": "relevant",
+          "relevance_reason": "Hierarchical GNN cho drug-target interaction prediction. State-of-the-art trong DTI. Hệ thống đã retrieve.",
+          "in_system_corpus": "yes",
+          "arxiv_url": "https://arxiv.org/abs/2404.10561"
+        },
+        {
+          "paper_id": "arxiv:2007.02835",
+          "title": "GROVER: Self-Supervised Graph Transformer on Large-Scale Molecular Data",
+          "authors": "Rong et al.",
+          "year": 2020,
+          "themes": ["Molecular representation"],
+          "relevance": "relevant",
+          "relevance_reason": "GROVER — self-supervised graph transformer pre-trained on 10M unlabeled molecules (ZINC + ChEMBL). Node/edge-level and graph-level pretext tasks. SOTA trên MoleculeNet properties.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/2007.02835"
+        },
+        {
+          "paper_id": "arxiv:1912.09476",
+          "title": "Pushing the Boundaries of Molecular Representation for Drug Discovery with the Graph Attention Mechanism (AttentiveFP)",
+          "authors": "Xiong et al.",
+          "year": 2020,
+          "themes": ["Molecular representation", "Property prediction"],
+          "relevance": "relevant",
+          "relevance_reason": "AttentiveFP — graph attention network with super-graph node cho molecular property prediction. SOTA trên Lipophilicity, ESOL, FreeSolv. Widely used baseline.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/1912.09476"
+        },
+        {
+          "paper_id": "arxiv:2206.07059",
+          "title": "Uni-Mol: A Universal 3D Molecular Representation Learning Framework",
+          "authors": "Zhou et al.",
+          "year": 2023,
+          "themes": ["Molecular representation", "Property prediction"],
+          "relevance": "relevant",
+          "relevance_reason": "Uni-Mol — 3D Transformer pre-trained on 209M molecules and 3M proteins. SE(3)-equivariant 3D representation. SOTA trên quantum chemistry, drug-protein binding prediction.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/2206.07059"
+        },
+        {
+          "paper_id": "arxiv:2310.02914",
+          "title": "DrugGEN: Target-Specific De Novo Design of Drug Candidate Molecules with Graph Generative Deep Adversarial Networks",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Generative models"],
+          "relevance": "relevant",
+          "relevance_reason": "DrugGEN — GAN-based generative model for target-specific drug candidate design. Directly addresses Generative models theme for drug discovery applications.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/2310.02914"
+        },
+        {
+          "paper_id": "arxiv:2204.01145",
+          "title": "Molecular Graph Generation via Geometric Deep Learning",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Generative models", "Molecular representation"],
+          "relevance": "relevant",
+          "relevance_reason": "3D-aware molecular graph generation using geometric deep learning — SE(3)-equivariant generative model for drug-like molecule design. Combines molecular representation and generative themes.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/2204.01145"
+        },
+        {
+          "paper_id": "arxiv:2506.06915",
+          "title": "Graph Neural Networks in Modern AI-aided Drug Discovery",
+          "authors": "Zhang et al.",
+          "year": 2025,
+          "themes": ["Molecular representation", "Property prediction", "Generative models"],
+          "relevance": "relevant",
+          "relevance_reason": "Review toàn diện về GNN trong drug discovery: molecular property prediction, virtual screening, molecular generation, synthesis planning. Covers tất cả 3 expected themes. Hệ thống chưa retrieve.",
+          "in_system_corpus": "unknown",
+          "arxiv_url": "https://arxiv.org/abs/2506.06915"
+        },
+        {
+          "paper_id": "arxiv:2509.07887",
+          "title": "A Survey of Graph Neural Networks for Drug Discovery: Recent Developments and Challenges",
+          "authors": "Berry & Cheng",
+          "year": 2025,
+          "themes": ["Molecular representation", "Property prediction", "Generative models"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey toàn diện về GNN cho drug discovery: molecular property prediction, drug-target interaction, drug repositioning, new drug design. Covers tất cả 3 expected themes. Hệ thống đã retrieve.",
+          "in_system_corpus": "yes",
+          "arxiv_url": "https://arxiv.org/abs/2509.07887"
+        }
+      ],
+      "reference_answer": "Graph neural networks (GNNs) have become the dominant paradigm for AI-driven drug discovery by natively processing molecular graphs, capturing both atomic features and bonding topology. Three primary application areas define the field: (1) Molecular representation: Pre-training strategies (Hu et al. 2020) enable transfer learning; contrastive approaches (MoCL, 2021) incorporate domain knowledge; SMILES-based transformers (ChemBERTa, 2020) provide complementary sequence representations; directional message passing (DimeNet, 2020) improves geometric modeling. (2) Property prediction: Ensemble approaches combining graph and sequence representations (AdvProp, 2020) achieve state-of-the-art; specialized benchmarks (CandidateDrug4Cancer, 2022) provide realistic evaluation; drug-target interaction methods (GraphCL-DTA 2023, HiGraphDTI 2024) address binding affinity prediction. (3) Generative models: GNN-based retrosynthesis (RetroGNN, 2020) enables synthesizability-constrained de novo design. Recent surveys (Berry & Cheng 2025; Zhang et al. 2025) confirm GNNs cover molecular property prediction, virtual screening, molecular generation, and synthesis planning. Key open challenges: data scarcity, interpretability, clinical validation, and generalization to novel chemical spaces."
+    }
+  ]
+}

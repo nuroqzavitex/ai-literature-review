@@ -1,0 +1,493 @@
+[
+  {
+    "topic_id": "pos_01",
+    "topic": "Graph neural networks for traffic forecasting",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_2686cc1cb77e41188cdba4b80a804e19",
+    "latency_seconds": 793.115787314,
+    "valid_claims": 18,
+    "papers": 15,
+    "started_at": "2026-08-28T07:07:01.842960+00:00",
+    "artifact": "pos_01_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_01",
+      "topic": "Graph neural networks for traffic forecasting",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Spatiotemporal graph neural networks",
+        "Traffic forecasting",
+        "Dynamic graph modeling"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Literature AI/transport rộng, có paper hội nghị và preprint rõ ràng trên OpenAlex/arXiv."
+    },
+    "source_check": {
+      "resolved": 4,
+      "not_found": [],
+      "errors": [
+        "s2:34c4925097d3bf1838e0bfae2ffb28ebf62af7f3: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:91ef7c9434627f451a455caf47b3def3ebbf1d75: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:1ac8f827f5ad47ebffa3aa9be682cc0b0079f537: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:5845bcbdb6b105f8a7bb19de5bdcb625a7027ac9: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:a291a05d83af75d95812a1c85c1e77b021c0ebbd: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:712bba011ad0fb6324ae55c3e3422c2567851d20: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:53bbcfc366525a77f81c8b31896a5fd77fbb4ce1: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:36cf500079b82e3adf4a3afe3356c1c03426bdcd: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:26d3a19e5874b8d146143aacba73ccf446db8830: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:0352e222bb397da243b5e9da63cfe18ab9adea0f: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:b2533bfffee5444abd1063d9d35f22b71abcb9ff: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_02",
+    "topic": "Mamba architectures for long-context language modeling",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_3e1c5b8137244d61b675a6f1487e084c",
+    "latency_seconds": 773.0265439590003,
+    "valid_claims": 16,
+    "papers": 14,
+    "started_at": "2026-08-28T07:07:01.843508+00:00",
+    "artifact": "pos_02_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_02",
+      "topic": "Mamba architectures for long-context language modeling",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Selective state space models",
+        "Long-context modeling",
+        "Transformer efficiency"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Chủ đề AI mới nhưng corpus arXiv/OpenAlex rộng; kiểm trade-off giữa Mamba và Transformer."
+    },
+    "source_check": {
+      "resolved": 6,
+      "not_found": [],
+      "errors": [
+        "s2:c9a347eb8e0b30e37a533abddfeff1a7f05e8fb4: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:b6c7f4cdc0378f854c55215a11d4bb6427c0767a: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:4f7f40e068887ece27b2dc26b5467a223f4b5062: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:e8e20fc8d6dcb5edd2e63cc024aff7f42e01e5ac: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:3797b525b8e7f74fd0091b17968e4eefd138401d: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:93a1931a613ea4e23fdffc8679838607c2455dda: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:c7cc07dbd80119f84170cbf5c4b654da7c069836: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:469c27e51ade2adce206ad051f912fedc0dce3fb: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_03",
+    "topic": "Federated learning privacy attacks on edge devices",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_ca7e59bc38ee4d899bda6e9f9c5c983e",
+    "latency_seconds": 462.032755802,
+    "valid_claims": 15,
+    "papers": 15,
+    "started_at": "2026-08-28T09:56:09.195835+00:00",
+    "artifact": "pos_03_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_03",
+      "topic": "Federated learning privacy attacks on edge devices",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Gradient inversion",
+        "Differential privacy",
+        "Resource-constrained deployment"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Chủ đề bảo mật/hệ thống có đánh đổi giữa riêng tư, utility và khả năng triển khai."
+    },
+    "source_check": {
+      "resolved": 12,
+      "not_found": [],
+      "errors": [
+        "s2:d0e6e156ac58d26af3cd683abcff510d94b6e30f: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:735c2816137bd4ddee72b7a3c9e0a50a42c2ab19: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:b6473776ff7cf988196d52bc3b2182e96fdb0c4f: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_04",
+    "topic": "Large language models for low-resource machine translation",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_ca24277f911d4d0b9e1fd25b5983f2d8",
+    "latency_seconds": 792.8307719320001,
+    "valid_claims": 24,
+    "papers": 15,
+    "started_at": "2026-08-28T07:20:15.007035+00:00",
+    "artifact": "pos_04_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_04",
+      "topic": "Large language models for low-resource machine translation",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Few-shot prompting",
+        "Cross-lingual transfer",
+        "Low-resource languages"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Chủ đề NLP để kiểm tra coverage không thiên lệch về biomedical retrieval."
+    },
+    "source_check": {
+      "resolved": 7,
+      "not_found": [],
+      "errors": [
+        "s2:3658ddcc1e6a6cce666a8e800940e759e01b7794: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:4d153cbf728b04d038d73a3651d2c3a561eac1d5: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:5455fa93aad65b309e7dfbfc3d4275046bd16ba7: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:80387a3a65d66f498044d5a06f641a3963321646: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:088617a8862cfa372a62070916e88a5f10e7690b: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:abe7b584d099d05e3d80a1e2661a2a6ebf6e1aac: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:840fb73f48ab761b48b041ea2b9fe4d92d0eca57: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:b3dd7ef488d40c005b486f15eeb4ee6747a36c84: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_05",
+    "topic": "Deep learning for extreme weather event prediction",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_055b7d5b54bd4fda985ec8421d65bdae",
+    "latency_seconds": 561.8627880820004,
+    "valid_claims": 24,
+    "papers": 15,
+    "started_at": "2026-08-28T07:30:02.010641+00:00",
+    "artifact": "pos_05_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_05",
+      "topic": "Deep learning for extreme weather event prediction",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Climate data",
+        "Extreme-event forecasting",
+        "Uncertainty quantification"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Chủ đề khoa học khí hậu, đòi hỏi dữ liệu chuyên ngành và diễn giải bất định có chừng mực."
+    },
+    "source_check": {
+      "resolved": 9,
+      "not_found": [],
+      "errors": [
+        "s2:4ab9eaa9da48afe41077702bf0f88c7492b6c91e: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:a58738bf0fb7333fe4b2d78a9ba1b26f38d92b43: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:1f49abaa234e399fb3ad63465ff56a6d852e41ae: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:bb7bc7265ff631f10410d62a7b68d0016b94cc99: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:66bffe5b172009594cb527eacd5eac6f574831a9: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:e643c391440d7f4969bf6fbd5554ad1197dfc789: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_06",
+    "topic": "Causal inference methods for estimating treatment effects in observational data",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_fbce6e3045b140c39c3d73ad9e41ed61",
+    "latency_seconds": 446.114289137,
+    "valid_claims": 21,
+    "papers": 15,
+    "started_at": "2026-08-28T10:32:16.288910+00:00",
+    "artifact": "pos_06_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_06",
+      "topic": "Causal inference methods for estimating treatment effects in observational data",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Propensity scores",
+        "Instrumental variables",
+        "Difference-in-differences"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Chủ đề thống kê/econometrics, cần phân biệt causal claim với tương quan."
+    },
+    "source_check": {
+      "resolved": 11,
+      "not_found": [],
+      "errors": [
+        "s2:21897e6193f9fc556dd45da8bf50ac680591475e: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:17843b0c9ca6e8c1bfe4f22bffc2e5a89efbc913: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:4c181ad9a7518dfeafbd083fff67ab1537cc7973: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:931d85ee5d276a86c29754980e4f1a75c08ab57a: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_07",
+    "topic": "Retrieval-augmented generation evaluation benchmarks",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_3c90f08fa1a34c3cb870fbc13caa804d",
+    "latency_seconds": 396.27565254499996,
+    "valid_claims": 17,
+    "papers": 12,
+    "started_at": "2026-08-28T10:02:15.834606+00:00",
+    "artifact": "pos_07_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_07",
+      "topic": "Retrieval-augmented generation evaluation benchmarks",
+      "max_results": 12,
+      "kind": "positive",
+      "expected_themes": [
+        "Faithfulness",
+        "Context relevance",
+        "Retrieval evaluation"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Literature AI mới, nhiều preprint và thuật ngữ thay đổi nhanh."
+    },
+    "source_check": {
+      "resolved": 5,
+      "not_found": [],
+      "errors": [
+        "s2:3c6a6c8de005ef5722a54847747f65922e79d622: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:e90435e1ae06fab4efa272f5f46ed74ca0a8cde0: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:c0032972c9775967dc3c123521c147f6ec05c885: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:bb7047071062aea5d846005ff6dcd7782d29103e: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:4df2b1e7d54fe5ad81dc2ed6774b93ef7891b3c8: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:b7edb8f1f7f9ba3352049030c557ffd53f6d0aac: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:531865fa8ab7de0031d15ee2d4d30b5c09f57fd4: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_08",
+    "topic": "Transformer interpretability and mechanistic analysis",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_cc59decee4294ac7950242524818daf4",
+    "latency_seconds": 993.2046380080001,
+    "valid_claims": 18,
+    "papers": 15,
+    "started_at": "2026-08-28T10:03:51.269284+00:00",
+    "artifact": "pos_08_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_08",
+      "topic": "Transformer interpretability and mechanistic analysis",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Attention heads",
+        "Circuit analysis",
+        "Superposition"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Literature mới nổi, phân tán; kiểm tra khả năng tổng hợp giữa nhiều nhóm nghiên cứu."
+    },
+    "source_check": {
+      "resolved": 10,
+      "not_found": [],
+      "errors": [
+        "s2:03dc663be44d9862ce42bae75ea2b459ab99199a: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:f29ab62100f7bf1c5842d6db3c3bf70a561181de: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:2d05d390c846cf66f8ee374208371924dcfd8afd: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:5813e3ad18e5bb281dd7f9a95f16824e5fafbc10: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:775000f83a792e85dd81f46420f09127a608dc98: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_09",
+    "topic": "Mô hình ngôn ngữ lớn cho xử lý tiếng Việt",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_1002f4967ad647a99dea1ab04f74ea75",
+    "latency_seconds": 501.502553112,
+    "valid_claims": 12,
+    "papers": 8,
+    "started_at": "2026-08-28T07:39:23.941555+00:00",
+    "artifact": "pos_09_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_09",
+      "topic": "Mô hình ngôn ngữ lớn cho xử lý tiếng Việt",
+      "max_results": 12,
+      "kind": "positive",
+      "expected_themes": [
+        "Dữ liệu tiếng Việt",
+        "Benchmark đánh giá",
+        "Mô hình ngôn ngữ lớn"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Query tiếng Việt để kiểm tra retrieval và tổng hợp đa ngôn ngữ."
+    },
+    "source_check": {
+      "resolved": 7,
+      "not_found": [],
+      "errors": [
+        "s2:ee2b1f3f6e009233eb474802caeb9915794e8827: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_10",
+    "topic": "Self-supervised learning for remote-sensing image segmentation",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_94dfdeb8eeef40648c0517c869e9b684",
+    "latency_seconds": 642.2283808430002,
+    "valid_claims": 14,
+    "papers": 13,
+    "started_at": "2026-08-28T07:46:20.120279+00:00",
+    "artifact": "pos_10_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_10",
+      "topic": "Self-supervised learning for remote-sensing image segmentation",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Contrastive learning",
+        "Annotation efficiency",
+        "Domain adaptation"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Computer vision/remote sensing, dùng corpus AI công khai thay cho nguồn biomedical chuyên ngành."
+    },
+    "source_check": {
+      "resolved": 8,
+      "not_found": [],
+      "errors": [
+        "s2:e1500e9385cdbde34c408ebae88db0c4e2e33a7b: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:4288efb1457b24d716eba23b4a29710f2008f39c: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:d5a2b7e66ab59dd3bed78da1ddc137e3cd27bef5: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:6979769ee907c0080f5a9e47cf10396787b9d113: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:a5b74ef79628ce785bc16a0ba65767f6a2ea040b: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_11",
+    "topic": "Lifecycle assessment and recycling of lithium-ion batteries",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_3286508382054c28a8036e0b644accd3",
+    "latency_seconds": 897.8756963329997,
+    "valid_claims": 25,
+    "papers": 15,
+    "started_at": "2026-08-28T07:47:45.472912+00:00",
+    "artifact": "pos_11_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_11",
+      "topic": "Lifecycle assessment and recycling of lithium-ion batteries",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Material recovery",
+        "Environmental impact",
+        "Battery supply chain"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Chủ đề vật liệu và bền vững, mở rộng corpus ra ngoài computing và y sinh."
+    },
+    "source_check": {
+      "resolved": 7,
+      "not_found": [],
+      "errors": [
+        "s2:a7495b1d61d8496f69d64e054047762629e167fc: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:5bbced6b9114a373c1dacbac48f59e63dddad322: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:e697cbf61a76f50a32d58153c56a60ec8b81848d: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:3ae1d5868f3dbfd73822c3d0c59d208e6fb843a4: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:e7175203e8d42b700c92589ce3737e5c0c057ae6: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:91f7b84c0f12adb1a44a2bea061cb82fa78ba260: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:07cc66d69a940f7b3270b363b7ccc55a0b3018a5: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:0b340f44c9edc497970c812e885101da863ebdf6: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  },
+  {
+    "topic_id": "pos_12",
+    "topic": "Methods for evaluating LLM safety and reliability",
+    "kind": "positive",
+    "attempt": 1,
+    "outcome": "completed",
+    "error": null,
+    "error_class": null,
+    "job_id": "job_c56f86ba842e4b1a963837c9c998559a",
+    "latency_seconds": 993.0545233190003,
+    "valid_claims": 21,
+    "papers": 15,
+    "started_at": "2026-08-28T10:08:52.132312+00:00",
+    "artifact": "pos_12_attempt1.json",
+    "refusal_kind": null,
+    "dataset_entry": {
+      "topic_id": "pos_12",
+      "topic": "Methods for evaluating LLM safety and reliability",
+      "max_results": 15,
+      "kind": "positive",
+      "expected_themes": [
+        "Safety benchmarks",
+        "Red teaming",
+        "Reliability evaluation"
+      ],
+      "manual_baseline_minutes": null,
+      "description": "Chủ đề AI có corpus OpenAlex/arXiv rộng; kiểm benchmark, red teaming và reliability claims."
+    },
+    "source_check": {
+      "resolved": 10,
+      "not_found": [],
+      "errors": [
+        "s2:151b1d14ebfde24bef76c6b5c44e6efd8c8e89ed: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:dfc9bb24627d1dd61c8d495cd86a874a2a1130ad: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:acc0c1d89eb597dff4537dd7ef45bd0562598bd2: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:1701841a90c671a0ac638bf3e721d010046a6488: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)",
+        "s2:ef429087a874db342388c4f68467a4caf84c70e6: không tra được (tiền tố lạ hoặc lỗi nhà cung cấp)"
+      ]
+    }
+  }
+]

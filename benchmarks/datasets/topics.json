@@ -1,0 +1,140 @@
+[
+  {
+    "topic_id": "pos_01",
+    "topic": "Graph neural networks for traffic forecasting",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Spatiotemporal graph neural networks", "Traffic forecasting", "Dynamic graph modeling"],
+    "manual_baseline_minutes": null,
+    "description": "Literature AI/transport rộng, có paper hội nghị và preprint rõ ràng trên OpenAlex/arXiv."
+  },
+  {
+    "topic_id": "pos_02",
+    "topic": "Mamba architectures for long-context language modeling",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Selective state space models", "Long-context modeling", "Transformer efficiency"],
+    "manual_baseline_minutes": null,
+    "description": "Chủ đề AI mới nhưng corpus arXiv/OpenAlex rộng; kiểm trade-off giữa Mamba và Transformer."
+  },
+  {
+    "topic_id": "pos_03",
+    "topic": "Federated learning privacy attacks on edge devices",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Gradient inversion", "Differential privacy", "Resource-constrained deployment"],
+    "manual_baseline_minutes": null,
+    "description": "Chủ đề bảo mật/hệ thống có đánh đổi giữa riêng tư, utility và khả năng triển khai."
+  },
+  {
+    "topic_id": "pos_04",
+    "topic": "Large language models for low-resource machine translation",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Few-shot prompting", "Cross-lingual transfer", "Low-resource languages"],
+    "manual_baseline_minutes": null,
+    "description": "Chủ đề NLP để kiểm tra coverage không thiên lệch về biomedical retrieval."
+  },
+  {
+    "topic_id": "pos_05",
+    "topic": "Deep learning for extreme weather event prediction",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Climate data", "Extreme-event forecasting", "Uncertainty quantification"],
+    "manual_baseline_minutes": null,
+    "description": "Chủ đề khoa học khí hậu, đòi hỏi dữ liệu chuyên ngành và diễn giải bất định có chừng mực."
+  },
+  {
+    "topic_id": "pos_06",
+    "topic": "Causal inference methods for estimating treatment effects in observational data",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Propensity scores", "Instrumental variables", "Difference-in-differences"],
+    "manual_baseline_minutes": null,
+    "description": "Chủ đề thống kê/econometrics, cần phân biệt causal claim với tương quan."
+  },
+  {
+    "topic_id": "pos_07",
+    "topic": "Retrieval-augmented generation evaluation benchmarks",
+    "max_results": 12,
+    "kind": "positive",
+    "expected_themes": ["Faithfulness", "Context relevance", "Retrieval evaluation"],
+    "manual_baseline_minutes": null,
+    "description": "Literature AI mới, nhiều preprint và thuật ngữ thay đổi nhanh."
+  },
+  {
+    "topic_id": "pos_08",
+    "topic": "Transformer interpretability and mechanistic analysis",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Attention heads", "Circuit analysis", "Superposition"],
+    "manual_baseline_minutes": null,
+    "description": "Literature mới nổi, phân tán; kiểm tra khả năng tổng hợp giữa nhiều nhóm nghiên cứu."
+  },
+  {
+    "topic_id": "pos_09",
+    "topic": "Mô hình ngôn ngữ lớn cho xử lý tiếng Việt",
+    "max_results": 12,
+    "kind": "positive",
+    "expected_themes": ["Dữ liệu tiếng Việt", "Benchmark đánh giá", "Mô hình ngôn ngữ lớn"],
+    "manual_baseline_minutes": null,
+    "description": "Query tiếng Việt để kiểm tra retrieval và tổng hợp đa ngôn ngữ."
+  },
+  {
+    "topic_id": "pos_10",
+    "topic": "Self-supervised learning for remote-sensing image segmentation",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Contrastive learning", "Annotation efficiency", "Domain adaptation"],
+    "manual_baseline_minutes": null,
+    "description": "Computer vision/remote sensing, dùng corpus AI công khai thay cho nguồn biomedical chuyên ngành."
+  },
+  {
+    "topic_id": "pos_11",
+    "topic": "Lifecycle assessment and recycling of lithium-ion batteries",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Material recovery", "Environmental impact", "Battery supply chain"],
+    "manual_baseline_minutes": null,
+    "description": "Chủ đề vật liệu và bền vững, mở rộng corpus ra ngoài computing và y sinh."
+  },
+  {
+    "topic_id": "pos_12",
+    "topic": "Methods for evaluating LLM safety and reliability",
+    "max_results": 15,
+    "kind": "positive",
+    "expected_themes": ["Safety benchmarks", "Red teaming", "Reliability evaluation"],
+    "manual_baseline_minutes": null,
+    "description": "Chủ đề AI có corpus OpenAlex/arXiv rộng; kiểm benchmark, red teaming và reliability claims."
+  },
+  {
+    "topic_id": "neg_01",
+    "topic": "quantum blockchain telepathy for photosynthetic compilers",
+    "max_results": 10,
+    "kind": "negative_control",
+    "expect_empty": true,
+    "expected_themes": [],
+    "manual_baseline_minutes": null,
+    "description": "Các thuật ngữ kỹ thuật cố ý không tương thích; hệ thống phải từ chối thay vì bịa ra lĩnh vực."
+  },
+  {
+    "topic_id": "neg_02",
+    "topic": "xyzqwerty nghiên cứu không tồn tại 99999",
+    "max_results": 10,
+    "kind": "negative_control",
+    "expect_empty": true,
+    "expected_themes": [],
+    "manual_baseline_minutes": null,
+    "description": "Chuỗi vô nghĩa để bắt hệ thống trả paper cho mọi input."
+  },
+  {
+    "topic_id": "neg_03",
+    "topic": "fakeconlang quark taxonomy neverpublished protocol 99999",
+    "max_results": 10,
+    "kind": "negative_control",
+    "expect_empty": true,
+    "expected_themes": [],
+    "manual_baseline_minutes": null,
+    "description": "Chuỗi vô nghĩa thứ hai có từ vựng trông khoa học; không phải một lĩnh vực có tranh cãi thật."
+  }
+]

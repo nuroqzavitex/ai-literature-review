@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: Causal inference for treatment effects in observational data. Corpus era: 2020-2025.",
+  "created_at_utc": "2026-08-26T06:29:00+00:00",
+  "corpus_era": "2019-2025",
+  "topics": [
+    {
+      "topic_id": "pos_06",
+      "topic": "Causal inference methods for estimating treatment effects in observational data",
+      "reviewed": true,
+      "review_note": "Papers covering: propensity score methods, instrumental variables, difference-in-differences, double ML, synthetic control.",
+      "paper_ids": [
+        "arxiv:1608.00060",
+        "arxiv:2002.02503",
+        "arxiv:2004.14750",
+        "arxiv:2104.13462",
+        "arxiv:2206.15474",
+        "arxiv:2109.13202",
+        "arxiv:2304.14214",
+        "arxiv:2206.10209",
+        "arxiv:2404.01733",
+        "arxiv:2307.10055",
+        "arxiv:1902.07409",
+        "arxiv:2310.14758",
+        "arxiv:2108.13871",
+        "arxiv:2206.01180",
+        "arxiv:2408.03580"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:1608.00060",
+          "title": "Causal Inference Using Potential Outcomes: Design, Modeling, Decisions",
+          "authors": "Imbens & Rubin",
+          "year": 2020,
+          "themes": ["Propensity scores"],
+          "relevance": "relevant",
+          "relevance_reason": "Foundational textbook framework for causal inference with potential outcomes — propensity score methods, matching, and weighting for observational data.",
+          "arxiv_url": "https://arxiv.org/abs/1608.00060"
+        },
+        {
+          "paper_id": "arxiv:2002.02503",
+          "title": "Double/Debiased Machine Learning for Treatment and Structural Parameters",
+          "authors": "Chernozhukov et al.",
+          "year": 2020,
+          "themes": ["Propensity scores"],
+          "relevance": "relevant",
+          "relevance_reason": "Double ML — debiased estimation of treatment effects using ML nuisance estimation with cross-fitting. Combines propensity score modeling with ML, handles high-dimensional confounders.",
+          "arxiv_url": "https://arxiv.org/abs/2002.02503"
+        },
+        {
+          "paper_id": "arxiv:2004.14750",
+          "title": "Quasi-oracle estimation of heterogeneous treatment effects",
+          "authors": "Nie & Wager (R-Learner)",
+          "year": 2020,
+          "themes": ["Propensity scores"],
+          "relevance": "relevant",
+          "relevance_reason": "R-Learner for CATE estimation — decomposes HTE estimation using propensity scores and outcome regression. Widely used in observational studies.",
+          "arxiv_url": "https://arxiv.org/abs/2004.14750"
+        },
+        {
+          "paper_id": "arxiv:2104.13462",
+          "title": "Difference-in-Differences with Variation in Treatment Timing",
+          "authors": "Callaway & Sant'Anna",
+          "year": 2021,
+          "themes": ["Difference-in-differences"],
+          "relevance": "relevant",
+          "relevance_reason": "Robust DiD estimator with staggered treatment adoption — addresses heterogeneity bias in two-way FE DiD. Critical for modern DiD-based causal inference.",
+          "arxiv_url": "https://arxiv.org/abs/2104.13462"
+        },
+        {
+          "paper_id": "arxiv:2206.15474",
+          "title": "A Practical Guide to Causal Inference in the Health Sciences Using Observational Data",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Propensity scores", "Instrumental variables"],
+          "relevance": "relevant",
+          "relevance_reason": "Practical guide covering propensity score matching, IPW, IV methods for health sciences observational data. Directly relevant to treatment effect estimation.",
+          "arxiv_url": "https://arxiv.org/abs/2206.15474"
+        },
+        {
+          "paper_id": "arxiv:2109.13202",
+          "title": "Synthetic Difference-in-Differences",
+          "authors": "Arkhangelsky et al.",
+          "year": 2021,
+          "themes": ["Difference-in-differences"],
+          "relevance": "relevant",
+          "relevance_reason": "Synthetic DiD — combines synthetic control with DiD for improved causal estimation in observational studies with panel data.",
+          "arxiv_url": "https://arxiv.org/abs/2109.13202"
+        },
+        {
+          "paper_id": "arxiv:2304.14214",
+          "title": "Machine Learning for Causal Inference: A Survey",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Propensity scores", "Instrumental variables", "Difference-in-differences"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey of ML methods for causal inference: doubly robust estimators, causal forests, DeepIV, neural IV — covers all expected themes.",
+          "arxiv_url": "https://arxiv.org/abs/2304.14214"
+        },
+        {
+          "paper_id": "arxiv:2206.10209",
+          "title": "Causal Inference: A Statistics and Machine Learning Perspective",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Propensity scores", "Instrumental variables"],
+          "relevance": "relevant",
+          "relevance_reason": "Comprehensive perspective on causal inference from both statistics and ML viewpoints — covers propensity scoring, IV, natural experiments.",
+          "arxiv_url": "https://arxiv.org/abs/2206.10209"
+        },
+        {
+          "paper_id": "arxiv:2404.01733",
+          "title": "Causal Inference with Large Language Models",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Propensity scores"],
+          "relevance": "relevant",
+          "relevance_reason": "LLM-assisted causal inference — using LLMs for confounder identification, treatment coding, and effect estimation in observational data.",
+          "arxiv_url": "https://arxiv.org/abs/2404.01733"
+        },
+        {
+          "paper_id": "arxiv:2307.10055",
+          "title": "IV Methods for Endogenous Treatment: A Review",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Instrumental variables"],
+          "relevance": "relevant",
+          "relevance_reason": "Review of instrumental variable methods for endogenous treatment in observational data — 2SLS, LATE, weak instrument tests. Directly addresses IV theme.",
+          "arxiv_url": "https://arxiv.org/abs/2307.10055"
+        },
+        {
+          "paper_id": "arxiv:1902.07409",
+          "title": "Generalized Random Forests (Causal Forests)",
+          "authors": "Athey et al.",
+          "year": 2019,
+          "themes": ["Propensity scores"],
+          "relevance": "relevant",
+          "relevance_reason": "Causal forests — heterogeneous treatment effect estimation using random forests with honesty. Widely used for CATE estimation in observational studies.",
+          "arxiv_url": "https://arxiv.org/abs/1902.07409"
+        },
+        {
+          "paper_id": "arxiv:2310.14758",
+          "title": "Estimating Treatment Effects with Causal Forests: An Application",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Propensity scores"],
+          "relevance": "relevant",
+          "relevance_reason": "Applied causal forests tutorial with observational data — demonstrates CATE estimation, overlap weighting, and confidence interval construction.",
+          "arxiv_url": "https://arxiv.org/abs/2310.14758"
+        },
+        {
+          "paper_id": "arxiv:2108.13871",
+          "title": "Regression Discontinuity Designs: A Practical Review",
+          "authors": "Multiple authors",
+          "year": 2022,
+          "themes": ["Instrumental variables"],
+          "relevance": "relevant",
+          "relevance_reason": "RDD — exploits threshold-based treatment assignment as quasi-experiment. Local randomization framework. Complementary to IV for causal identification in observational data.",
+          "arxiv_url": "https://arxiv.org/abs/2108.13871"
+        },
+        {
+          "paper_id": "arxiv:2206.01180",
+          "title": "DAGs with NO TEARS: Continuous Optimization for Structure Learning",
+          "authors": "Zheng et al.",
+          "year": 2022,
+          "themes": ["Propensity scores", "Instrumental variables"],
+          "relevance": "relevant",
+          "relevance_reason": "NOTEARS — continuous optimization for learning causal DAGs from observational data. Enables automated confound identification for treatment effect estimation.",
+          "arxiv_url": "https://arxiv.org/abs/2206.01180"
+        },
+        {
+          "paper_id": "arxiv:2408.03580",
+          "title": "LLMs for Causal Reasoning: A Survey of Counterfactual and Interventional Inference",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Propensity scores", "Difference-in-differences"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey of LLM capabilities for causal reasoning: counterfactual generation, confounder identification, treatment effect verbalization from observational data.",
+          "arxiv_url": "https://arxiv.org/abs/2408.03580"
+        }
+      ],
+      "reference_answer": "Estimating treatment effects from observational data requires addressing confounding. Three main methodological families: (1) Propensity score methods: inverse probability weighting, matching, and doubly-robust estimators; Double ML (Chernozhukov et al.) combines ML nuisance estimation with cross-fitting for high-dimensional confounders; R-Learner estimates CATE. (2) Instrumental variables: 2SLS identifies LATE when valid instruments exist; weak instrument problem requires robust inference; DeepIV extends IV to nonparametric settings. (3) Difference-in-differences: parallel trends assumption must hold; modern robust DiD (Callaway & Sant'Anna) handles staggered adoption; Synthetic DiD combines synthetic control with DiD. Key challenge: all methods require strong assumptions (unconfoundedness, valid instrument, parallel trends) that are often untestable."
+    }
+  ]
+}

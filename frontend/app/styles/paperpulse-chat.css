@@ -1,0 +1,242 @@
+/* PaperPulse-inspired chat surface: calm editorial reading with a focused composer. */
+.claude-shell{
+  /* Khung workspace từng chạy bảng màu xanh ô-liu riêng, tách hẳn khỏi hệ
+     giấy–mực–san hô của sản phẩm — nên nhìn như một ứng dụng khác. Nay bảy
+     token này trỏ thẳng vào token gốc, mọi thứ dựng trên chúng tự khớp theo. */
+  --pulse-ink:var(--ink);
+  --pulse-olive:var(--ink);
+  --pulse-moss:var(--g600);
+  --pulse-paper:var(--paper);
+  --pulse-surface:var(--paper-bright);
+  --pulse-line:var(--rule);
+  --pulse-soft:var(--g100);
+  grid-template-columns:258px minmax(0,1fr);
+  background:var(--pulse-paper);
+  color:var(--pulse-ink);
+}
+
+.claude-sidebar{
+  padding:16px 11px 14px;
+  border-right:1px solid var(--pulse-line);
+  background:#f1f0e7;
+  color:var(--pulse-ink);
+}
+
+.claude-brand{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:4px 8px 20px;
+  color:var(--pulse-ink);
+  font-family:"Newsreader","Source Serif 4",Georgia,serif;
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:-.035em;
+}
+
+/* Cùng hình với .v2-mark trên landing / auth / bàn nghiên cứu: góc cắt, viền
+   mảnh bên trong, góc gấp. Trước đây là hình TRÒN màu xanh ô-liu — khác cả
+   hình lẫn màu so với con dấu ở mọi bề mặt khác. */
+.claude-mark{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  width:26px;
+  height:30px;
+  border-radius:0;
+  color:#fff;
+  background:var(--coral);
+  clip-path:polygon(0 0, 77% 0, 100% 22%, 100% 100%, 0 100%);
+  box-shadow:0 3px 8px rgba(208,79,53,.22);
+}
+.claude-mark::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:2px;
+  border:1px solid rgba(255,253,248,.46);
+  clip-path:polygon(0 0, 75% 0, 100% 23%, 100% 100%, 0 100%);
+}
+.claude-mark::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  border-top:7px solid rgba(255,253,248,.82);
+  border-left:7px solid transparent;
+}
+.claude-mark > span{
+  position:relative;
+  top:-1px;
+  left:-1px;
+  font:600 15px/.9 "Source Serif 4", serif;
+  letter-spacing:-.1em;
+}
+
+.claude-new-project{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0 4px 19px;
+  width:calc(100% - 8px);
+  border:1px solid var(--ink);
+  border-radius:10px;
+  padding:10px 11px;
+  background:var(--pulse-olive);
+  color:#fff;
+  font:600 13px/1.2 "IBM Plex Sans",sans-serif;
+  /* Bóng đặc lệch góc — cùng ngôn ngữ với .btn-primary ở các bề mặt khác. */
+  box-shadow:3px 3px 0 var(--coral);
+}
+
+.claude-new-project:hover{background:#293852;transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--coral)}
+.claude-new-project:focus-visible,.claude-project-list button:focus-visible,.claude-composer textarea:focus-visible,.claude-composer button:focus-visible,.claude-header-actions a:focus-visible{outline:2px solid var(--coral-text);outline-offset:3px}
+
+.claude-side-label{
+  display:block;
+  margin:0 8px 8px;
+  padding:0;
+  color:#7d8278;
+  background:transparent;
+  font:600 10px/1.2 "IBM Plex Sans",sans-serif;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.claude-side-label::after{display:none}
+.claude-project-list{gap:2px;padding:0 2px}
+.claude-project-row>button:first-child{min-height:36px;padding:8px 8px;border-radius:8px;color:#51594f;font-size:13px}
+.claude-project-row>button:first-child:hover,.claude-project-row>button:first-child.active{background:#e2e4db;color:var(--pulse-ink)}
+.folder{width:15px;height:15px;color:var(--pulse-moss)}
+.claude-project-chats{margin:1px 0 7px 20px;padding:0}
+.claude-project-chats .claude-session-select{min-height:34px;padding:8px!important;border-radius:8px!important;color:#687067!important}
+.claude-project-chats .claude-session-select:hover{background:#e9e9df!important;color:var(--pulse-ink)!important}
+.claude-project-chats .claude-session-select.active{background:#dce2d8!important;color:var(--pulse-ink)!important;font-weight:600}
+.chat-icon{color:#879484}
+.claude-project-new-session,.claude-project-delete,.claude-session-rename,.claude-session-delete{color:#7f887c!important}
+.claude-project-new-session:hover,.claude-project-delete:hover,.claude-session-rename:hover,.claude-session-delete:hover{background:#dfe4da!important;color:#34493a!important}
+
+.claude-chat{background:var(--pulse-paper);color:var(--pulse-ink)}
+.claude-chat-header{
+  min-height:66px;
+  padding:0 34px;
+  border-bottom:1px solid rgba(75,96,78,.11);
+  background:rgba(246,243,235,.92);
+}
+.claude-chat-header span{color:#778074;font-size:10px;font-weight:600;letter-spacing:.075em;text-transform:uppercase}
+.claude-chat-header h2{margin-top:3px;color:var(--pulse-ink);font-family:"Newsreader","Source Serif 4",Georgia,serif;font-size:20px;font-weight:550;letter-spacing:-.025em}
+.claude-header-actions{gap:13px}.claude-header-actions a{color:#4b6652;font-size:13px;font-weight:600}.claude-header-actions a:hover{color:#253b2d}
+
+.claude-messages{padding:44px max(8vw,42px) 28px;scrollbar-color:#c7cbc2 transparent}
+.claude-welcome{max-width:680px;margin:10vh auto 0;text-align:left}
+.claude-welcome-icon{width:42px;height:42px;margin:0 0 19px;border-radius:50%;background:#e3e9df;color:#526956;font-size:18px}
+.claude-welcome h2{max-width:560px;color:var(--pulse-ink);font-family:"Newsreader","Source Serif 4",Georgia,serif;font-size:clamp(31px,4vw,43px);font-weight:500;line-height:1.04;letter-spacing:-.045em}
+.claude-welcome p{max-width:560px;margin:15px 0 24px;color:#697167;font-size:15px;line-height:1.62}
+.claude-welcome button{margin:0 7px 7px 0;border:1px solid #d5d9d0;border-radius:999px;padding:9px 13px;background:var(--pulse-surface);color:#485649;font-size:13px;transition:border-color .16s ease,background .16s ease,color .16s ease}
+.claude-welcome button:hover{border-color:#9eae9c;background:#e7ece4;color:#2c4734}
+
+.claude-message{grid-template-columns:31px minmax(0,760px);gap:14px;max-width:910px;margin-bottom:30px}
+.claude-message-body{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:18px}
+.claude-message .claude-report-actions{display:flex;flex-direction:row;align-items:center;gap:7px;padding-top:2px}
+.claude-message .claude-report-actions>*{white-space:nowrap}
+.claude-avatar{width:29px;height:29px;border-radius:50%;background:#e0e8dc;color:#506954;font-size:13px}
+.claude-message.user .claude-avatar{background:#607563;color:#fff}
+.claude-message p{color:#29352d;font-size:15px;line-height:1.72}
+.claude-message-content strong{font-weight:600}
+.claude-inline-math{font-variant-numeric:tabular-nums}
+.claude-message a{margin:9px 0;padding-left:10px;border-left:1px solid #a4b29f;color:#526b56;font-size:13px;line-height:1.45}
+.claude-message a:hover{color:#2f5238}
+.claude-message-annotations{width:max-content;max-width:min(100%,360px);margin:0 0 8px;border:1px solid #d9d8d0;border-radius:8px;background:#f3f2ec;color:#5e655d}
+.claude-message-annotations>summary{padding:6px 9px;cursor:pointer;font:600 11px/1.1 "IBM Plex Sans",sans-serif;list-style:none}
+.claude-message-annotations>summary::-webkit-details-marker{display:none}
+.claude-message-annotations>div{display:grid;gap:6px;border-top:1px solid #deddd5;padding:7px 9px}
+.claude-message-annotations p{margin:0;border-top:1px solid #e5e4dc;padding-top:6px;color:#464d46;font-size:12px;line-height:1.4}
+.claude-message-annotations p:first-child{border-top:0;padding-top:0}
+.claude-message-annotations p strong{display:block;margin-bottom:3px;color:#6e746b;font-size:10px;text-transform:uppercase}
+
+.claude-flow-banner{max-width:760px;border:1px solid #d6e0d1;border-radius:12px;padding:14px 16px;background:#f4f8f1;box-shadow:none}
+.claude-flow-banner>div:first-child{color:#4e6b53}.claude-flow-banner strong{color:#263b2b}.claude-flow-banner p{color:#617060}
+.claude-flow-banner i,.claude-runs i{background:#6d856d}
+.claude-flow-bar{background:#dbe4d8}.claude-flow-bar b{background:#6d856d}
+.claude-typing{color:#667363}.claude-typing span{background:#71896f}
+
+.claude-composer{
+  width:min(816px,calc(100% - 48px));
+  margin:0 auto 24px;
+  border:1px solid #d6d9cf;
+  border-radius:16px;
+  background:var(--pulse-surface);
+  box-shadow:0 10px 28px rgba(44,57,45,.075);
+}
+.claude-composer:focus-within{border-color:#94a892;box-shadow:0 0 0 3px rgba(119,145,115,.14),0 11px 30px rgba(44,57,45,.08)}
+.claude-composer-annotation-picker{position:relative;margin:10px 10px 0}
+.claude-composer-annotation-row{display:flex;gap:6px;overflow-x:auto;padding:1px 1px 3px;scrollbar-width:none}
+.claude-composer-annotation-row::-webkit-scrollbar{display:none}
+.claude-composer-annotation-chip{display:inline-flex;flex:0 0 auto;align-items:center;border:1px solid #d9d8d0;border-radius:8px;background:#f3f2ec;white-space:nowrap}
+.claude-composer-annotation-chip>button{border:0;color:#5e655d;background:transparent;cursor:pointer}
+.claude-composer-annotation-chip>button:first-child{padding:7px 8px;font:600 10px/1.1 "IBM Plex Sans",sans-serif}
+.claude-composer-annotation-chip>button:last-child{display:grid;width:22px;height:22px;margin-right:2px;place-items:center;border-radius:50%;font-size:16px;line-height:1}
+.claude-composer-annotation-chip:hover,.claude-composer-annotation-chip:has(button[aria-expanded="true"]){border-color:#aeb9aa;background:#e8ebe4}
+.claude-composer-annotation-chip>button:hover{color:#2f3d31}
+.claude-composer-annotation-popover{position:absolute;z-index:12;bottom:calc(100% + 8px);left:0;width:min(360px,calc(100vw - 32px));max-height:180px;overflow:auto;border:1px solid #d9d8d0;border-radius:10px;padding:10px 12px;background:#fffdf8;box-shadow:0 10px 26px rgba(44,57,45,.16)}
+.claude-composer-annotation-popover strong{color:#5e655d;font:600 10px/1.1 "IBM Plex Mono",monospace;text-transform:uppercase}
+.claude-composer-annotation-popover p{margin:7px 0 0;color:#464d46;font-size:12px;line-height:1.4}
+.claude-mode{align-items:center;gap:4px;padding:11px 13px 0}.claude-mode>span{margin-right:4px;color:#7d8479;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}.claude-mode small{margin-left:5px;color:#7c837a;font-size:10px}
+.claude-mode button{border-radius:999px;padding:6px 9px;color:#637061;font-size:10px}.claude-mode button.active{background:#e3ece0;color:#34513a;font-weight:600}
+.claude-composer textarea{min-height:82px;padding:13px 16px 9px;color:var(--pulse-ink);font:14px/1.58 "IBM Plex Sans",sans-serif}.claude-composer textarea::placeholder{color:#939a90}
+.claude-composer-footer{padding:7px 10px 10px 16px;color:#8a9288}.claude-composer-footer button{width:34px;height:34px;border-radius:50%;background:#526b56;font-size:18px;transition:transform .16s ease,background .16s ease,box-shadow .16s ease}.claude-composer-footer button:not(:disabled):hover{background:#36513b;transform:translateY(-1px);box-shadow:0 5px 12px rgba(55,82,60,.2)}.claude-composer-footer button:disabled{background:#e2e4dc;color:#a3a99f}
+.claude-error{top:78px;right:24px;border:1px solid #e1b9a7;border-radius:10px;background:#fff7f2;color:#7c432e;box-shadow:0 12px 28px rgba(66,43,29,.12)}
+.claude-selection-toolbar{position:fixed;z-index:40;display:flex;align-items:center;transform:translate(-50%,0);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:4px;background:#292a27;box-shadow:0 8px 22px rgba(28,29,25,.2)}
+.claude-selection-toolbar::after{position:absolute;top:100%;left:50%;width:8px;height:8px;border-right:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);background:#292a27;content:"";transform:translate(-50%,-4px) rotate(45deg)}
+.claude-selection-toolbar button{position:relative;z-index:1;border:0;border-radius:5px;padding:6px 9px;color:#f8f6ef;background:transparent;font:600 11px/1.1 "IBM Plex Sans",sans-serif;cursor:pointer;white-space:nowrap}
+.claude-selection-toolbar button:hover,.claude-selection-toolbar button:focus-visible{background:#4f6352;outline:0}
+
+.claude-research-answer{width:min(816px,calc(100% - 48px));max-width:none;box-sizing:border-box}
+.claude-research-answer .claude-message-body{position:relative;display:block;width:100%}
+.claude-research-answer .claude-message-content{max-width:none}
+.claude-research-answer .claude-report-actions{position:absolute;top:0;right:0;display:block;width:100%;height:26px;padding-top:2px}
+.claude-research-answer .claude-report-actions>.claude-report-action:first-child{display:block;width:max-content;margin-left:auto}
+.claude-research-answer .claude-report-secondary-actions{position:absolute;top:2px;left:100%;display:flex;align-items:center;gap:7px;margin-left:7px}
+.claude-research-answer .claude-report-actions>*{white-space:nowrap}
+
+/* Approved gaps live in a quiet right rail so the research conversation keeps
+   its reading width while the next action stays visible beside it. */
+.claude-chat-with-sandbox{grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:auto minmax(0,1fr) auto}
+.claude-chat-with-sandbox .claude-chat-header{grid-column:1/-1}
+.claude-chat-with-sandbox .claude-messages{grid-column:1;grid-row:2}
+.claude-chat-with-sandbox .claude-chat-rail{grid-column:2;grid-row:2/span 2;align-self:start;display:flex;flex-direction:column;gap:16px;margin:24px 24px 24px 0}
+.claude-chat-with-sandbox .claude-sandbox-candidates{display:flex;flex-direction:column;align-items:stretch;width:auto;margin:0;padding:16px;border-radius:12px;gap:16px}
+.claude-chat-with-sandbox .claude-sandbox-candidates>div:last-child{display:flex;flex-direction:column;align-items:stretch;gap:7px}
+.claude-chat-with-sandbox .claude-sandbox-candidates a{text-align:center}
+.claude-chat-with-sandbox .claude-composer{grid-column:1;grid-row:3}
+
+@media(max-width:760px){
+  .claude-shell{grid-template-columns:1fr}
+  .claude-sidebar{display:none}
+  .claude-chat-header{min-height:60px;padding:0 18px}
+  .claude-chat-header h2{font-size:18px}
+  .claude-messages{padding:25px 16px 20px}
+  .claude-welcome{margin-top:8vh}
+  .claude-welcome h2{font-size:32px}
+  .claude-composer{width:calc(100% - 28px);margin-bottom:14px}
+  .claude-mode{flex-wrap:wrap}.claude-mode small{width:100%;margin:2px 0 0}
+  .claude-message-body{display:flex;flex-direction:column;gap:10px}
+  .claude-message .claude-report-actions{flex-direction:row;flex-wrap:wrap;padding-top:0}
+  .claude-research-answer .claude-message-body{position:static;display:flex;width:auto;flex-direction:column;gap:10px}
+  .claude-research-answer .claude-report-actions{position:static;display:flex;width:auto;height:auto;align-items:center;gap:7px;padding-top:0}
+  .claude-research-answer .claude-report-actions>.claude-report-action:first-child{width:auto;margin-left:0}
+  .claude-research-answer .claude-report-secondary-actions{position:static;display:flex;margin-left:0}
+  .claude-selection-toolbar{max-width:calc(100vw - 24px)}
+}
+
+@media(max-width:980px){
+  .claude-chat-with-sandbox{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto auto}
+  .claude-chat-with-sandbox .claude-chat-rail{grid-column:1;grid-row:3;margin:0 16px 16px}
+  .claude-chat-with-sandbox .claude-composer{grid-column:1;grid-row:4}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .claude-shell *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}

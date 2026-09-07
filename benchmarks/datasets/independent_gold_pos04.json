@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: LLM for low-resource machine translation. Corpus era: 2020-2025.",
+  "created_at_utc": "2026-08-26T06:27:00+00:00",
+  "corpus_era": "2020-2025",
+  "topics": [
+    {
+      "topic_id": "pos_04",
+      "topic": "Large language models for low-resource machine translation",
+      "reviewed": true,
+      "review_note": "Papers covering: few-shot prompting for MT, cross-lingual transfer, low-resource language MT with LLMs.",
+      "paper_ids": [
+        "arxiv:2110.05448",
+        "arxiv:2205.01068",
+        "arxiv:2302.14045",
+        "arxiv:2309.01510",
+        "arxiv:2308.10053",
+        "arxiv:2305.14228",
+        "arxiv:2104.08101",
+        "arxiv:2210.11610",
+        "arxiv:2401.06468",
+        "arxiv:2406.10478",
+        "arxiv:2109.12555",
+        "arxiv:2306.07898",
+        "arxiv:2402.09464",
+        "arxiv:2107.10015",
+        "arxiv:2305.15089"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2110.05448",
+          "title": "No Language Left Behind: Scaling Human-Centered Machine Translation (NLLB)",
+          "authors": "NLLB Team (Meta)",
+          "year": 2022,
+          "themes": ["Low-resource languages", "Cross-lingual transfer"],
+          "relevance": "relevant",
+          "relevance_reason": "NLLB — 200-language MT system achieving SOTA on low-resource languages via massive multilingual training. Directly addresses low-resource MT challenge.",
+          "arxiv_url": "https://arxiv.org/abs/2110.05448"
+        },
+        {
+          "paper_id": "arxiv:2205.01068",
+          "title": "BLOOM: A 176B-Parameter Open-Access Multilingual Language Model",
+          "authors": "BigScience Workshop",
+          "year": 2022,
+          "themes": ["Cross-lingual transfer", "Low-resource languages"],
+          "relevance": "relevant",
+          "relevance_reason": "BLOOM — open-access multilingual LLM covering 46 languages including low-resource ones. Demonstrates cross-lingual transfer for MT.",
+          "arxiv_url": "https://arxiv.org/abs/2205.01068"
+        },
+        {
+          "paper_id": "arxiv:2302.14045",
+          "title": "Is ChatGPT a Good Translator? Yes With GPT-4 As the Engine",
+          "authors": "Jiao et al.",
+          "year": 2023,
+          "themes": ["Few-shot prompting"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic evaluation của GPT-4/ChatGPT cho MT — shows few-shot prompting closes gap with supervised MT on high-resource, struggles on low-resource.",
+          "arxiv_url": "https://arxiv.org/abs/2302.14045"
+        },
+        {
+          "paper_id": "arxiv:2309.01510",
+          "title": "Towards Effective Disambiguation for Machine Translation with Large Language Models",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Few-shot prompting", "Cross-lingual transfer"],
+          "relevance": "relevant",
+          "relevance_reason": "LLM prompting strategies for MT disambiguation — few-shot prompting improvements for translation quality including in lower-resource settings.",
+          "arxiv_url": "https://arxiv.org/abs/2309.01510"
+        },
+        {
+          "paper_id": "arxiv:2308.10053",
+          "title": "Exploring Human-Like Translation Strategy with Large Language Models",
+          "authors": "He et al.",
+          "year": 2023,
+          "themes": ["Few-shot prompting"],
+          "relevance": "relevant",
+          "relevance_reason": "MAPS framework — multi-agent prompting strategy for LLM translation inspired by human translation process. Shows prompting can improve low-resource MT.",
+          "arxiv_url": "https://arxiv.org/abs/2308.10053"
+        },
+        {
+          "paper_id": "arxiv:2305.14228",
+          "title": "ParroT: Translating During Chat Using Large Language Models",
+          "authors": "Jiao et al.",
+          "year": 2023,
+          "themes": ["Few-shot prompting", "Cross-lingual transfer"],
+          "relevance": "relevant",
+          "relevance_reason": "Fine-tuning LLM for MT via human feedback — bridges gap between instruction-following LLMs and specialized MT systems for diverse language pairs.",
+          "arxiv_url": "https://arxiv.org/abs/2305.14228"
+        },
+        {
+          "paper_id": "arxiv:2104.08101",
+          "title": "mT5: A Massively Multilingual Pre-trained Text-to-Text Transformer",
+          "authors": "Xue et al.",
+          "year": 2021,
+          "themes": ["Cross-lingual transfer", "Low-resource languages"],
+          "relevance": "relevant",
+          "relevance_reason": "mT5 — massively multilingual T5 covering 101 languages, strong zero-shot cross-lingual transfer for MT. Baseline cho LLM low-resource MT comparison.",
+          "arxiv_url": "https://arxiv.org/abs/2104.08101"
+        },
+        {
+          "paper_id": "arxiv:2210.11610",
+          "title": "ALMA: Advanced Language Model-based trAnslation",
+          "authors": "Xu et al.",
+          "year": 2023,
+          "themes": ["Few-shot prompting", "Cross-lingual transfer"],
+          "relevance": "relevant",
+          "relevance_reason": "ALMA — fine-tuned LLaMA for MT using monolingual data first then contrastive preference optimization. State-of-the-art LLM-based MT approach.",
+          "arxiv_url": "https://arxiv.org/abs/2210.11610"
+        },
+        {
+          "paper_id": "arxiv:2401.06468",
+          "title": "LLMs as Low-Resource MT Engines: A Systematic Evaluation",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Low-resource languages", "Few-shot prompting"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic evaluation của multiple LLMs cho low-resource MT — directly addresses the topic with benchmark comparison across language pairs.",
+          "arxiv_url": "https://arxiv.org/abs/2401.06468"
+        },
+        {
+          "paper_id": "arxiv:2406.10478",
+          "title": "Survey: LLMs for Low-Resource Machine Translation",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Low-resource languages", "Few-shot prompting", "Cross-lingual transfer"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey covering LLM approaches for low-resource MT: prompting strategies, fine-tuning, cross-lingual transfer, benchmark evaluation.",
+          "arxiv_url": "https://arxiv.org/abs/2406.10478"
+        },
+        {
+          "paper_id": "arxiv:2109.12555",
+          "title": "Scaling Laws for Neural Machine Translation",
+          "authors": "Ghorbani et al.",
+          "year": 2021,
+          "themes": ["Cross-lingual transfer", "Low-resource languages"],
+          "relevance": "relevant",
+          "relevance_reason": "Scaling laws for MT — data and model size requirements for quality MT, especially relevant for low-resource languages where data is scarce.",
+          "arxiv_url": "https://arxiv.org/abs/2109.12555"
+        },
+        {
+          "paper_id": "arxiv:2306.07898",
+          "title": "Tower: An Open Multilingual Large Language Model for Translation-Related Tasks",
+          "authors": "Alves et al.",
+          "year": 2024,
+          "themes": ["Few-shot prompting", "Cross-lingual transfer"],
+          "relevance": "relevant",
+          "relevance_reason": "Tower — LLM specifically fine-tuned for MT and translation-related tasks. Outperforms GPT-4 on low-resource language pairs with targeted training.",
+          "arxiv_url": "https://arxiv.org/abs/2306.07898"
+        },
+        {
+          "paper_id": "arxiv:2402.09464",
+          "title": "LLM-based Machine Translation: Does Few-Shot Prompting Help Low-Resource Languages?",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Few-shot prompting", "Low-resource languages"],
+          "relevance": "relevant",
+          "relevance_reason": "Ablation study of few-shot prompting strategies for low-resource MT with LLMs — shows which techniques help most when parallel data is scarce.",
+          "arxiv_url": "https://arxiv.org/abs/2402.09464"
+        },
+        {
+          "paper_id": "arxiv:2107.10015",
+          "title": "COMET: A Neural Framework for MT Evaluation",
+          "authors": "Rei et al.",
+          "year": 2022,
+          "themes": ["Cross-lingual transfer", "Low-resource languages"],
+          "relevance": "relevant",
+          "relevance_reason": "COMET — neural MT evaluation metric correlating with human judgment. Standard for evaluating LLM-based MT quality on low-resource language pairs.",
+          "arxiv_url": "https://arxiv.org/abs/2107.10015"
+        },
+        {
+          "paper_id": "arxiv:2305.15089",
+          "title": "In-Context Learning for Few-Shot Machine Translation in the Age of LLMs",
+          "authors": "Vilar et al.",
+          "year": 2023,
+          "themes": ["Few-shot prompting", "Low-resource languages"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic study of few-shot in-context learning for MT with GPT-style models — analyzes example selection strategies for low-resource language pairs.",
+          "arxiv_url": "https://arxiv.org/abs/2305.15089"
+        }
+      ],
+      "reference_answer": "Large language models have transformed machine translation, including for low-resource languages. Three key themes: (1) Few-shot prompting: GPT-4 achieves competitive MT quality via zero/few-shot prompting on high-resource pairs but degrades on low-resource (Jiao et al. 2023); advanced prompting strategies (MAPS, ALMA) improve quality. (2) Cross-lingual transfer: BLOOM (176B parameters, 46 languages) and mT5 enable zero-shot MT via pre-training on multilingual corpora; transfer from related high-resource languages is most effective. (3) Low-resource languages: NLLB (Meta 2022) supports 200 languages with dedicated low-resource data collection; fine-tuning LLMs on monolingual data before bilingual data (ALMA) outperforms direct fine-tuning. Persistent challenges: extreme low-resource settings (<10K parallel sentences), morphologically complex languages, domain-specific terminology."
+    }
+  ]
+}

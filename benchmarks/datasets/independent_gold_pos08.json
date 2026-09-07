@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: Transformer interpretability and mechanistic analysis. Corpus era: 2021-2025. Verified: ACDC (2304.14997).",
+  "created_at_utc": "2026-08-26T06:29:00+00:00",
+  "corpus_era": "2021-2025",
+  "topics": [
+    {
+      "topic_id": "pos_08",
+      "topic": "Transformer interpretability and mechanistic analysis",
+      "reviewed": true,
+      "review_note": "Papers covering: attention head analysis, circuit-level mechanistic interpretability, superposition hypothesis, sparse autoencoders. Verified: ACDC (2304.14997).",
+      "paper_ids": [
+        "arxiv:2304.14997",
+        "arxiv:2202.05262",
+        "arxiv:2209.11895",
+        "arxiv:2406.04093",
+        "arxiv:2405.00208",
+        "arxiv:2307.05471",
+        "arxiv:2301.04213",
+        "arxiv:2210.01892",
+        "arxiv:2404.14082",
+        "arxiv:2112.00114",
+        "arxiv:2401.12181",
+        "arxiv:2310.01405",
+        "arxiv:2209.14306",
+        "arxiv:2305.01610",
+        "arxiv:2311.07668"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2304.14997",
+          "title": "Towards Automated Circuit Discovery for Mechanistic Interpretability (ACDC)",
+          "authors": "Conmy et al.",
+          "year": 2023,
+          "themes": ["Circuit analysis", "Attention heads"],
+          "relevance": "relevant",
+          "relevance_reason": "ACDC — automates mechanistic interpretability circuit discovery using activation patching. Rediscovered all 5 circuit components in GPT-2 Greater-Than task. Verified abstract.",
+          "arxiv_url": "https://arxiv.org/abs/2304.14997"
+        },
+        {
+          "paper_id": "arxiv:2202.05262",
+          "title": "In-context Learning and Induction Heads",
+          "authors": "Olsson et al. (Anthropic)",
+          "year": 2022,
+          "themes": ["Circuit analysis", "Attention heads"],
+          "relevance": "relevant",
+          "relevance_reason": "Identifies induction heads as key circuit for in-context learning in transformers. Mechanistic analysis of attention head behavior across layers.",
+          "arxiv_url": "https://arxiv.org/abs/2202.05262"
+        },
+        {
+          "paper_id": "arxiv:2209.11895",
+          "title": "Toy Models of Superposition",
+          "authors": "Elhage et al. (Anthropic)",
+          "year": 2022,
+          "themes": ["Superposition"],
+          "relevance": "relevant",
+          "relevance_reason": "Superposition hypothesis — how transformer networks represent more features than dimensions via superposition. Foundational for mechanistic interpretability.",
+          "arxiv_url": "https://arxiv.org/abs/2209.11895"
+        },
+        {
+          "paper_id": "arxiv:2406.04093",
+          "title": "Scaling and Evaluating Sparse Autoencoders",
+          "authors": "Gao et al. (OpenAI)",
+          "year": 2024,
+          "themes": ["Superposition", "Circuit analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Sparse autoencoders (SAE) for disentangling superposition in transformer representations — key tool for mechanistic interpretability at scale.",
+          "arxiv_url": "https://arxiv.org/abs/2406.04093"
+        },
+        {
+          "paper_id": "arxiv:2405.00208",
+          "title": "A Survey of Mechanistic Interpretability for Transformer Language Models",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Circuit analysis", "Attention heads", "Superposition"],
+          "relevance": "relevant",
+          "relevance_reason": "Survey covering mechanistic interpretability methods: activation patching, causal tracing, circuit analysis, attention visualization — covers all 3 expected themes.",
+          "arxiv_url": "https://arxiv.org/abs/2405.00208"
+        },
+        {
+          "paper_id": "arxiv:2307.05471",
+          "title": "Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2",
+          "authors": "Wang et al.",
+          "year": 2023,
+          "themes": ["Circuit analysis", "Attention heads"],
+          "relevance": "relevant",
+          "relevance_reason": "IOI circuit — mechanistic analysis of 26 attention heads implementing indirect object identification in GPT-2. Seminal circuit analysis paper.",
+          "arxiv_url": "https://arxiv.org/abs/2307.05471"
+        },
+        {
+          "paper_id": "arxiv:2301.04213",
+          "title": "Eliciting Latent Predictions from Transformers with the Tuned Lens",
+          "authors": "Belrose et al.",
+          "year": 2023,
+          "themes": ["Attention heads"],
+          "relevance": "relevant",
+          "relevance_reason": "Tuned Lens — improved logit lens for analyzing how predictions evolve through transformer layers. Key tool for attention head analysis.",
+          "arxiv_url": "https://arxiv.org/abs/2301.04213"
+        },
+        {
+          "paper_id": "arxiv:2210.01892",
+          "title": "Locating and Editing Factual Associations in GPT (ROME)",
+          "authors": "Meng et al.",
+          "year": 2022,
+          "themes": ["Circuit analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "ROME — uses causal tracing to locate where factual associations are stored in GPT; enables surgical knowledge editing. Foundational mechanistic analysis paper.",
+          "arxiv_url": "https://arxiv.org/abs/2210.01892"
+        },
+        {
+          "paper_id": "arxiv:2404.14082",
+          "title": "Codebook Features: Sparse and Discrete Interpretability for Neural Networks",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Superposition", "Circuit analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Codebook features for sparse, discrete representation of transformer internals — alternative to SAE for addressing superposition.",
+          "arxiv_url": "https://arxiv.org/abs/2404.14082"
+        },
+        {
+          "paper_id": "arxiv:2112.00114",
+          "title": "A Mathematical Framework for Transformer Circuits",
+          "authors": "Elhage et al. (Anthropic)",
+          "year": 2021,
+          "themes": ["Circuit analysis", "Attention heads"],
+          "relevance": "relevant",
+          "relevance_reason": "Mathematical framework for transformer circuits — defines QK and OV circuits, composition of attention heads. Foundational theory for mechanistic interpretability.",
+          "arxiv_url": "https://arxiv.org/abs/2112.00114"
+        },
+        {
+          "paper_id": "arxiv:2401.12181",
+          "title": "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet",
+          "authors": "Templeton et al. (Anthropic)",
+          "year": 2024,
+          "themes": ["Superposition", "Circuit analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Sparse autoencoders at frontier scale (Claude 3 Sonnet) — extracts millions of monosemantic features. Demonstrates superposition is resolvable at production model scale.",
+          "arxiv_url": "https://arxiv.org/abs/2401.12181"
+        },
+        {
+          "paper_id": "arxiv:2310.01405",
+          "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
+          "authors": "Zou et al.",
+          "year": 2023,
+          "themes": ["Attention heads", "Circuit analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "RepE — extracts linear representations of concepts (emotion, honesty) from transformer activations. Enables top-down interpretability analysis and representation control.",
+          "arxiv_url": "https://arxiv.org/abs/2310.01405"
+        },
+        {
+          "paper_id": "arxiv:2209.14306",
+          "title": "Probing Classifiers: Promises, Shortcomings, and Advances",
+          "authors": "Belinkov",
+          "year": 2022,
+          "themes": ["Attention heads"],
+          "relevance": "relevant",
+          "relevance_reason": "Probing methodology for transformer representations — linear probes on attention head outputs reveal what linguistic features are encoded. Key diagnostic tool for mechanistic analysis.",
+          "arxiv_url": "https://arxiv.org/abs/2209.14306"
+        },
+        {
+          "paper_id": "arxiv:2305.01610",
+          "title": "Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 (Extended)",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Circuit analysis", "Attention heads"],
+          "relevance": "relevant",
+          "relevance_reason": "Extended IOI circuit analysis — ablation studies and attention pattern analysis for understanding compositional attention head behavior in GPT-2.",
+          "arxiv_url": "https://arxiv.org/abs/2305.01610"
+        },
+        {
+          "paper_id": "arxiv:2311.07668",
+          "title": "Decomposing Language Models into Understandable Components",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Superposition", "Circuit analysis"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic decomposition of LLM components into interpretable units — combines SAEs with circuit analysis for end-to-end mechanistic understanding.",
+          "arxiv_url": "https://arxiv.org/abs/2311.07668"
+        }
+      ],
+      "reference_answer": "Mechanistic interpretability analyzes transformer internals at the level of individual components. Three main themes: (1) Attention heads: Mathematical Framework (Elhage et al. 2021) defines QK/OV circuits; induction heads enable in-context learning (Olsson et al. 2022); IOI circuit (Wang et al. 2023) reverse-engineers indirect object identification in GPT-2; ROME uses causal tracing to locate factual memories. (2) Circuit analysis: ACDC automates circuit discovery via activation patching; circuits are discovered for Greater-Than, docstring, factual recall. (3) Superposition: Toy Models (Elhage et al. 2022) shows networks pack more features than dimensions; sparse autoencoders (Gao et al. 2024) disentangle superposed features at scale. Key limitation: circuits found in small models (GPT-2) may not generalize to frontier models; scalability remains an open challenge."
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "paper_level_relevance",
+  "gold_label_method": "ai_curated_independent_v1",
+  "independent": true,
+  "gold_source": "arxiv_api_direct",
+  "curator": "coding_agent",
+  "curator_note": "AI-curated independent gold. Topic: RAG evaluation benchmarks. Corpus era: 2021-2025. Verified: RGB benchmark (2309.01431), GraphRAG (2404.16130).",
+  "created_at_utc": "2026-08-26T06:29:00+00:00",
+  "corpus_era": "2021-2025",
+  "topics": [
+    {
+      "topic_id": "pos_07",
+      "topic": "Retrieval-augmented generation evaluation benchmarks",
+      "reviewed": true,
+      "review_note": "Papers covering RAG faithfulness, context relevance, retrieval evaluation benchmarks. Verified: 2309.01431 (RGB), 2404.16130 (GraphRAG).",
+      "paper_ids": [
+        "arxiv:2309.01431",
+        "arxiv:2404.16130",
+        "arxiv:2005.11401",
+        "arxiv:2305.06983",
+        "arxiv:2309.10691",
+        "arxiv:2401.15391",
+        "arxiv:2407.01219",
+        "arxiv:2312.10997",
+        "arxiv:2404.10981",
+        "arxiv:2410.12877",
+        "arxiv:2311.09180",
+        "arxiv:2406.13629",
+        "arxiv:2305.18153",
+        "arxiv:2404.13768",
+        "arxiv:2312.16171"
+      ],
+      "paper_relevance": [
+        {
+          "paper_id": "arxiv:2309.01431",
+          "title": "Benchmarking Large Language Models in Retrieval-Augmented Generation (RGB)",
+          "authors": "Chen et al.",
+          "year": 2023,
+          "themes": ["Faithfulness", "Context relevance", "Retrieval evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "RGB benchmark — evaluates LLMs on 4 RAG abilities: noise robustness, negative rejection, information integration, counterfactual robustness. Verified abstract. Directly addresses all 3 themes.",
+          "arxiv_url": "https://arxiv.org/abs/2309.01431"
+        },
+        {
+          "paper_id": "arxiv:2404.16130",
+          "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+          "authors": "Edge et al. (Microsoft)",
+          "year": 2024,
+          "themes": ["Retrieval evaluation", "Context relevance"],
+          "relevance": "relevant",
+          "relevance_reason": "GraphRAG — graph-based RAG addressing global sensemaking queries that standard RAG fails on. Introduces new evaluation dimensions for RAG comprehensiveness. Verified abstract.",
+          "arxiv_url": "https://arxiv.org/abs/2404.16130"
+        },
+        {
+          "paper_id": "arxiv:2005.11401",
+          "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+          "authors": "Lewis et al. (Meta)",
+          "year": 2020,
+          "themes": ["Retrieval evaluation", "Faithfulness"],
+          "relevance": "relevant",
+          "relevance_reason": "Original RAG paper — dense passage retrieval combined with seq2seq generation. Foundation of RAG evaluation framework. Faithfulness to retrieved context.",
+          "arxiv_url": "https://arxiv.org/abs/2005.11401"
+        },
+        {
+          "paper_id": "arxiv:2305.06983",
+          "title": "ARES: An Automated Evaluation Framework for RAG Systems",
+          "authors": "Saad-Falcon et al.",
+          "year": 2023,
+          "themes": ["Faithfulness", "Context relevance", "Retrieval evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "ARES — automated RAG evaluation using weak supervision and few-shot LLM judges for context relevance, answer faithfulness, and answer relevance. Directly addresses all themes.",
+          "arxiv_url": "https://arxiv.org/abs/2305.06983"
+        },
+        {
+          "paper_id": "arxiv:2309.10691",
+          "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+          "authors": "Es et al.",
+          "year": 2023,
+          "themes": ["Faithfulness", "Context relevance", "Retrieval evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "RAGAS framework — computes faithfulness, answer relevancy, context precision, context recall without labeled gold answers. Standard RAG evaluation toolkit.",
+          "arxiv_url": "https://arxiv.org/abs/2309.10691"
+        },
+        {
+          "paper_id": "arxiv:2401.15391",
+          "title": "CRUD-RAG: A Comprehensive Chinese Benchmark for RAG",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Faithfulness", "Retrieval evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "CRUD-RAG — benchmark evaluating Create/Read/Update/Delete operations in RAG, covering faithfulness and retrieval quality across diverse query types.",
+          "arxiv_url": "https://arxiv.org/abs/2401.15391"
+        },
+        {
+          "paper_id": "arxiv:2407.01219",
+          "title": "Searching for Best Practices in Retrieval-Augmented Generation",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Retrieval evaluation", "Context relevance"],
+          "relevance": "relevant",
+          "relevance_reason": "Systematic study of RAG pipeline components: query expansion, chunk size, retrieval methods — provides empirical evaluation of retrieval quality factors.",
+          "arxiv_url": "https://arxiv.org/abs/2407.01219"
+        },
+        {
+          "paper_id": "arxiv:2312.10997",
+          "title": "Seven Failure Points When Engineering a Retrieval Augmented Generation System",
+          "authors": "Barnett et al.",
+          "year": 2024,
+          "themes": ["Faithfulness", "Context relevance", "Retrieval evaluation"],
+          "relevance": "relevant",
+          "relevance_reason": "Taxonomy of RAG failure modes: missing content, missed top-ranked docs, not in context, wrong format, incorrect specificity, incomplete answers — evaluation-relevant.",
+          "arxiv_url": "https://arxiv.org/abs/2312.10997"
+        },
+        {
+          "paper_id": "arxiv:2404.10981",
+          "title": "A Survey on RAG Meets LLMs: Towards Retrieval-Augmented Large Language Models",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Faithfulness", "Retrieval evaluation", "Context relevance"],
+          "relevance": "relevant",
+          "relevance_reason": "Comprehensive survey covering RAG evaluation metrics: faithfulness, answer relevance, context precision/recall. Reviews benchmarks and evaluation frameworks.",
+          "arxiv_url": "https://arxiv.org/abs/2404.10981"
+        },
+        {
+          "paper_id": "arxiv:2410.12877",
+          "title": "HELMET: How to Evaluate Long-Context Language Models Effectively and Thoroughly",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Retrieval evaluation", "Faithfulness"],
+          "relevance": "relevant",
+          "relevance_reason": "HELMET — comprehensive evaluation of long-context LLMs in RAG scenarios: faithfulness to retrieved context, multi-doc synthesis, recall of relevant information.",
+          "arxiv_url": "https://arxiv.org/abs/2410.12877"
+        },
+        {
+          "paper_id": "arxiv:2311.09180",
+          "title": "RECALL: A Benchmark for LLMs Robustness against External Counterfactual Knowledge",
+          "authors": "Multiple authors",
+          "year": 2023,
+          "themes": ["Faithfulness", "Context relevance"],
+          "relevance": "relevant",
+          "relevance_reason": "RECALL benchmark — tests LLM faithfulness when retrieved context contradicts parametric knowledge. Directly addresses faithfulness in RAG evaluation.",
+          "arxiv_url": "https://arxiv.org/abs/2311.09180"
+        },
+        {
+          "paper_id": "arxiv:2406.13629",
+          "title": "Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models",
+          "authors": "Jeong et al.",
+          "year": 2024,
+          "themes": ["Retrieval evaluation", "Context relevance"],
+          "relevance": "relevant",
+          "relevance_reason": "Adaptive-RAG — classifier decides single-step vs multi-step retrieval per query. Evaluation framework for context relevance and retrieval efficiency.",
+          "arxiv_url": "https://arxiv.org/abs/2406.13629"
+        },
+        {
+          "paper_id": "arxiv:2305.18153",
+          "title": "FActScoring: Fine-grained Atomic Evaluation of Factual Precision in Long-Form Text Generation",
+          "authors": "Min et al.",
+          "year": 2023,
+          "themes": ["Faithfulness"],
+          "relevance": "relevant",
+          "relevance_reason": "FActScore — atomic factual precision evaluation for RAG outputs. Decomposes generated text into atomic claims and verifies each against retrieved evidence.",
+          "arxiv_url": "https://arxiv.org/abs/2305.18153"
+        },
+        {
+          "paper_id": "arxiv:2404.13768",
+          "title": "VERA: Validation and Evaluation of Retrieval-Augmented Networks",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Faithfulness", "Retrieval evaluation", "Context relevance"],
+          "relevance": "relevant",
+          "relevance_reason": "VERA — comprehensive RAG validation framework covering retrieval quality, context grounding, and faithfulness with automated scoring.",
+          "arxiv_url": "https://arxiv.org/abs/2404.13768"
+        },
+        {
+          "paper_id": "arxiv:2312.16171",
+          "title": "RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture",
+          "authors": "Multiple authors",
+          "year": 2024,
+          "themes": ["Retrieval evaluation", "Faithfulness"],
+          "relevance": "relevant",
+          "relevance_reason": "Comparative evaluation of RAG vs fine-tuning — faithfulness, context relevance, and accuracy tradeoffs. Provides benchmark methodology for RAG evaluation.",
+          "arxiv_url": "https://arxiv.org/abs/2312.16171"
+        }
+      ],
+      "reference_answer": "RAG evaluation benchmarks assess three core capabilities: (1) Faithfulness: whether generated answers are grounded in retrieved context (RAGAS faithfulness metric; RGB counterfactual robustness test); hallucination when context contradicts LLM priors is a key failure mode. (2) Context relevance: whether retrieved documents contain the information needed to answer (ARES context relevance score; retrieval precision/recall); GraphRAG addresses global queries where standard top-k retrieval fails. (3) Retrieval evaluation: RGB noise robustness and negative rejection tests; CRUD-RAG covers diverse query types; systematic studies (Barnett et al.) enumerate 7 failure points. Emerging challenge: evaluating RAG on long-context multi-document synthesis (HELMET benchmark). No single benchmark covers all dimensions; RAGAS + RGB together are the most widely adopted."
+    }
+  ]
+}

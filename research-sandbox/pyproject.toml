@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "research-experiment-sandbox"
+version = "1.0.0"
+description = "Independent control plane for Research Experiment Sandbox"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.13",
+  "boto3>=1.35",
+  "fastapi>=0.115",
+  "httpx>=0.28",
+  "openpyxl>=3.1",
+  "pandas>=2.2",
+  "pydantic>=2.10",
+  "pydantic-settings>=2.7",
+  "psycopg[binary]>=3.2",
+  "pyarrow>=18.0",
+  "python-multipart>=0.0.9",
+  "sqlalchemy>=2.0",
+  "uvicorn[standard]>=0.34",
+]
+
+[project.scripts]
+sandbox-worker = "sandbox_service.worker.main:main"
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28",
+  "pytest>=8.0",
+  "pytest-asyncio>=0.24",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+markers = [
+  "docker: requires the locally built hardened runtime image and Docker daemon",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["sandbox_service"]
