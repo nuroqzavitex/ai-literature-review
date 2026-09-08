@@ -1,12 +1,19 @@
 <p align="center">
-  <img src="thumbnail.png" alt="LitReview thumbnail" />
+  <a href="https://drive.google.com/file/d/1REJP9U9BfB0Y5JOO4Q4MHoikDFVmi9j1/view?usp=sharing" target="_blank">
+    <img src="thumbnail.png" alt="LitReview thumbnail" />
+  </a>
 </p>
 
 # LitReview
 
 · Nền tảng hỗ trợ nghiên cứu học thuật dựa trên bằng chứng.
 
+[![Video Demo](https://img.shields.io/badge/▶_Xem_Video-Demo_Dự_Án-red?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1REJP9U9BfB0Y5JOO4Q4MHoikDFVmi9j1/view?usp=sharing)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+
 > LitReview giúp nhóm nghiên cứu tìm kiếm, tổng hợp và kiểm duyệt tài liệu học thuật; phát hiện research gap; rà soát tài liệu PDF; và thử nghiệm giả thuyết trong một môi trường tách biệt, có thể tái lập.
+>
+> 🎥 **Video Demo:** [Xem video giới thiệu & demo tính năng trên Google Drive](https://drive.google.com/file/d/1REJP9U9BfB0Y5JOO4Q4MHoikDFVmi9j1/view?usp=sharing)
 
 ---
 
