@@ -71,13 +71,13 @@ jobs:
           cache: pip
 
       - name: Install Sandbox dependencies
-        run: pip install -e ./research-sandbox pytest pytest-asyncio
+        run: pip install -e ./src/research_sandbox_service pytest pytest-asyncio
 
       - name: Build hardened runtime image
-        run: docker build -t research-sandbox-runtime:test research-sandbox/sandbox_runtime
+        run: docker build -t research-sandbox-runtime:test src/research_sandbox_service/sandbox_runtime
 
       - name: Run complete Sandbox suite without opt-in skips
-        run: pytest research-sandbox/tests/ -q
+        run: pytest src/research_sandbox_service/tests/ -q
         env:
           SANDBOX_TEST_POSTGRES_URL: postgresql+psycopg://sandbox_test:sandbox_test@127.0.0.1:5432/research_sandbox_test
           RUN_DOCKER_SANDBOX_TESTS: "1"

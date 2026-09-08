@@ -7,9 +7,9 @@ Tài liệu này mô tả cấu trúc, setup và checks của repository hiện 
 ```text
 P-178/
 ├── src/                    # FastAPI, LangGraph, repositories/services
+│   └── research_sandbox_service/ # Controlled analysis subsystem
 ├── frontend/               # Next.js workspace UI
 ├── tests/                  # Backend unit/integration tests
-├── research-sandbox/       # Controlled analysis subsystem
 ├── supabase/               # SQL migrations/schema artifacts
 ├── alembic/                # Alembic migrations
 ├── contracts/              # Versioned technical contracts

@@ -45,7 +45,7 @@ Các ranh giới tin cậy gồm context bất biến, citation truy vết đư�
 
 ## Evidence on Hand
 
-- Hợp đồng frontend: `research-sandbox/docs/frontend-contract.md`.
+- Hợp đồng frontend: `src/research_sandbox_service/docs/frontend-contract.md`.
 - Backend BFF và allowlist: `src/api/routers/sandbox.py`.
 - Design tokens và bề mặt hiện hữu: `frontend/app/styles/` và các component trong `frontend/app/_components/`.
 - Không có testimonial, benchmark thương mại hoặc asset khách hàng nào được xác nhận; không được tự tạo các tuyên bố này.

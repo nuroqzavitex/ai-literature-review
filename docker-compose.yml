@@ -1,5 +1,5 @@
 include:
-  - path: ./research-sandbox/docker-compose.sandbox.yml
+  - path: ./src/research_sandbox_service/docker-compose.sandbox.yml
 
 services:
   logs-init:

@@ -128,11 +128,12 @@ def test_policy_blocks_host_file_network_process_and_fork_bombs() -> None:
 
 
 def test_docker_security_arguments_lock_down_runtime_mounts(tmp_path) -> None:
+    sandbox_root = Path(__file__).resolve().parents[2]
     options = docker_security_arguments(
         security=RuntimeSecuritySpec(),
         data_volume_name="research_sandbox_test_data",
         workspace_subpath="sandbox-run-safe",
-        seccomp_path=Path("research-sandbox/sandbox_runtime/seccomp.json"),
+        seccomp_path=sandbox_root / "sandbox_runtime" / "seccomp.json",
     )
     assert ["--read-only", "--network", "none"] == options[:3]
     assert "ALL" in options and "no-new-privileges:true" in options

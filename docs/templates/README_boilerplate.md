@@ -77,10 +77,10 @@ P-178/
 │   ├── agents/                # LangGraph state, nodes và tools
 │   ├── api/                   # FastAPI routers
 │   ├── services/              # Nghiệp vụ, job và LLM routing
+│   ├── research_sandbox_service/ # Sandbox tách biệt cho phân tích dữ liệu
 │   ├── models/                # Schema và data model
 │   └── validation/            # Grounding và kiểm tra evidence
 ├── contracts/                 # API/data contracts V1–V4
-├── research-sandbox/          # Sandbox tách biệt cho phân tích dữ liệu
 ├── docs/                      # Architecture, product, roadmap và runbook
 ├── eval/                      # Evaluation artifacts
 ├── tests/                     # Test suite

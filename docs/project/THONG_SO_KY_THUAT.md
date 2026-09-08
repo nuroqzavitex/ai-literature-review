@@ -115,11 +115,11 @@ P-178/
 │   ├── db/                     # SQLAlchemy models và session
 │   ├── models/schemas/         # Pydantic contracts
 │   ├── services/               # LLM, jobs, search, retrieval, auth, review
+│   ├── research_sandbox_service/ # Control plane, worker, runtime, migration riêng
 │   ├── validation/             # Grounding validation
 │   ├── main.py                 # FastAPI composition root
 │   └── worker_main.py          # External worker entry point
 ├── frontend/                   # Next.js App Router và Playwright E2E
-├── research-sandbox/           # Control plane, worker, runtime, migration riêng
 ├── alembic/versions/           # 11 core migrations
 ├── tests/                      # Core unit/API/service/integration/E2E tests
 ├── benchmarks/                 # Gold sets, metrics, runner và reports
@@ -135,7 +135,7 @@ Số liệu cấu trúc tại thời điểm tài liệu được lập:
 | Module Python trong `src/` | 66 file |
 | File test Python core trong `tests/` | 69 file |
 | File TS/TSX/CSS trong `frontend/app/` | 48 file |
-| Module Python trong `research-sandbox/sandbox_service/` | 79 file |
+| Module Python trong `src/research_sandbox_service/sandbox_service/` | 79 file |
 | Route decorator core | 86 |
 | Route decorator Sandbox control | 56 |
 | Bảng ORM core | 27 |
@@ -456,8 +456,8 @@ Các invariant kỹ thuật bắt buộc:
 - `src/api/routers/`, `src/db/models.py`
 - `frontend/package.json`, `frontend/Dockerfile`, `frontend/tsconfig.json`
 - `docker-compose.yml`, `docker-compose-production.yml`
-- `research-sandbox/pyproject.toml`, `research-sandbox/docker-compose.sandbox.yml`
-- `research-sandbox/sandbox_service/execution/runner.py`
+- `src/research_sandbox_service/pyproject.toml`, `src/research_sandbox_service/docker-compose.sandbox.yml`
+- `src/research_sandbox_service/sandbox_service/execution/runner.py`
 - `docs/architecture/AGENT_STATE_GRAPH.md`
 - `docs/operations/WORKER_RUNTIME.md`
 - `docs/reference/README_technical_contract.md`

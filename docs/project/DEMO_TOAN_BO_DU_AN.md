@@ -52,13 +52,13 @@ khung hình.
 Dataset chính đã có trong repository:
 
 ```text
-research-sandbox/docs/sandbox_demo_sleep_study.csv
+src/research_sandbox_service/docs/sandbox_demo_sleep_study.csv
 ```
 
 Dataset kiểm tra guardrail tùy chọn:
 
 ```text
-research-sandbox/docs/sandbox_demo_mismatch.csv
+src/research_sandbox_service/docs/sandbox_demo_mismatch.csv
 ```
 
 Dataset chính là dữ liệu synthetic, có 60 dòng và 5 cột:
@@ -624,10 +624,10 @@ tổng hợp thông thường.
 ## 10. Tài liệu liên quan
 
 - Kịch bản chi tiết riêng cho Sandbox:
-  `research-sandbox/docs/video-demo-script.md`.
+  `src/research_sandbox_service/docs/video-demo-script.md`.
 - Hướng dẫn test Sandbox cho team:
-  `research-sandbox/docs/team-testing-guide.md`.
+  `src/research_sandbox_service/docs/team-testing-guide.md`.
 - Dataset chính:
-  `research-sandbox/docs/sandbox_demo_sleep_study.csv`.
+  `src/research_sandbox_service/docs/sandbox_demo_sleep_study.csv`.
 - Dataset mismatch:
-  `research-sandbox/docs/sandbox_demo_mismatch.csv`.
+  `src/research_sandbox_service/docs/sandbox_demo_mismatch.csv`.

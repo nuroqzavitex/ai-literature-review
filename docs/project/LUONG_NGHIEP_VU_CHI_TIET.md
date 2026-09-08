@@ -846,10 +846,10 @@ Hỏi Copilot → Nhận câu trả lời có citation
 - `src/services/jobs.py`, `src/services/worker_runtime.py`
 - `src/services/research_copilot.py`, `src/services/document_review.py`
 - `src/models/schemas/`
-- `research-sandbox/sandbox_service/domain/`
-- `research-sandbox/sandbox_service/api/`
+- `src/research_sandbox_service/sandbox_service/domain/`
+- `src/research_sandbox_service/sandbox_service/api/`
 - `tests/v2/e2e/test_acceptance_scenarios.py`
-- `research-sandbox/tests/e2e/test_product_flows.py`
+- `src/research_sandbox_service/tests/e2e/test_product_flows.py`
 
 ---
 

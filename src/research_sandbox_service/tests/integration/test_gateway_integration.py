@@ -10,8 +10,8 @@ import pytest
 
 # This contract test intentionally crosses the independently packaged service
 # boundary and therefore needs the repository root in addition to the sandbox
-# package path configured by research-sandbox/pyproject.toml.
-sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+# package path configured by src/research_sandbox_service/pyproject.toml.
+sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
 
 from sandbox_service.config import SandboxSettings
 from sandbox_service.domain.adoption import AdoptionProposal, AdoptionProposalStatus

@@ -22,7 +22,7 @@ fail() { printf '[sandbox-native] ERROR: %s\n' "$*" >&2; exit 1; }
 log() { printf '[sandbox-native] %s\n' "$*"; }
 
 [[ "$(id -u)" -eq 0 ]] || fail "Run as root."
-[[ -d "${APP_DIR}/research-sandbox" ]] || fail "Missing ${APP_DIR}/research-sandbox."
+[[ -d "${APP_DIR}/src/research_sandbox_service" ]] || fail "Missing ${APP_DIR}/src/research_sandbox_service."
 [[ -f "${ENV_FILE}" ]] || fail "Missing ${ENV_FILE}."
 
 log "Installing native isolation prerequisites."
@@ -48,8 +48,8 @@ fi
 install -d -m 0755 -o root -g root /var/lib/research-sandbox
 
 log "Installing pinned Sandbox control-plane dependencies."
-"${PYTHON_BIN}" -m pip install --require-hashes -r "${APP_DIR}/research-sandbox/requirements.control.lock"
-"${PYTHON_BIN}" -m pip install --no-deps -e "${APP_DIR}/research-sandbox"
+"${PYTHON_BIN}" -m pip install --require-hashes -r "${APP_DIR}/src/research_sandbox_service/requirements.control.lock"
+"${PYTHON_BIN}" -m pip install --no-deps -e "${APP_DIR}/src/research_sandbox_service"
 # The bootstrap is normally executed as root while both native services run as
 # APP_USER.  A restrictive umask would otherwise leave the virtualenv
 # untraversable and make systemd fail with "Permission denied".
@@ -61,9 +61,9 @@ install -d -m 0755 -o sandbox -g sandbox "${RUNTIME_ROOT}"
 if [[ ! -x "${RUNTIME_ROOT}/venv/bin/python" ]]; then
     "${PYTHON_BIN}" -m venv "${RUNTIME_ROOT}/venv"
 fi
-"${RUNTIME_ROOT}/venv/bin/python" -m pip install --require-hashes -r "${APP_DIR}/research-sandbox/sandbox_runtime/requirements.lock"
+"${RUNTIME_ROOT}/venv/bin/python" -m pip install --require-hashes -r "${APP_DIR}/src/research_sandbox_service/sandbox_runtime/requirements.lock"
 rm -rf "${RUNTIME_ROOT}/sandbox_sdk"
-cp -a "${APP_DIR}/research-sandbox/sandbox_runtime/sandbox_sdk" "${RUNTIME_ROOT}/sandbox_sdk"
+cp -a "${APP_DIR}/src/research_sandbox_service/sandbox_runtime/sandbox_sdk" "${RUNTIME_ROOT}/sandbox_sdk"
 chown -R root:root "${RUNTIME_ROOT}/sandbox_sdk" "${RUNTIME_ROOT}/venv"
 chmod -R a-w "${RUNTIME_ROOT}/sandbox_sdk"
 chmod -R a+rX "${RUNTIME_ROOT}/venv"
@@ -71,7 +71,7 @@ chmod -R a-w "${RUNTIME_ROOT}/venv"
 chmod 0755 "${RUNTIME_ROOT}" "${RUNTIME_ROOT}/venv" "${RUNTIME_ROOT}/venv/bin/python"
 
 runtime_hash="$(
-    cd "${APP_DIR}/research-sandbox/sandbox_runtime"
+    cd "${APP_DIR}/src/research_sandbox_service/sandbox_runtime"
     {
         sha256sum requirements.lock
         find sandbox_sdk -type f -print0 | sort -z | xargs -0 sha256sum
@@ -138,11 +138,11 @@ upsert_env SANDBOX_BWRAP_BINARY "$(command -v bwrap)"
 upsert_env SANDBOX_RUNTIME_IMAGE_DIGEST "native-runtime@sha256:${runtime_hash}"
 upsert_env SANDBOX_PACKAGE_MANIFEST_HASH "${runtime_hash}"
 upsert_env SANDBOX_RUNTIME_IMAGE_NAME native-runtime
-upsert_env SANDBOX_RUNTIME_WORKSPACE_PATH "${APP_DIR}/research-sandbox/.sandbox-workspaces"
+upsert_env SANDBOX_RUNTIME_WORKSPACE_PATH "${APP_DIR}/src/research_sandbox_service/.sandbox-workspaces"
 upsert_env SANDBOX_CONTROL_URL "http://${CONTROL_HOST}:${CONTROL_PORT}"
 upsert_env SANDBOX_WORKER_PROBE_PORT "${WORKER_PROBE_PORT}"
 
-install -d -m 0700 -o "${APP_USER}" -g "${APP_GROUP}" "${APP_DIR}/research-sandbox/.sandbox-workspaces"
+install -d -m 0700 -o "${APP_USER}" -g "${APP_GROUP}" "${APP_DIR}/src/research_sandbox_service/.sandbox-workspaces"
 install -d -m 0700 -o "${APP_USER}" -g "${APP_GROUP}" "${STORAGE_ROOT}"
 install -d -m 0750 -o "${APP_USER}" -g "${APP_GROUP}" "${APP_DIR}/logs"
 
@@ -156,9 +156,9 @@ Wants=network-online.target
 Type=oneshot
 User=${APP_USER}
 Group=${APP_GROUP}
-WorkingDirectory=${APP_DIR}/research-sandbox
+WorkingDirectory=${APP_DIR}/src/research_sandbox_service
 EnvironmentFile=${ENV_FILE}
-Environment=PYTHONPATH=${APP_DIR}:${APP_DIR}/research-sandbox
+Environment=PYTHONPATH=${APP_DIR}:${APP_DIR}/src/research_sandbox_service
 ExecStart=${PYTHON_BIN} -m alembic -c alembic.ini upgrade head
 EOF
 
@@ -173,9 +173,9 @@ Requires=sandbox-migrate.service
 Type=simple
 User=${APP_USER}
 Group=${APP_GROUP}
-WorkingDirectory=${APP_DIR}/research-sandbox
+WorkingDirectory=${APP_DIR}/src/research_sandbox_service
 EnvironmentFile=${ENV_FILE}
-Environment=PYTHONPATH=${APP_DIR}:${APP_DIR}/research-sandbox
+Environment=PYTHONPATH=${APP_DIR}:${APP_DIR}/src/research_sandbox_service
 ExecStart=${PYTHON_BIN} -m uvicorn sandbox_service.main:app --host ${CONTROL_HOST} --port ${CONTROL_PORT}
 Restart=on-failure
 RestartSec=5
@@ -183,7 +183,7 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
 UMask=0077
-ReadWritePaths=${APP_DIR}/research-sandbox/.sandbox-workspaces ${STORAGE_ROOT} ${APP_DIR}/logs
+ReadWritePaths=${APP_DIR}/src/research_sandbox_service/.sandbox-workspaces ${STORAGE_ROOT} ${APP_DIR}/logs
 StandardOutput=append:${APP_DIR}/logs/sandbox-control.log
 StandardError=append:${APP_DIR}/logs/sandbox-control.log
 
@@ -202,9 +202,9 @@ Requires=sandbox-migrate.service
 Type=simple
 User=${APP_USER}
 Group=${APP_GROUP}
-WorkingDirectory=${APP_DIR}/research-sandbox
+WorkingDirectory=${APP_DIR}/src/research_sandbox_service
 EnvironmentFile=${ENV_FILE}
-Environment=PYTHONPATH=${APP_DIR}:${APP_DIR}/research-sandbox
+Environment=PYTHONPATH=${APP_DIR}:${APP_DIR}/src/research_sandbox_service
 Environment=SANDBOX_WORKER_FACTORY=sandbox_service.worker.factory:create_production_worker
 Environment=SANDBOX_WORKER_PROBE_HOST=127.0.0.1
 Environment=SANDBOX_WORKER_PROBE_PORT=${WORKER_PROBE_PORT}
@@ -216,7 +216,7 @@ PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=false
 UMask=0077
-ReadWritePaths=${APP_DIR}/research-sandbox/.sandbox-workspaces ${STORAGE_ROOT} ${APP_DIR}/logs
+ReadWritePaths=${APP_DIR}/src/research_sandbox_service/.sandbox-workspaces ${STORAGE_ROOT} ${APP_DIR}/logs
 StandardOutput=append:${APP_DIR}/logs/sandbox-worker.log
 StandardError=append:${APP_DIR}/logs/sandbox-worker.log
 

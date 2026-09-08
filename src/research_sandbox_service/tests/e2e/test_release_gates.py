@@ -26,7 +26,7 @@ class UnusedMapper:
 
 @pytest.mark.asyncio
 async def test_release_gate_disabled_flags_preserve_core_and_prevent_outbound_work() -> None:
-    root = Path(__file__).resolve().parents[3]
+    root = Path(__file__).resolve().parents[4]
     sys.path.insert(0, str(root))
     try:
         from src.config import Settings

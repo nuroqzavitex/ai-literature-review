@@ -46,6 +46,10 @@ x-sandbox-environment: &sandbox-environment
   SANDBOX_PACKAGE_MANIFEST_HASH: ${SANDBOX_PACKAGE_MANIFEST_HASH:-0000000000000000000000000000000000000000000000000000000000000000}
   SANDBOX_DATA_VOLUME_NAME: ${SANDBOX_DATA_VOLUME_NAME:-research_sandbox_data}
 
+x-sandbox-service-image: &sandbox-service-image
+  image: research-sandbox-service:local
+  build: .
+
 services:
   sandbox-postgres:
     image: postgres:16-alpine
@@ -95,7 +99,7 @@ services:
         mc mb --ignore-existing "sandbox/$${SANDBOX_BUCKET}"
 
   sandbox-migrate:
-    build: .
+    <<: *sandbox-service-image
     command: alembic -c alembic.ini upgrade head
     environment:
       <<: *sandbox-environment
@@ -112,7 +116,7 @@ services:
   # Prepare a daemon-visible workspace volume for the non-root worker. A path
   # inside the worker container is not a valid bind source for Docker Desktop.
   sandbox-data-init:
-    build: .
+    image: alpine:3.22
     user: "0:0"
     entrypoint: ["/bin/sh", "-c"]
     command:
@@ -132,7 +136,7 @@ services:
     restart: "no"
 
   sandbox-control:
-    build: .
+    <<: *sandbox-service-image
     command:
       - /bin/sh
       - -c
@@ -162,7 +166,7 @@ services:
       - /tmp:size=128m,noexec,nosuid
     volumes:
       - type: bind
-        source: ../logs
+        source: ../../logs
         target: /logs
       - sandbox_runtime_metadata:/run/sandbox-runtime:ro
     group_add:
@@ -172,7 +176,7 @@ services:
     restart: unless-stopped
 
   sandbox-worker:
-    build: .
+    <<: *sandbox-service-image
     command:
       - /bin/sh
       - -c
@@ -200,7 +204,7 @@ services:
         condition: service_completed_successfully
     volumes:
       - type: bind
-        source: ../logs
+        source: ../../logs
         target: /logs
       - type: volume
         source: sandbox_data_volume
@@ -233,7 +237,7 @@ services:
   # Resolve the freshly built local image to Docker's immutable sha256 image ID.
   # Control and worker read the same sealed metadata before starting.
   sandbox-runtime-prepare:
-    build: .
+    <<: *sandbox-service-image
     user: "0:0"
     entrypoint: ["/bin/sh", "-c"]
     command:

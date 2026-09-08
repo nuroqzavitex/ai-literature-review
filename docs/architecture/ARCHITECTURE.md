@@ -34,7 +34,7 @@ flowchart LR
 | Academic search | `src/services/academic_search.py` | Tìm song song OpenAlex, Semantic Scholar và arXiv, normalize và deduplicate |
 | Retrieval | `src/services/paper_ingestion.py`, `src/services/vector_store.py` | Tải/parse paper và index semantic trên Qdrant |
 | Auth/collaboration | `src/services/clerk_auth.py`, `research_copilot.py` | Clerk, membership, invitation, assignment và reviewer decision |
-| Sandbox | `research-sandbox/`, `src/api/routers/sandbox*.py` | Phiên phân tích dữ liệu được kiểm soát và adoption workflow |
+| Sandbox | `src/research_sandbox_service/`, `src/api/routers/sandbox*.py` | Phiên phân tích dữ liệu được kiểm soát và adoption workflow |
 
 ## Dữ liệu và background processing
 

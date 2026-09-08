@@ -18,7 +18,7 @@ Công tắc tổng `SANDBOX_ENABLED=false` là mặc định. Các cờ mode kh�
 Dùng một môi trường Python 3.12+ duy nhất và cài package cùng dependency test.
 
 ```powershell
-cd research-sandbox
+cd src/research_sandbox_service
 python -m pip install -e ".[dev]"
 python -m alembic -c alembic.ini heads
 python -m pytest tests -q
@@ -47,7 +47,7 @@ docker compose up --build
 Khi cần chạy riêng Sandbox để debug, vẫn có thể dùng:
 
 ```powershell
-cd research-sandbox
+cd src/research_sandbox_service
 docker compose -f docker-compose.sandbox.yml up --build
 ```
 

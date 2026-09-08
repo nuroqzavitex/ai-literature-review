@@ -20,7 +20,7 @@
 - Frontend CI dùng Node.js 20, `npm run lint` và `npm run build`.
 - Sandbox có PostgreSQL/runtime suite và frontend E2E job riêng.
 - Repository hiện có 68 file `test_*.py` và 422 hàm test được đếm tĩnh trong
-  `tests/` + `research-sandbox/tests/`; đây không phải số test pytest đã collect
+  `tests/` + `src/research_sandbox_service/tests/`; đây không phải số test pytest đã collect
   vì parametrization có thể làm số case khác.
 
 Phiên audit tài liệu ngày 2026-09-01 chưa xác nhận một lần chạy full suite:

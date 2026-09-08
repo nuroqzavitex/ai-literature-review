@@ -1,7 +1,7 @@
 # Research Agent — MVP V3: LLM Tool Calling & Controlled Data Analysis
 
 > Historical roadmap snapshot ngày 2026-08-05. Repository hiện đã có
-> `research-sandbox/` và sandbox API; các checkbox/số test bên dưới không phản
+> `src/research_sandbox_service/` và sandbox API; các checkbox/số test bên dưới không phản
 > ánh acceptance status hiện tại.
 
 > Trạng thái: **Roadmap — chưa triển khai.**

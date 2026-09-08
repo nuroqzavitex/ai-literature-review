@@ -180,6 +180,11 @@ P-178/
 │   ├── models/                       # Pydantic request/response schemas
 │   ├── services/                     # LLM, search, jobs, vector store, xác thực và persistence
 │   │   └── repositories/             # Repository cho PostgreSQL
+│   ├── research_sandbox_service/     # Dịch vụ thử nghiệm tách biệt
+│   │   ├── sandbox_service/          # Control API và worker của sandbox
+│   │   ├── sandbox_runtime/          # Runtime cô lập cho tác vụ thực thi
+│   │   ├── migrations/               # Sandbox database migrations
+│   │   └── tests/                    # Tests của sandbox
 │   ├── validation/                   # Kiểm tra grounding và chất lượng kết quả
 │   ├── config.py                     # Cấu hình ứng dụng từ biến môi trường
 │   ├── main.py                       # FastAPI application entry point
@@ -189,11 +194,6 @@ P-178/
 │   ├── e2e/                          # Playwright browser tests
 │   ├── scripts/                      # Frontend utility scripts
 │   └── package.json                  # Dependencies và npm commands
-├── research-sandbox/                 # Dịch vụ thử nghiệm tách biệt
-│   ├── sandbox_service/              # Control API và worker của sandbox
-│   ├── sandbox_runtime/              # Runtime cô lập cho tác vụ thực thi
-│   ├── migrations/                   # Sandbox database migrations
-│   └── tests/                        # Tests của sandbox
 ├── alembic/                          # Core PostgreSQL migrations
 ├── tests/                            # Python unit, API, service, validation và V2 tests
 │   ├── test_agents/                  # Agent tests
@@ -241,4 +241,4 @@ Sandbox hoạt động fail-closed khi `SANDBOX_ENABLED=false`, nên luồng rev
 - [Luồng thực thi LitReview](docs/architecture/AGENT_STATE_GRAPH.md)
 - [Vận hành worker](docs/operations/WORKER_RUNTIME.md)
 - [Triển khai Ubuntu VPS](docs/operations/DEPLOY_UBUNTU_VPS_NATIVE.md)
-- [Research Sandbox](research-sandbox/README.md)
+- [Research Sandbox](src/research_sandbox_service/README.md)

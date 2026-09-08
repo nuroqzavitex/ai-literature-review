@@ -45,8 +45,8 @@ htmlcov/
 coverage.xml
 .pytest_cache/
 /.pytest-tmp-*/
-research-sandbox/.pytest-tmp-*/
-research-sandbox/.test-tmp/
+src/research_sandbox_service/.pytest-tmp-*/
+src/research_sandbox_service/.test-tmp/
 
 # Docker
 docker-compose.override.yml
