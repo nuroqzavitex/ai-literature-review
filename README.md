@@ -4,7 +4,7 @@
 
 # LitReview
 
-**AI20K Build Phase · P-178** · Nền tảng hỗ trợ nghiên cứu học thuật dựa trên bằng chứng.
+· Nền tảng hỗ trợ nghiên cứu học thuật dựa trên bằng chứng.
 
 > LitReview giúp nhóm nghiên cứu tìm kiếm, tổng hợp và kiểm duyệt tài liệu học thuật; phát hiện research gap; rà soát tài liệu PDF; và thử nghiệm giả thuyết trong một môi trường tách biệt, có thể tái lập.
 
@@ -168,55 +168,57 @@ python -m benchmarks run --only pos_01,neg_01 --label quick
 ## 📂 Cấu trúc dự án
 
 ```text
-P-178/
-├── src/                              # Backend FastAPI và logic nghiệp vụ
-│   ├── agents/                       # LangGraph workflows cho literature review và research gap
-│   │   ├── nodes/                    # Các node xử lý trong workflow agent
-│   │   ├── prompts/                  # Prompt template cho các tác vụ AI
-│   │   └── tools/                    # Công cụ tìm kiếm, truy xuất và xử lý dữ liệu
+ai-literature-review/
+├── src/                                  # Backend FastAPI và logic nghiệp vụ cốt lõi
+│   ├── agents/                           # LangGraph Workflows dạng mô-đun
+│   │   ├── litreview/                    # Literature Review Agent (domain, workflow, prompts, tools, repos)
+│   │   ├── research_gap/                 # Research Gap Detection Agent (domain, workflow, application)
+│   │   ├── document_review/              # Document Review Service (PDF parsing, annotation, critique)
+│   │   └── research_sandbox/             # Gateway & Adapter tích hợp với Research Sandbox
 │   ├── api/
-│   │   └── routers/                  # HTTP API: review, copilot, document review, sandbox
-│   ├── db/                           # Model và hạ tầng truy cập dữ liệu
-│   ├── models/                       # Pydantic request/response schemas
-│   ├── services/                     # LLM, search, jobs, vector store, xác thực và persistence
-│   │   └── repositories/             # Repository cho PostgreSQL
-│   ├── research_sandbox_service/     # Dịch vụ thử nghiệm tách biệt
-│   │   ├── sandbox_service/          # Control API và worker của sandbox
-│   │   ├── sandbox_runtime/          # Runtime cô lập cho tác vụ thực thi
-│   │   ├── migrations/               # Sandbox database migrations
-│   │   └── tests/                    # Tests của sandbox
-│   ├── validation/                   # Kiểm tra grounding và chất lượng kết quả
-│   ├── config.py                     # Cấu hình ứng dụng từ biến môi trường
-│   ├── main.py                       # FastAPI application entry point
-│   └── worker_main.py                # External background worker entry point
-├── frontend/                         # Next.js 16 / React 19 web application
-│   ├── app/                          # Routes, components và styles
-│   ├── e2e/                          # Playwright browser tests
-│   ├── scripts/                      # Frontend utility scripts
-│   └── package.json                  # Dependencies và npm commands
-├── alembic/                          # Core PostgreSQL migrations
-├── tests/                            # Python unit, API, service, validation và V2 tests
-│   ├── test_agents/                  # Agent tests
-│   ├── test_api/                     # API tests
-│   ├── test_services/                # Service tests
-│   ├── test_validation/              # Validation tests
-│   └── v2/                           # V2 integration/E2E tests
-├── benchmarks/                       # Dataset và scripts đánh giá agent
-├── contracts/                        # API/data contracts
-├── docs/                             # Kiến trúc, product, vận hành và tài liệu kỹ thuật
-│   ├── architecture/                 # Tài liệu kiến trúc
-│   ├── design/                       # Thiết kế hệ thống
-│   ├── operations/                   # Hướng dẫn vận hành và deploy
-│   └── product/                      # Product brief và thiết lập tích hợp
-├── scripts/                          # Scripts setup, deploy và vận hành
-├── supabase/                         # SQL migrations cho Supabase
-├── docker-compose.yml                # Stack local: API, worker, frontend, Postgres, Redis, Qdrant, Sandbox
-├── docker-compose-production.yml     # Cấu hình Docker Compose cho production
-├── Dockerfile                        # Backend container image
-├── pyproject.toml                    # Python dependencies và metadata
-├── Makefile                          # Các lệnh phát triển/kiểm thử (Unix/WSL)
-├── .env.example                      # Biến môi trường mẫu
-└── README.md                         # Tài liệu dự án
+│   │   └── routers/                      # REST API endpoints (review, copilot, document review, sandbox)
+│   ├── db/                               # Database models (SQLAlchemy) và kết nối session
+│   ├── models/                           # Pydantic schemas (request/response models)
+│   ├── services/                         # LLM provider, search, jobs, vector store, auth & helpers
+│   ├── research_sandbox_service/         # Dịch vụ Research Sandbox cô lập (execution, hypotheses, analysis)
+│   │   ├── sandbox_service/              # FastAPI control API, worker, profiling & repositories
+│   │   ├── sandbox_runtime/              # Isolated execution runtime (Docker/Native containers)
+│   │   ├── migrations/                   # Sandbox database schema migrations
+│   │   ├── docker-compose.sandbox.yml    # Standalone compose stack cho Sandbox
+│   │   └── tests/                        # Tests (unit, integration, security, e2e) của Sandbox
+│   ├── validation/                       # Cơ chế Grounding, citation verification & claim validation
+│   ├── config.py                         # Application configuration từ biến môi trường
+│   ├── main.py                           # FastAPI application entry point
+│   └── worker_main.py                    # Background job worker entry point
+├── frontend/                             # Giao diện Web (Next.js 16 / React 19 / Tailwind / CSS)
+│   ├── app/                              # Next.js App Router: routes, components, layouts, styling
+│   ├── e2e/                              # Playwright browser end-to-end tests
+│   └── package.json                      # Frontend dependencies & npm scripts
+├── alembic/                              # Core PostgreSQL schema migrations
+├── tests/                                # Test suite tổng thể cho backend và agents
+│   ├── test_agents/                      # Unit & integration tests cho các agent workflows
+│   ├── test_api/                         # FastAPI route tests
+│   ├── test_services/                    # Unit tests cho các services (search, vector, ingestion)
+│   ├── test_validation/                  # Validation & citation verification tests
+│   └── v2/                               # V2 API, E2E và contract test suites
+├── benchmarks/                           # Datasets và benchmark scripts đánh giá năng lực agent
+├── deploy/                               # Cấu hình triển khai & scripts Docker/Nginx
+├── docs/                                 # Hệ thống tài liệu dự án
+│   ├── architecture/                     # Tài liệu kiến trúc hệ thống & agent state graphs
+│   ├── design/                           # Thiết kế chi tiết hệ thống
+│   ├── operations/                       # Hướng dẫn vận hành, deploy và worker runtime
+│   └── product/                          # Product specs, workflows & PRD
+├── eval/                                 # Kịch bản và báo cáo kết quả đánh giá hệ thống
+├── scripts/                              # Scripts hỗ trợ setup VPS, runtime và dev smoke tests
+│   └── dev/                              # Tiện ích dev local (kiểm tra schema DB, smoke test API)
+├── supabase/                             # SQL migrations cho Supabase database
+├── docker-compose.yml                    # Local multi-service compose stack (Full development)
+├── docker-compose-production.yml         # Production compose stack
+├── Dockerfile                            # Backend container image build definition
+├── pyproject.toml                        # Python project configuration & dependencies
+├── Makefile                              # Phím tắt lệnh kiểm thử và chạy (Unix/WSL)
+├── .env.example                          # File mẫu cấu hình biến môi trường
+└── README.md                             # Tài liệu tổng quan dự án
 ```
 
 ## 🔐 Cấu hình & bảo mật
