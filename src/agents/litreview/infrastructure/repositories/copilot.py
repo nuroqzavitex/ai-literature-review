@@ -784,6 +784,19 @@ class V2Repository:
         project = self.get_project(project_id)
         try:
             with self._write_lock(), self._connect() as connection:
+                active = (
+                    connection.execute(
+                        select(V2ProjectReviewJob.job_id).where(
+                            V2ProjectReviewJob.project_id == project_id,
+                            V2ProjectReviewJob.job_id != job_id,
+                            V2ProjectReviewJob.status.in_(("queued", "running", "resuming")),
+                        )
+                    )
+                    .scalars()
+                    .first()
+                )
+                if active:
+                    raise ProjectResearchBusyError(active)
                 connection.execute(
                     pg_insert(V2ProjectReviewJob).values(
                         project_id=project_id,
@@ -798,7 +811,9 @@ class V2Repository:
                         created_at=utc_now(),
                     )
                 )
-        except Exception:
+        except Exception as exc:
+            if "PROJECT_RESEARCH_BUSY" in str(exc):
+                raise ProjectResearchBusyError(str(exc)) from exc
             raise
 
     def update_review_status(self, job_id: str, status: str) -> None:
@@ -810,9 +825,28 @@ class V2Repository:
             )
             if not link:
                 return
-            connection.execute(
-                update(V2ProjectReviewJob).where(V2ProjectReviewJob.job_id == job_id).values(status=status)
-            )
+            if status in ("queued", "running", "resuming"):
+                active = (
+                    connection.execute(
+                        select(V2ProjectReviewJob.job_id).where(
+                            V2ProjectReviewJob.project_id == link["project_id"],
+                            V2ProjectReviewJob.job_id != job_id,
+                            V2ProjectReviewJob.status.in_(("queued", "running", "resuming")),
+                        )
+                    )
+                    .scalars()
+                    .first()
+                )
+                if active:
+                    raise ProjectResearchBusyError(active)
+            try:
+                connection.execute(
+                    update(V2ProjectReviewJob).where(V2ProjectReviewJob.job_id == job_id).values(status=status)
+                )
+            except Exception as exc:
+                if "PROJECT_RESEARCH_BUSY" in str(exc):
+                    raise ProjectResearchBusyError(str(exc)) from exc
+                raise
 
     def project_for_job(self, job_id: str) -> dict[str, Any] | None:
         with self._connect() as connection:

@@ -24,8 +24,20 @@ def v2_isolated(tmp_path, monkeypatch):
     monkeypatch.setattr(v2_routes, "v2_service", service)
     monkeypatch.setattr(v2_routes, "v1_repository", jobs)
     monkeypatch.setattr(v2_routes, "job_service", job_service)
+
+    class FakeQdrantStore:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        async def delete_job_vectors(self, job_id):
+            pass
+
+        async def retrieve_claim_evidence(self, *args, **kwargs):
+            return []
+
     monkeypatch.setattr(routes, "repository", jobs)
     monkeypatch.setattr(routes, "job_service", job_service)
+    monkeypatch.setattr(v2_routes, "QdrantVectorStore", FakeQdrantStore)
     return repository, jobs, service
 
 

@@ -27,7 +27,7 @@ from fastapi import (
 )
 from svix import Webhook, WebhookVerificationError
 
-from src.agents.litreview.application.copilot import ABSOLUTE_GAP_PATTERNS, V2Service
+from src.agents.litreview.application.copilot import _FOLLOW_UP_REFERENCE, ABSOLUTE_GAP_PATTERNS, V2Service
 from src.agents.litreview.application.research_planning import ResearchPlanningService
 from src.agents.litreview.infrastructure.repositories.copilot import ProjectResearchBusyError, V2Repository
 from src.api.routers.literature_reviews import job_service
@@ -404,7 +404,7 @@ def current_actor(
         with _actor_cache_lock:
             _actor_cache[actor_id] = (actor, now)
         return actor
-    if get_settings().app_env == "production":
+    if getattr(get_settings(), "app_env", "development") == "production":
         logger.warning("Auth failed: missing Bearer token in production")
         raise HTTPException(status_code=401, detail={"code": "AUTH_REQUIRED"})
     if not session_token:
@@ -465,7 +465,7 @@ async def _answer_report_followup(
         classifier,
         conversation.get("conversation_id"),
     )
-    if decision.intent == "grounded_rag":
+    if decision.intent == "grounded_rag" or (decision.intent == "clarify" and bool(_FOLLOW_UP_REFERENCE.search(text))):
         return await v2_service.answer_message(
             conversation,
             actor,
@@ -479,7 +479,7 @@ async def _answer_report_followup(
 @router.post("/auth/session", status_code=201)
 async def create_session(request: CreateSessionRequest, response: Response) -> dict[str, Any]:
     settings = get_settings()
-    if settings.app_env == "production":
+    if getattr(settings, "app_env", "development") == "production":
         raise HTTPException(
             status_code=404,
             detail={"code": "ENTITY_NOT_FOUND", "message": "Development session bootstrap is disabled"},
@@ -493,7 +493,7 @@ async def create_session(request: CreateSessionRequest, response: Response) -> d
         SESSION_COOKIE,
         raw_token,
         httponly=True,
-        secure=settings.app_env == "production",
+        secure=getattr(settings, "app_env", "development") == "production",
         samesite="lax",
         max_age=12 * 60 * 60,
     )
@@ -594,12 +594,15 @@ async def delete_project(project_id: str, actor: Actor) -> None:
 
     # Remove rebuildable vector documents and LangGraph checkpoints before the
     # relational project records are deleted. If cleanup fails, keep the project intact.
-    try:
-        for link in review_links:
-            collection = "research-gap" if link.get("purpose") in {"research_gap", "action:countersearch"} else None
-            await QdrantVectorStore(collection=collection).delete_job_vectors(link["job_id"])
-    except VectorStoreError as exc:
-        raise HTTPException(status_code=503, detail={"code": "PROJECT_CLEANUP_FAILED", "message": str(exc)}) from exc
+    if getattr(get_settings(), "qdrant_enabled", False):
+        try:
+            for link in review_links:
+                collection = "research-gap" if link.get("purpose") in {"research_gap", "action:countersearch"} else None
+                await QdrantVectorStore(collection=collection).delete_job_vectors(link["job_id"])
+        except VectorStoreError as exc:
+            raise HTTPException(
+                status_code=503, detail={"code": "PROJECT_CLEANUP_FAILED", "message": str(exc)}
+            ) from exc
     for link in review_links:
         v1_repository.delete_checkpoint_data(link["job_id"])
 
@@ -932,11 +935,12 @@ async def delete_project_review(project_id: str, job_id: str, actor: Actor, forc
 
     # Remove the legacy job first. If product cleanup fails, the visible link
     # remains and the operation can safely be retried.
-    try:
-        collection = "research-gap" if link.get("purpose") in {"research_gap", "action:countersearch"} else None
-        await QdrantVectorStore(collection=collection).delete_job_vectors(job_id)
-    except VectorStoreError as exc:
-        raise HTTPException(status_code=503, detail={"code": "REVIEW_CLEANUP_FAILED", "message": str(exc)}) from exc
+    if getattr(get_settings(), "qdrant_enabled", False):
+        try:
+            collection = "research-gap" if link.get("purpose") in {"research_gap", "action:countersearch"} else None
+            await QdrantVectorStore(collection=collection).delete_job_vectors(job_id)
+        except VectorStoreError as exc:
+            raise HTTPException(status_code=503, detail={"code": "REVIEW_CLEANUP_FAILED", "message": str(exc)}) from exc
     v1_repository.delete_checkpoint_data(job_id)
     v1_repository.delete_job(job_id)
     deleted = v2_repository.delete_review(project_id, job_id)
@@ -1652,6 +1656,18 @@ def require_gap_access(gap: dict[str, Any], actor: dict[str, Any], *, decision: 
     if not job_id:
         raise HTTPException(status_code=404, detail={"code": "ENTITY_NOT_FOUND"})
     v2_service.require_review_access(gap["project_id"], job_id, actor, decision=decision)
+
+
+@router.get("/reviews/{job_id}/trace")
+async def review_trace(job_id: str, actor: Actor) -> dict[str, Any]:
+    link = v2_repository.project_for_job(job_id)
+    if not link:
+        raise HTTPException(status_code=404, detail={"code": "ENTITY_NOT_FOUND"})
+    v2_service.require_review_access(link["project_id"], job_id, actor)
+    status_data = v1_repository.get_status(job_id)
+    if not status_data:
+        raise HTTPException(status_code=404, detail={"code": "ENTITY_NOT_FOUND"})
+    return {"job_id": job_id, "trace": status_data.get("decision_trace", [])}
 
 
 @router.get("/reviews/{job_id}/comparison-matrix")

@@ -6,7 +6,7 @@ import threading
 from datetime import UTC, datetime, timedelta
 from typing import Any
 
-from sqlalchemy import delete, func, or_, select, text
+from sqlalchemy import delete, func, inspect, or_, select, text
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from src.config import get_settings
@@ -198,7 +198,7 @@ class JobRepository:
             job = session.get(ReviewJob, job_id)
             if job is None:
                 return
-            job.papers_found = result["papers_count"]
+            job.papers_found = result.get("papers_count") or len(result.get("papers") or [])
             if mark_waiting:
                 job.status = "hitl_waiting"
                 stage = result.get("hitl_stage")
@@ -410,8 +410,11 @@ class JobRepository:
     def delete_checkpoint_data(self, thread_id: str) -> None:
         """Remove all LangGraph PostgreSQL checkpoint rows for a job thread."""
         with self._write_lock, self._connect() as session:
+            inspector = inspect(session.bind)
+            existing_tables = set(inspector.get_table_names())
             for table in ("checkpoint_writes", "checkpoint_blobs", "checkpoints"):
-                session.execute(text(f"DELETE FROM {table} WHERE thread_id = :thread_id"), {"thread_id": thread_id})
+                if table in existing_tables:
+                    session.execute(text(f"DELETE FROM {table} WHERE thread_id = :thread_id"), {"thread_id": thread_id})
 
     def get_result(self, job_id: str) -> dict[str, Any] | None:
         with self._connect() as session:

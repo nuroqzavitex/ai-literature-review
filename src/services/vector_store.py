@@ -290,6 +290,8 @@ class QdrantVectorStore:
 
     async def delete_job_vectors(self, job_id: str) -> None:
         """Delete rebuildable Qdrant documents owned by a review job."""
+        if not getattr(self.settings, "qdrant_enabled", False):
+            return
         try:
             await asyncio.to_thread(self._delete_job_vectors_sync, job_id)
         except Exception as exc:
