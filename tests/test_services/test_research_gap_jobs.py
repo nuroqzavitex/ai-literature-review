@@ -132,7 +132,9 @@ async def test_gap_job_runs_cold_start_and_independent_graph(monkeypatch) -> Non
 
         async def ainvoke(self, _messages):
             if self.schema is research_gap_graph.GapQuery:
-                return research_gap_graph.GapQuery(core_topic="RAG factuality", facets=["Vietnamese RAG benchmark"])
+                return research_gap_graph.GapQuery(
+                    core_topic="RAG factuality", facets=["Vietnamese RAG benchmark"], relevance_gate=False
+                )
             if self.schema is research_gap_jobs.HyDEQuery:
                 return research_gap_jobs.HyDEQuery(
                     hypothetical_document="A study evaluating Vietnamese RAG factuality benchmarks and methods."

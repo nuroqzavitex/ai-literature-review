@@ -23,8 +23,12 @@ def sqlalchemy_url(database_url: str) -> str:
     return database_url
 
 
+def is_sqlite_url(database_url: str) -> bool:
+    return database_url.startswith("sqlite")
+
+
 def require_postgres_url(database_url: str) -> None:
-    if not is_postgres_url(database_url):
+    if not is_postgres_url(database_url) and not is_sqlite_url(database_url):
         raise ValueError("DATABASE_URL must use PostgreSQL")
 
 
@@ -37,6 +41,18 @@ def run_migrations(database_url: str) -> None:
     root = Path(__file__).resolve().parents[3]
     with _migration_lock:
         if database_url in _migrated_databases:
+            return
+        if is_sqlite_url(database_url):
+            raw_path = database_url.replace("sqlite:///", "")
+            if raw_path and raw_path != ":memory:":
+                Path(raw_path).parent.mkdir(parents=True, exist_ok=True)
+            from sqlalchemy import create_engine
+
+            from src.db.models import Base
+
+            engine = create_engine(database_url)
+            Base.metadata.create_all(engine)
+            _migrated_databases.add(database_url)
             return
         require_postgres_url(database_url)
         config = Config(str(root / "alembic.ini"))

@@ -73,6 +73,11 @@ class JobRepository:
         settings = get_settings()
         self.settings = settings
         self.database_url = database_url or settings.product_database_url or settings.database_url
+        self.path = (
+            self.database_url.replace("sqlite:///", "")
+            if self.database_url and self.database_url.startswith("sqlite:///")
+            else None
+        )
         self._write_lock = threading.RLock()
         self._status_cache = RedisJobStatusCache(settings)
         if initialize:

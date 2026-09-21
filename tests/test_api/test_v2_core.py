@@ -361,7 +361,7 @@ async def test_slide_illustrations_are_optional_and_limited(monkeypatch):
                     "visual_prompt": "A calm clinical research setting",
                     "visual_alt": "Clinical research illustration",
                 }
-                for index in range(1, 5)
+                for index in range(1, 7)
             ],
         }
     )

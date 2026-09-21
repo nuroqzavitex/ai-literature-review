@@ -10,6 +10,20 @@ jobs:
   backend-ci:
     name: Backend Lint & Tests
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: litreview
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d litreview"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
 
     steps:
       - uses: actions/checkout@v4
@@ -33,6 +47,8 @@ jobs:
         env:
           APP_ENV: test
           OPENAI_API_KEY: test-key
+          DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/litreview
+          PRODUCT_DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/litreview
 
   frontend-ci:
     name: Frontend Check & Build

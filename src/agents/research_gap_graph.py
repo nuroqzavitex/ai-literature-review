@@ -1,39 +1,9 @@
 """Compatibility facade for research-gap workflow and domain contracts."""
 
-from src.agents.research_gap.domain.models import (
-    AtomicAssessment,
-    CandidateEvidence,
-    CounterAssessmentResult,
-    DetectorResult,
-    ExtractedPaper,
-    ExtractionResult,
-    GapCandidate,
-    GapOrigin,
-    GapQuery,
-    GapType,
-    OriginAssessment,
-    OriginResult,
-    Verdict,
-    VerificationAssessment,
-    VerificationResult,
-)
+import sys
+
+from src.agents.research_gap.domain import models as _rg_models
 from src.agents.research_gap.workflow.graph import ResearchGapGraph
 
-__all__ = [
-    "AtomicAssessment",
-    "CandidateEvidence",
-    "CounterAssessmentResult",
-    "DetectorResult",
-    "ExtractedPaper",
-    "ExtractionResult",
-    "GapCandidate",
-    "GapOrigin",
-    "GapQuery",
-    "GapType",
-    "OriginAssessment",
-    "OriginResult",
-    "ResearchGapGraph",
-    "Verdict",
-    "VerificationAssessment",
-    "VerificationResult",
-]
+setattr(_rg_models, "ResearchGapGraph", ResearchGapGraph)
+sys.modules[__name__] = _rg_models

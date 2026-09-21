@@ -718,7 +718,7 @@ class DocumentReviewService:
             if (not prefix or content[max(0, start - len(prefix)) : start] == prefix)
             and (not suffix or content[start + len(exact) : start + len(exact) + len(suffix)] == suffix)
         ]
-        return matches[0] if len(matches) == 1 else (candidates[0] if len(candidates) == 1 else None)
+        return matches[0] if len(matches) == 1 else None
 
     def update_annotation(self, review_id: str, annotation_id: str, action: str) -> dict[str, Any]:
         record = self.get(review_id)

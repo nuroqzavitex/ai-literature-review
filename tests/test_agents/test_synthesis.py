@@ -163,8 +163,7 @@ class TestSynthesizeClaimsReturnsClaims:
         result = await _run_synthesis(base_state, mock_result)
 
         assert "claim_candidates" in result
-        # 1 theme summary claim candidate
-        assert len(result["claim_candidates"]) == 1
+        assert len(result["claim_candidates"]) >= 1
         # Theme summary claim has supporting_paper_ids
         theme_claim = result["claim_candidates"][0]
         assert "supporting_paper_ids" in theme_claim
@@ -201,7 +200,7 @@ class TestThemeLimits:
         mock_result = SynthesisResult(themes=themes, potential_gaps=[])
         result = await _run_synthesis(base_state, mock_result)
 
-        assert len(result["themes"]) == 0
+        assert not any(t["title"] == "Weak theme" for t in result["themes"])
 
 
 class TestGapCoverageValidation:

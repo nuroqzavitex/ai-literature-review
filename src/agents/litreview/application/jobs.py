@@ -274,9 +274,22 @@ def _paper_progress_counts(values: dict[str, Any], previous_total: int) -> tuple
     return current_total, current_total
 
 
+_sqlite_checkpointers: dict[str, Any] = {}
+
+
 class LitReviewJobService:
     def __init__(self, repository: JobRepository | None = None) -> None:
         self.repository = repository or JobRepository()
+
+    def _get_checkpointer(self):
+        if self.repository.database_url.startswith("sqlite"):
+            from langgraph.checkpoint.memory import MemorySaver
+
+            db_path = self.repository.database_url
+            if db_path not in _sqlite_checkpointers:
+                _sqlite_checkpointers[db_path] = MemorySaver()
+            return _sqlite_checkpointers[db_path]
+        return AsyncPostgresSaver.from_conn_string(self.repository.database_url)
 
     def _assert_fence(self, job_id: str, worker_id: str | None, execution_fence: int | None) -> None:
         if worker_id is not None and execution_fence is not None:
@@ -313,8 +326,9 @@ class LitReviewJobService:
                 "fulltext_chunks_per_paper": settings.litreview_fulltext_chunks_per_paper,
             },
         )
-        async with AsyncPostgresSaver.from_conn_string(self.repository.database_url) as checkpointer:
-            await checkpointer.setup()
+        async with self._get_checkpointer() as checkpointer:
+            if hasattr(checkpointer, "setup"):
+                await checkpointer.setup()
             agent = uncompiled_graph.compile(checkpointer=checkpointer)
             config = _graph_config(job_id, "run")
             papers_found_so_far = len(initial_state.get("papers", []) or [])
@@ -415,7 +429,7 @@ class LitReviewJobService:
             operation="resume",
             resume_payload=payload,
         )
-        async with AsyncPostgresSaver.from_conn_string(self.repository.database_url) as checkpointer:
+        async with self._get_checkpointer() as checkpointer:
             agent = uncompiled_graph.compile(checkpointer=checkpointer)
             config = _graph_config(job_id, "resume")
 

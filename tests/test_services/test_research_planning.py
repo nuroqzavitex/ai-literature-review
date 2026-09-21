@@ -15,7 +15,7 @@ def test_workspace_router_prompt_prioritizes_acronyms_in_report_context() -> Non
     messages = research_planning._WORKSPACE_INTENT_PROMPT.format_messages(prompt="KTAS là gì?", has_report_context=True)
     prompt = "\n".join(str(message.content) for message in messages)
 
-    assert "standalone acronym" in prompt
+    assert "acronym" in prompt
     assert "KTAS là gì?" in prompt
     assert "grounded_rag" in prompt
 

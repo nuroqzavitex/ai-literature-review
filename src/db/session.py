@@ -13,6 +13,12 @@ from src.services.repositories.database import require_postgres_url, sqlalchemy_
 
 @lru_cache
 def get_engine(database_url: str) -> Engine:
+    if database_url.startswith("sqlite"):
+        return create_engine(
+            database_url,
+            connect_args={"check_same_thread": False},
+            future=True,
+        )
     require_postgres_url(database_url)
     return create_engine(
         sqlalchemy_url(database_url),

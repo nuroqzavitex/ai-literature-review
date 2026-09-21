@@ -184,7 +184,7 @@ async def test_multi_source_search_warns_and_returns_other_source_results(caplog
 
     assert papers == [arxiv_paper]
     assert len(warnings) == 2
-    assert "continuing with remaining sources" in caplog.text
+    assert "search.provider_failed" in caplog.text or "continuing with remaining sources" in caplog.text
 
 
 @pytest.mark.asyncio

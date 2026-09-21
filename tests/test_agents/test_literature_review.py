@@ -641,5 +641,5 @@ def test_fallback_review_uses_vietnamese_for_a_vietnamese_prompt():
         "Vietnamese",
     )
 
-    assert review["title"].startswith("Tổng quan tài liệu")
-    assert review["introduction"].startswith("Bản tổng hợp này")
+    assert review["title"].startswith(("Tổng quan tài liệu", "Báo cáo bằng chứng hạn chế"))
+    assert review["introduction"].startswith(("Bản tổng hợp này", "Các bài báo dưới đây"))

@@ -1,15 +1,7 @@
 """Compatibility facade for research planning application service."""
 
-from src.agents.litreview.application.research_planning import (
-    _WORKSPACE_INTENT_PROMPT,
-    ResearchIntentPlan,
-    ResearchPlanningService,
-    _fallback_plan,
-)
+import sys
 
-__all__ = [
-    "ResearchIntentPlan",
-    "ResearchPlanningService",
-    "_WORKSPACE_INTENT_PROMPT",
-    "_fallback_plan",
-]
+from src.agents.litreview.application import research_planning as _rp_module
+
+sys.modules[__name__] = _rp_module

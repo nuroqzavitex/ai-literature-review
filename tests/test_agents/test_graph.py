@@ -169,7 +169,7 @@ async def test_screen_papers_requires_embedding_score_of_point_six(monkeypatch, 
         def __init__(self, *_args, **_kwargs):
             pass
 
-        async def ainvoke(self, _inputs):
+        async def ainvoke(self, _inputs, **_kwargs):
             return PaperRelevanceBatch(
                 decisions=[
                     PaperRelevanceDecision(paper_id="W1", label="direct", reason="Direct evidence."),
@@ -233,7 +233,7 @@ async def test_screen_papers_stops_when_direct_coverage_is_insufficient(monkeypa
         def __init__(self, *_args, **_kwargs):
             pass
 
-        async def ainvoke(self, _inputs):
+        async def ainvoke(self, _inputs, **_kwargs):
             return PaperRelevanceBatch(
                 decisions=[
                     PaperRelevanceDecision(paper_id="W1", label="direct", reason="Direct evidence."),
@@ -288,7 +288,7 @@ async def test_screen_papers_falls_back_to_local_embedding_when_primary_fails(mo
         def __init__(self, *_args, **_kwargs):
             pass
 
-        async def ainvoke(self, _inputs):
+        async def ainvoke(self, _inputs, **_kwargs):
             return PaperRelevanceBatch(
                 decisions=[
                     PaperRelevanceDecision(paper_id="W1", label="direct", reason="Direct evidence."),
@@ -413,7 +413,7 @@ async def test_intent_guardrail_routes_out_of_scope_without_research(monkeypatch
         def __init__(self, *_args, **_kwargs):
             pass
 
-        async def ainvoke(self, _inputs):
+        async def ainvoke(self, _inputs, **_kwargs):
             from src.agents.litreview.prompts.intent import IntentClassification
 
             return IntentClassification(intent="out_of_scope", reason="General coding request")
@@ -433,7 +433,7 @@ async def test_intent_guardrail_allows_litreview(monkeypatch):
         def __init__(self, *_args, **_kwargs):
             pass
 
-        async def ainvoke(self, _inputs):
+        async def ainvoke(self, _inputs, **_kwargs):
             from src.agents.litreview.prompts.intent import IntentClassification
 
             return IntentClassification(intent="litreview", reason="Academic synthesis request")
@@ -451,7 +451,7 @@ async def test_intent_guardrail_blocks_unsafe_request_before_research(monkeypatc
         def __init__(self, *_args, **_kwargs):
             pass
 
-        async def ainvoke(self, _inputs):
+        async def ainvoke(self, _inputs, **_kwargs):
             from src.agents.litreview.prompts.intent import IntentClassification
 
             return IntentClassification(intent="unsafe", reason="Dangerous actionable request")
@@ -471,7 +471,7 @@ async def test_intent_guardrail_fails_closed_when_llm_is_unavailable(monkeypatch
         def __init__(self, *_args, **_kwargs):
             pass
 
-        async def ainvoke(self, _inputs):
+        async def ainvoke(self, _inputs, **_kwargs):
             raise RuntimeError("provider unavailable")
 
     monkeypatch.setattr("src.agents.litreview.workflow.nodes._StructuredLLMInvoker", FailingInvoker)

@@ -97,7 +97,7 @@ def event(
     sample_rate = get_settings().observability_event_sample_rate
     # Step events are operational progress and must never disappear from the
     # realtime worker log, even when general INFO event sampling is enabled.
-    if name not in {"agent.step", "job.node_completed"} and level < logging.WARNING and sample_rate < 1:
+    if name not in {"agent.step"} and level < logging.WARNING and sample_rate < 1:
         sample_key = f"{raw_payload['job_id']}:{raw_payload['run_id']}:{name}"
         sample_value = int(sha256(sample_key.encode("utf-8")).hexdigest()[:8], 16) / 0xFFFFFFFF
         if sample_value >= sample_rate:
@@ -110,6 +110,7 @@ def event(
     )
     sys.stderr.write(line)
     sys.stderr.flush()
+    logger.log(level, f"event={name} {serialized}")
 
 
 def id_summary(values: list[Any], *, sample_size: int = 10) -> dict[str, Any]:

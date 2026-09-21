@@ -492,8 +492,14 @@ async def test_h_compiled_production_graph_e2e():
     workflow.add_node("fail", lambda state: {"status": "error", "current_node": "fail"})
     workflow.add_node("finalize", lambda state: {"status": "approved", "current_node": "finalize"})
 
+    def route_after_validate_grounding(state):
+        target = after_validate_grounding(state)
+        if target in {"analyze_research_gaps", "compose_literature_review"}:
+            return "human_review"
+        return target
+
     workflow.add_edge(START, "validate_grounding")
-    workflow.add_conditional_edges("validate_grounding", after_validate_grounding)
+    workflow.add_conditional_edges("validate_grounding", route_after_validate_grounding)
     workflow.add_edge("revise_claims", "validate_grounding")
     workflow.add_conditional_edges("human_review", after_human_review)
     workflow.add_edge("fail", END)

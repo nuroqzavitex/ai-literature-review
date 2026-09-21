@@ -1,19 +1,7 @@
 """Compatibility facade for research-gap job service."""
 
-from src.agents.research_gap.application.service import (
-    AcademicSearchService,
-    HyDEQuery,
-    ResearchGapJobService,
-    get_llm,
-    get_settings,
-    rank_papers,
-)
+import sys
 
-__all__ = [
-    "AcademicSearchService",
-    "HyDEQuery",
-    "ResearchGapJobService",
-    "get_llm",
-    "get_settings",
-    "rank_papers",
-]
+from src.agents.research_gap.application import service as _rg_service
+
+sys.modules[__name__] = _rg_service

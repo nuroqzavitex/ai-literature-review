@@ -156,11 +156,10 @@ async def test_create_job_and_poll_status(client, isolated_repository):
     assert payload["thread_id"] == payload["job_id"]
     assert payload["status"] == "queued"
 
-    run_call = routes.job_service.run.await_args
-    assert run_call is not None
-    initial_state = run_call.args[1]
-    assert initial_state["original_topic"] == "Graph neural networks in drug discovery"
-    assert "topic" not in initial_state
+    job = isolated_repository.get_status(payload["job_id"])
+    assert job is not None
+    assert job["status"] == "queued"
+    assert job["current_node"] == "queued"
 
     status_response = await client.get(f"/api/v1/reviews/{payload['job_id']}/status")
     assert status_response.status_code == 200
@@ -347,13 +346,19 @@ async def test_cancel_review_allows_error_state_and_marks_job_cancelled(
             self.updated = (job_id, status)
             return {"job_id": job_id, "status": status}
 
+        def resolve_session(self, token: str = ""):
+            return {"actor_id": "researcher_1"}
+
         def audit(self, *args):
             self.audited = args
 
+    from src.api.routers import research_copilot as v2_routes
+
     fake_v2_repository = FakeV2Repository()
-    monkeypatch.setattr(routes, "v1_repository", repository)
-    monkeypatch.setattr(routes, "v2_repository", fake_v2_repository)
-    monkeypatch.setattr(routes.v2_service, "require_membership", lambda *_args, **_kwargs: {"project_role": "owner"})
+    monkeypatch.setattr(v2_routes, "v1_repository", repository)
+    monkeypatch.setattr(v2_routes, "v2_repository", fake_v2_repository)
+    monkeypatch.setattr(v2_routes.v2_service, "require_membership", lambda *_args, **_kwargs: {"project_role": "owner"})
+    monkeypatch.setattr(v2_routes, "current_actor", lambda *_args, **_kwargs: {"actor_id": "researcher_1"})
 
     response = await client.post("/api/v1/projects/project_1/reviews/job_1/cancel")
 

@@ -251,6 +251,7 @@ def test_qdrant_store_recreates_collection_when_embedding_dimension_changes(monk
         config=SimpleNamespace(params=SimpleNamespace(vectors=SimpleNamespace(size=384)))
     )
     store = QdrantVectorStore(client=client)
+    store.embedding_provider = "gemini"
     store._legacy_document_mode = False
 
     store._ensure_collection()
