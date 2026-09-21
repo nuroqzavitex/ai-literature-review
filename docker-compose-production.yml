@@ -1,6 +1,12 @@
 include:
   - path: ./src/research_sandbox_service/docker-compose.sandbox.yml
 
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "50m"
+    max-file: "5"
+
 services:
   logs-init:
     image: alpine:3.22
@@ -13,32 +19,31 @@ services:
   postgres:
     image: postgres:16-alpine
     environment:
-      POSTGRES_DB: litreview
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ${POSTGRES_DB:-litreview}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
     ports:
       - "127.0.0.1:${POSTGRES_HOST_PORT:-5433}:5432"
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d litreview"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-litreview}"]
       interval: 10s
       timeout: 5s
       retries: 10
     restart: unless-stopped
+    logging: *default-logging
 
   backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ${BACKEND_IMAGE:-ghcr.io/nuroqzavitex/litreview-backend:latest}
     ports:
       - "127.0.0.1:8000:8000"
     command: ["/bin/sh", "-c", "uvicorn src.main:app --host 0.0.0.0 --port 8000 2>&1 | python /app/scripts/rotating_tee.py /logs/backend.log --max-bytes 524288000"]
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/litreview
-      PRODUCT_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/litreview
+      DATABASE_URL: ${DATABASE_URL:-postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-litreview}}
+      PRODUCT_DATABASE_URL: ${PRODUCT_DATABASE_URL:-postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-litreview}}
       WORKER_MODE: external
       RUNTIME_ROLE: api
       REDIS_ENABLED: "true"
@@ -61,7 +66,7 @@ services:
       SANDBOX_CONTEXT_SIGNING_KEY_ID: ${SANDBOX_CONTEXT_SIGNING_KEY_ID:-sandbox-context-v1}
     volumes:
       - ./logs:/logs
-      - ./data/model-cache:/root/.cache
+      - model_cache_data:/root/.cache
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
@@ -77,17 +82,16 @@ services:
         condition: service_started
       redis:
         condition: service_started
+    logging: *default-logging
 
   worker:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ${WORKER_IMAGE:-ghcr.io/nuroqzavitex/litreview-backend:latest}
     command: ["/bin/sh", "-c", "python -m src.worker_main 2>&1 | python /app/scripts/rotating_tee.py /logs/worker.log --max-bytes 524288000"]
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/litreview
-      PRODUCT_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/litreview
+      DATABASE_URL: ${DATABASE_URL:-postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-litreview}}
+      PRODUCT_DATABASE_URL: ${PRODUCT_DATABASE_URL:-postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-litreview}}
       WORKER_MODE: external
       RUNTIME_ROLE: worker
       REDIS_ENABLED: "true"
@@ -96,8 +100,8 @@ services:
       QDRANT_URL: http://qdrant:6333
     volumes:
       - ./logs:/logs
-      - ./data:/app/data
-      - ./data/model-cache:/root/.cache
+      - app_data:/app/data
+      - model_cache_data:/root/.cache
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python", "-c", "import redis; from src.config import get_settings; assert redis.Redis.from_url(get_settings().redis_url).ping()"]
@@ -113,34 +117,31 @@ services:
         condition: service_started
       redis:
         condition: service_started
+    logging: *default-logging
 
   redis:
     image: redis:7-alpine
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
-      - ./data/redis:/data
+      - redis_data:/data
     restart: unless-stopped
+    logging: *default-logging
 
   qdrant:
     image: qdrant/qdrant:v1.16.2
     ports:
       - "127.0.0.1:6333:6333"
     volumes:
-      - ./data/qdrant:/qdrant/storage
+      - qdrant_data:/qdrant/storage
     restart: unless-stopped
+    logging: *default-logging
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      target: runner
-      args:
-        BACKEND_API_BASE_URL: https://c3-app-178.io.vn/api/v1
-        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    image: ${FRONTEND_IMAGE:-ghcr.io/nuroqzavitex/litreview-frontend:latest}
     environment:
       NODE_ENV: production
-      BACKEND_API_BASE_URL: http://backend:8000/api/v1
-      NEXT_PUBLIC_API_BASE_URL: https://c3-app-178.io.vn/api/v1
+      BACKEND_API_BASE_URL: ${INTERNAL_BACKEND_URL:-http://backend:8000/api/v1}
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-/api/v1}
       CLERK_SECRET_KEY: ${CLERK_SECRET_KEY}
       NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
     ports:
@@ -152,3 +153,11 @@ services:
       backend:
         condition: service_healthy
     restart: unless-stopped
+    logging: *default-logging
+
+volumes:
+  postgres_data:
+  redis_data:
+  qdrant_data:
+  app_data:
+  model_cache_data:

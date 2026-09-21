@@ -47,7 +47,7 @@ x-sandbox-environment: &sandbox-environment
   SANDBOX_DATA_VOLUME_NAME: ${SANDBOX_DATA_VOLUME_NAME:-research_sandbox_data}
 
 x-sandbox-service-image: &sandbox-service-image
-  image: research-sandbox-service:local
+  image: ${SANDBOX_SERVICE_IMAGE:-ghcr.io/nuroqzavitex/litreview-sandbox-service:latest}
   build: .
 
 services:

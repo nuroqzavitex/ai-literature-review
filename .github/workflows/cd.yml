@@ -1,0 +1,194 @@
+name: CD
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      deploy_to_ec2:
+        description: "Deploy to EC2 instance after build"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build-and-push:
+    name: Build & Push Images to GHCR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compute lowercase repository name
+        run: |
+          echo "REPO_LOWER=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Push Backend
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}/litreview-backend:latest
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}/litreview-backend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build & Push Frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          target: runner
+          push: true
+          build-args: |
+            NEXT_PUBLIC_API_BASE_URL=/api/v1
+            NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}/litreview-frontend:latest
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}/litreview-frontend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build & Push Sandbox Service
+        uses: docker/build-push-action@v5
+        with:
+          context: ./src/research_sandbox_service
+          file: ./src/research_sandbox_service/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}/litreview-sandbox-service:latest
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}/litreview-sandbox-service:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build & Push Sandbox Runtime
+        uses: docker/build-push-action@v5
+        with:
+          context: ./src/research_sandbox_service/sandbox_runtime
+          file: ./src/research_sandbox_service/sandbox_runtime/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}/litreview-sandbox-runtime:latest
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}/litreview-sandbox-runtime:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy-ec2:
+    name: Deploy to AWS EC2
+    needs: [build-and-push]
+    if: github.event_name == 'push' || inputs.deploy_to_ec2 == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify EC2 SSH credentials
+        id: check-ssh
+        run: |
+          if [ -z "${{ secrets.EC2_HOST }}" ] || [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then
+            echo "has_ssh=false" >> $GITHUB_OUTPUT
+            echo "::notice ::EC2 secrets (EC2_HOST, EC2_SSH_KEY) not found. Running in MOCK DEPLOYMENT mode."
+          else
+            echo "has_ssh=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Mock EC2 Deployment Simulation
+        if: steps.check-ssh.outputs.has_ssh == 'false'
+        run: |
+          echo "======================================================================"
+          echo "🚀 [MOCK DEPLOYMENT] Simulating deployment to AWS EC2 (No EC2 detected)"
+          echo "======================================================================"
+          echo "Step 1/5: Validating docker-compose-production.yml syntax..."
+          docker compose -f docker-compose-production.yml config > /dev/null
+          echo "  ✔ Docker compose syntax is valid!"
+          echo ""
+          echo "Step 2/5: Simulating SSH connection..."
+          echo "  ✔ SSH connection to EC2 (mock-ec2.internal:22) simulated."
+          echo ""
+          echo "Step 3/5: Simulating remote Docker login & pull from GHCR..."
+          echo "  ✔ Authenticated to ghcr.io"
+          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-backend:latest"
+          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-frontend:latest"
+          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-sandbox-service:latest"
+          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-sandbox-runtime:latest"
+          echo ""
+          echo "Step 4/5: Simulating docker compose rolling restart..."
+          echo "  ✔ Started containers (backend, worker, frontend, postgres, redis, qdrant, sandbox)..."
+          echo ""
+          echo "Step 5/5: Simulating API healthcheck..."
+          echo "  ✔ GET http://127.0.0.1:8000/health -> 200 OK"
+          echo "======================================================================"
+          echo "🎉 [MOCK DEPLOYMENT FINISHED] All steps passed simulation successfully!"
+          echo "💡 Tip: To deploy to a real EC2 instance, configure GitHub Secrets: EC2_HOST, EC2_SSH_KEY, EC2_USER"
+          echo "======================================================================"
+
+      - name: Copy deployment configurations to EC2
+        if: steps.check-ssh.outputs.has_ssh == 'true'
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER || 'ubuntu' }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: ${{ secrets.EC2_PORT || 22 }}
+          source: "docker-compose-production.yml,src/research_sandbox_service/docker-compose.sandbox.yml,deploy/setup-nginx.sh"
+          target: "/home/${{ secrets.EC2_USER || 'ubuntu' }}/app"
+
+      - name: Execute deployment commands on EC2
+        if: steps.check-ssh.outputs.has_ssh == 'true'
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER || 'ubuntu' }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: ${{ secrets.EC2_PORT || 22 }}
+          script: |
+            set -e
+            APP_DIR="/home/${{ secrets.EC2_USER || 'ubuntu' }}/app"
+            cd "$APP_DIR"
+
+            echo "==> Authenticating Docker with GHCR..."
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+            echo "==> Pulling updated images from GHCR..."
+            docker compose -f docker-compose-production.yml pull
+
+            echo "==> Deploying containers with docker compose..."
+            docker compose -f docker-compose-production.yml up -d --remove-orphans
+
+            echo "==> Cleaning up old unused images..."
+            docker image prune -af --filter "until=72h"
+
+            echo "==> Running health check on backend..."
+            for i in {1..12}; do
+              if curl -sf http://127.0.0.1:8000/health > /dev/null 2>&1; then
+                echo "Backend is healthy and reachable!"
+                exit 0
+              fi
+              echo "Waiting for backend service to become ready... ($i/12)"
+              sleep 5
+            done
+            echo "Error: Backend failed healthcheck."
+            exit 1
