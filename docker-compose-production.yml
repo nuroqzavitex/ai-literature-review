@@ -40,7 +40,8 @@ services:
       - "127.0.0.1:8000:8000"
     command: ["/bin/sh", "-c", "uvicorn src.main:app --host 0.0.0.0 --port 8000 2>&1 | python /app/scripts/rotating_tee.py /logs/backend.log --max-bytes 524288000"]
     env_file:
-      - .env
+      - path: .env
+        required: false
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-litreview}}
       PRODUCT_DATABASE_URL: ${PRODUCT_DATABASE_URL:-postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-litreview}}
@@ -88,7 +89,8 @@ services:
     image: ${WORKER_IMAGE:-ghcr.io/nuroqzavitex/litreview-backend:latest}
     command: ["/bin/sh", "-c", "python -m src.worker_main 2>&1 | python /app/scripts/rotating_tee.py /logs/worker.log --max-bytes 524288000"]
     env_file:
-      - .env
+      - path: .env
+        required: false
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-litreview}}
       PRODUCT_DATABASE_URL: ${PRODUCT_DATABASE_URL:-postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-litreview}}
@@ -142,8 +144,8 @@ services:
       NODE_ENV: production
       BACKEND_API_BASE_URL: ${INTERNAL_BACKEND_URL:-http://backend:8000/api/v1}
       NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-/api/v1}
-      CLERK_SECRET_KEY: ${CLERK_SECRET_KEY}
-      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-}
+      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:-}
     ports:
       - "127.0.0.1:3000:3000"
     command: ["/bin/sh", "-c", "node server.js 2>&1 | node /app/scripts/rotating-tee.mjs /logs/frontend.log 524288000"]

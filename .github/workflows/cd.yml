@@ -122,6 +122,7 @@ jobs:
           echo "🚀 [MOCK DEPLOYMENT] Simulating deployment to AWS EC2 (No EC2 detected)"
           echo "======================================================================"
           echo "Step 1/5: Validating docker-compose-production.yml syntax..."
+          if [ -f .env.example ]; then cp .env.example .env; else touch .env; fi
           docker compose -f docker-compose-production.yml config > /dev/null
           echo "  ✔ Docker compose syntax is valid!"
           echo ""
