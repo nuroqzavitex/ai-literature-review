@@ -136,6 +136,7 @@ async def test_worker_logs_interpretation_failure_type_without_payload(
         idempotency_key="interpretation-log-run",
         request=CreateSandboxRunRequest(),
     )
+    caplog.set_level(logging.INFO)
     caplog.set_level(logging.INFO, logger="sandbox.worker")
     worker = DurableExecutionWorker(
         repository=repository,
@@ -175,6 +176,7 @@ def test_structured_logs_metrics_and_probes_never_include_unapproved_payload(cap
     assert 'sandbox_run_terminal_total{status="failed"} 1' in rendered_metrics
     assert "sandbox_worker_run_duration_seconds_count 1" in rendered_metrics
 
+    caplog.set_level(logging.INFO)
     caplog.set_level(logging.INFO, logger="sandbox.worker")
     StructuredEventLogger().emit(
         "runtime_failed",

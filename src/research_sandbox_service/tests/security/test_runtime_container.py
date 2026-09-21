@@ -20,6 +20,11 @@ pytestmark = pytest.mark.skipif(
 
 
 def _run_runtime(*, code: Path, output: Path) -> subprocess.CompletedProcess[str]:
+    output.mkdir(parents=True, exist_ok=True)
+    try:
+        output.chmod(0o777)
+    except OSError:
+        pass
     root = Path(__file__).resolve().parents[2]
     dataset = root / "tests" / "fixtures" / "runtime_smoke" / "input.csv"
     seccomp = root / "sandbox_runtime" / "seccomp.json"

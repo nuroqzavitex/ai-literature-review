@@ -3,14 +3,15 @@
 from __future__ import with_statement
 
 import os
+import sys
 from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
 config = context.config
-if config.config_file_name is not None:
-    fileConfig(config.config_file_name)
+if config.config_file_name is not None and "pytest" not in sys.modules:
+    fileConfig(config.config_file_name, disable_existing_loggers=False)
 
 def _sqlalchemy_url(database_url: str) -> str:
     """Use the installed psycopg v3 driver for ordinary PostgreSQL DSNs."""
