@@ -5,12 +5,12 @@ from unittest.mock import AsyncMock
 
 import pytest
 
+from src.agents.litreview.application import copilot as v2_service_module
 from src.agents.litreview.application.copilot import V2Service
 from src.agents.litreview.infrastructure.repositories.copilot import ProjectResearchBusyError, V2Repository
 from src.agents.litreview.infrastructure.repositories.jobs import JobRepository
 from src.api.routers import literature_reviews as routes
 from src.api.routers import research_copilot as v2_routes
-from src.services import research_copilot as v2_service_module
 
 
 @pytest.fixture
