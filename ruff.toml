@@ -1,5 +1,6 @@
 target-version = "py312"
 line-length = 120
+extend-exclude = ["src/research_sandbox_service"]
 
 [lint]
 select = ["E", "F", "I", "N", "W", "UP"]

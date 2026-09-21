@@ -59,6 +59,9 @@ jobs:
       - name: Build Next.js application
         working-directory: frontend
         run: npm run build
+        env:
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || 'pk_test_ZnVsbC1sZWVjaC01MS5jbGVyay5hY2NvdW50cy5kZXYk' }}
+          NEXT_PUBLIC_API_BASE_URL: /api/v1
 
   sandbox-ci:
     name: Sandbox Service & Runtime Matrix
@@ -87,7 +90,9 @@ jobs:
           cache: pip
 
       - name: Install Sandbox dependencies
-        run: pip install -e ./src/research_sandbox_service pytest pytest-asyncio
+        run: |
+          pip install -r src/research_sandbox_service/requirements.control.lock pytest pytest-asyncio
+          pip install -e ./src/research_sandbox_service
 
       - name: Build hardened runtime image
         run: docker build -t research-sandbox-runtime:test src/research_sandbox_service/sandbox_runtime
@@ -95,6 +100,7 @@ jobs:
       - name: Run complete Sandbox suite
         run: pytest src/research_sandbox_service/tests/ -q
         env:
+          PYTHONPATH: src/research_sandbox_service:src/research_sandbox_service/sandbox_runtime
           SANDBOX_TEST_POSTGRES_URL: postgresql+psycopg://sandbox_test:sandbox_test@127.0.0.1:5432/research_sandbox_test
           RUN_DOCKER_SANDBOX_TESTS: "1"
           SANDBOX_RUNTIME_SMOKE_IMAGE: research-sandbox-runtime:test
@@ -126,6 +132,7 @@ jobs:
           tags: frontend:test
           build-args: |
             NEXT_PUBLIC_API_BASE_URL=/api/v1
+            NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || 'pk_test_ZnVsbC1sZWVjaC01MS5jbGVyay5hY2NvdW50cy5kZXYk' }}
 
   sandbox-frontend-e2e:
     name: Sandbox Frontend E2E
