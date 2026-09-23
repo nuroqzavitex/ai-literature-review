@@ -121,28 +121,32 @@ jobs:
           echo "======================================================================"
           echo "🚀 [MOCK DEPLOYMENT] Simulating deployment to AWS EC2 (No EC2 detected)"
           echo "======================================================================"
-          echo "Step 1/5: Validating docker-compose-production.yml syntax..."
+          echo "Step 1/6: Validating docker-compose-production.yml syntax..."
           if [ -f .env.example ]; then cp .env.example .env; else touch .env; fi
           docker compose -f docker-compose-production.yml config > /dev/null
           echo "  ✔ Docker compose syntax is valid!"
           echo ""
-          echo "Step 2/5: Simulating SSH connection..."
+          echo "Step 2/6: Simulating SSH connection..."
           echo "  ✔ SSH connection to EC2 (mock-ec2.internal:22) simulated."
           echo ""
-          echo "Step 3/5: Simulating remote Docker login & pull from GHCR..."
+          echo "Step 3/6: Simulating remote Docker login & pull from GHCR with commit SHA..."
           echo "  ✔ Authenticated to ghcr.io"
-          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-backend:latest"
-          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-frontend:latest"
-          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-sandbox-service:latest"
-          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-sandbox-runtime:latest"
+          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-backend:${{ github.sha }}"
+          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-frontend:${{ github.sha }}"
+          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-sandbox-service:${{ github.sha }}"
+          echo "  ✔ Pulled ghcr.io/${{ env.REPO_LOWER }}/litreview-sandbox-runtime:${{ github.sha }}"
           echo ""
-          echo "Step 4/5: Simulating docker compose rolling restart..."
+          echo "Step 4/6: Simulating automated database migration..."
+          echo "  ✔ Ran: alembic upgrade head / run_migrations() -> Schema up to date!"
+          echo ""
+          echo "Step 5/6: Simulating docker compose rolling restart..."
           echo "  ✔ Started containers (backend, worker, frontend, postgres, redis, qdrant, sandbox)..."
           echo ""
-          echo "Step 5/5: Simulating API healthcheck..."
+          echo "Step 6/6: Simulating API healthcheck & auto-rollback protection..."
           echo "  ✔ GET http://127.0.0.1:8000/health -> 200 OK"
+          echo "  ✔ Recorded deployed version: ${{ github.sha }} to .current_version"
           echo "======================================================================"
-          echo "🎉 [MOCK DEPLOYMENT FINISHED] All steps passed simulation successfully!"
+          echo "🎉 [MOCK DEPLOYMENT FINISHED] All enterprise CD steps passed simulation successfully!"
           echo "💡 Tip: To deploy to a real EC2 instance, configure GitHub Secrets: EC2_HOST, EC2_SSH_KEY, EC2_USER"
           echo "======================================================================"
 
@@ -170,26 +174,73 @@ jobs:
             APP_DIR="/home/${{ secrets.EC2_USER || 'ubuntu' }}/app"
             cd "$APP_DIR"
 
+            DEPLOY_SHA="${{ github.sha }}"
+            REPO_LOWER="${{ env.REPO_LOWER }}"
+
+            # Preserve previously running stable version for rollback
+            if [ -f .current_version ]; then
+              cp .current_version .previous_version
+            fi
+
+            # Export deterministic image tags for docker compose
+            export BACKEND_IMAGE="ghcr.io/${REPO_LOWER}/litreview-backend:${DEPLOY_SHA}"
+            export WORKER_IMAGE="ghcr.io/${REPO_LOWER}/litreview-backend:${DEPLOY_SHA}"
+            export FRONTEND_IMAGE="ghcr.io/${REPO_LOWER}/litreview-frontend:${DEPLOY_SHA}"
+
             echo "==> Authenticating Docker with GHCR..."
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-            echo "==> Pulling updated images from GHCR..."
+            echo "==> Pulling target images (${DEPLOY_SHA}) from GHCR..."
             docker compose -f docker-compose-production.yml pull
+
+            echo "==> Starting database service if not already healthy..."
+            docker compose -f docker-compose-production.yml up -d postgres
+            for i in {1..12}; do
+              if docker compose -f docker-compose-production.yml ps postgres | grep -q "healthy"; then
+                echo "PostgreSQL is healthy!"
+                break
+              fi
+              echo "Waiting for PostgreSQL to be healthy... ($i/12)"
+              sleep 3
+            done
+
+            echo "==> Running automated database migration (Alembic)..."
+            docker compose -f docker-compose-production.yml run --rm backend python -c "from src.config import get_settings; from src.services.repositories.database import run_migrations; s = get_settings(); run_migrations(s.product_database_url or s.database_url)"
 
             echo "==> Deploying containers with docker compose..."
             docker compose -f docker-compose-production.yml up -d --remove-orphans
 
-            echo "==> Cleaning up old unused images..."
-            docker image prune -af --filter "until=72h"
-
             echo "==> Running health check on backend..."
+            HEALTHY=false
             for i in {1..12}; do
               if curl -sf http://127.0.0.1:8000/health > /dev/null 2>&1; then
                 echo "Backend is healthy and reachable!"
-                exit 0
+                HEALTHY=true
+                break
               fi
               echo "Waiting for backend service to become ready... ($i/12)"
               sleep 5
             done
-            echo "Error: Backend failed healthcheck."
-            exit 1
+
+            if [ "$HEALTHY" = "true" ]; then
+              echo "${DEPLOY_SHA}" > .current_version
+              echo "==> Cleaning up old unused images..."
+              docker image prune -af --filter "until=72h"
+              echo "✅ Deployment of version ${DEPLOY_SHA} succeeded!"
+              exit 0
+            else
+              echo "❌ Error: Backend failed healthcheck after deployment!"
+              if [ -f .previous_version ]; then
+                PREV_SHA=$(cat .previous_version)
+                echo "🔄 Initiating automatic rollback to previous stable version: ${PREV_SHA}..."
+                export BACKEND_IMAGE="ghcr.io/${REPO_LOWER}/litreview-backend:${PREV_SHA}"
+                export WORKER_IMAGE="ghcr.io/${REPO_LOWER}/litreview-backend:${PREV_SHA}"
+                export FRONTEND_IMAGE="ghcr.io/${REPO_LOWER}/litreview-frontend:${PREV_SHA}"
+                docker compose -f docker-compose-production.yml pull || true
+                docker compose -f docker-compose-production.yml up -d --remove-orphans
+                echo "==> Rolled back to ${PREV_SHA}."
+              else
+                echo "⚠️ Warning: No .previous_version file found to rollback."
+              fi
+              exit 1
+            fi
